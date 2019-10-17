@@ -1,9 +1,14 @@
 dependencies: 
     Ling: 
+        - SimplePdoWrapper
         - Bat
-        - DirScanner
         - Light
         - Light_User
+        - DirScanner
+        - Light_Initializer
+        - Light_PluginDatabaseInstaller
+        - Light_ReverseRouter
+        - Light_UserDatabase
     
 
 post_install: 
