@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L499-L507)
+See the source code for method [LightUserDataService::getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L511-L519)
 
 
 See Also

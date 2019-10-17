@@ -21,7 +21,7 @@ class CustomDirectoryMapApi extends DirectoryMapApi
      * - if false, the method returns the given default value
      *
      *
-     * @param string v
+     * @param string $realName
      * @param mixed $default = null
      * @param bool $throwNotFoundEx = false
      * @return mixed

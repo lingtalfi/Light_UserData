@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L196-L200)
+See the source code for method [LightUserDataService::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L195-L199)
 
 
 See Also

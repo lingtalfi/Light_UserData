@@ -89,7 +89,7 @@ Table of contents
     - [LightUserDataService::unsetTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/unsetTemporaryUser.md) &ndash; Unsets the temporary user if any.
     - [LightUserDataService::list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/list.md) &ndash; Returns the array of the files owned by the current user.
     - [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/save.md) &ndash; Saves the data for the current user to the given relative path.
-    - [LightUserDataService::getResourceLink](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceLink.md) &ndash; The getResourceLink method
+    - [LightUserDataService::getResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceUrl.md) &ndash; Returns the url to access the resource identified by the given userIdentifier and relativePath.
     - [LightUserDataService::getContent](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getContent.md) &ndash; Returns the content of the file of the current user which relative path is given.
     - [LightUserDataService::isPrivate](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/isPrivate.md) &ndash; Returns whether the given file is private or not.
     - [LightUserDataService::refreshReferences](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/refreshReferences.md) &ndash; You should call this method every time you change the obfuscating method.
@@ -105,7 +105,6 @@ Dependencies
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Light_Initializer](https://github.com/lingtalfi/Light_Initializer)
 - [Light_PluginDatabaseInstaller](https://github.com/lingtalfi/Light_PluginDatabaseInstaller)
-- [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 
 

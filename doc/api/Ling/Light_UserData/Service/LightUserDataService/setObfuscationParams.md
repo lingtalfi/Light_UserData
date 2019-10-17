@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::setObfuscationParams](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L209-L213)
+See the source code for method [LightUserDataService::setObfuscationParams](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L208-L212)
 
 
 See Also

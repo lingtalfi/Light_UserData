@@ -34,7 +34,8 @@ class LightUserDataController extends LightController
      *
      *
      * @param string $file
-     * @return string
+     * @param string $id
+     * @return HttpResponseInterface
      * @throws \Exception
      */
     public function render(string $file, string $id): HttpResponseInterface

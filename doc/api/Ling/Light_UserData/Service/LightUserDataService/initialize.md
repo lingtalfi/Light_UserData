@@ -16,7 +16,7 @@ Description
 ================
 
 
-public [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/initialize.md)(Ling\Light\Core\Light $light, Ling\Light\Http\HttpRequestInterface $httpRequest) : mixed
+public [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/initialize.md)([Ling\Light\Core\Light](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/Core/Light.md) $light, Ling\Light\Http\HttpRequestInterface $httpRequest) : mixed
 
 
 
@@ -53,7 +53,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L100-L110)
+See the source code for method [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L99-L109)
 
 
 See Also

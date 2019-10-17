@@ -38,6 +38,10 @@ Parameters
 
     
 
+- throwEx
+
+    
+
 
 Return values
 ================
@@ -58,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getContent](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L386-L396)
+See the source code for method [LightUserDataService::getContent](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L398-L408)
 
 
 See Also
@@ -66,5 +70,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [getResourceLink](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceLink.md)<br>Next method: [isPrivate](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/isPrivate.md)<br>
+Previous method: [getResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceUrl.md)<br>Next method: [isPrivate](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/isPrivate.md)<br>
 

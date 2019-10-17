@@ -101,6 +101,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.2.0 -- 2019-10-17
+
+    - rename LightUserDataService->getResourceLink to getResourceUrl 
+    
 - 1.1.0 -- 2019-10-17
 
     - add controller and route

@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::uninstallDatabase](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L147-L185)
+See the source code for method [LightUserDataService::uninstallDatabase](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L146-L184)
 
 
 See Also

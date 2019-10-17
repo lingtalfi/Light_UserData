@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L290-L340)
+See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L289-L339)
 
 
 See Also
@@ -74,5 +74,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/list.md)<br>Next method: [getResourceLink](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceLink.md)<br>
+Previous method: [list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/list.md)<br>Next method: [getResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceUrl.md)<br>
 

@@ -13,7 +13,6 @@ use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
-use Ling\Light_ReverseRouter\ReverseRouter;
 use Ling\Light_User\LightUserInterface;
 use Ling\Light_UserData\Api\LightUserDataApiFactory;
 use Ling\Light_UserData\Exception\LightUserDataException;
@@ -339,7 +338,19 @@ class LightUserDataService implements LightInitializerInterface
         //--------------------------------------------
     }
 
-    public function getResourceLink(string $userIdentifier, string $relativePath):string
+
+    /**
+     * Returns the url to access the resource identified by the given userIdentifier and relativePath.
+     * The relativePath is the path relative from the user directory.
+     *
+     *
+     * @param string $userIdentifier
+     * @param string $relativePath
+     * @return string
+     * @throws LightUserDataException
+     * @throws \Exception
+     */
+    public function getResourceUrl(string $userIdentifier, string $relativePath): string
     {
         $file = $this->rootDir . "/" . $userIdentifier . "/" . $relativePath;
         if (file_exists($file)) {
@@ -380,6 +391,7 @@ class LightUserDataService implements LightInitializerInterface
      *
      *
      * @param string $path
+     * @param bool=true $throwEx
      * @return string|false
      * @throws \Exception
      */
