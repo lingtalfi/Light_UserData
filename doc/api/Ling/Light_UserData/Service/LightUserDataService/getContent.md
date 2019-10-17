@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getContent](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L398-L408)
+See the source code for method [LightUserDataService::getContent](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L405-L415)
 
 
 See Also

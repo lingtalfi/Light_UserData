@@ -273,7 +273,8 @@ class LightUserDataService implements LightInitializerInterface
 
 
     /**
-     * Saves the data for the current user to the given relative path.
+     * Saves the data for the current user to the given relative path,
+     * and returns the url of the saved resource.
      *
      * The available options are:
      * - tags: an array of tags to bind to the given resource
@@ -284,9 +285,10 @@ class LightUserDataService implements LightInitializerInterface
      * @param string $path
      * @param string $data
      * @param array $options
+     * @return string
      * @throws \Exception
      */
-    public function save(string $path, string $data, array $options = [])
+    public function save(string $path, string $data, array $options = []): string
     {
 
         $tags = $options['tags'] ?? [];
@@ -326,16 +328,20 @@ class LightUserDataService implements LightInitializerInterface
         }
 
 
-        $file = $this->getUserDir() . "/$path";
+        $userDir = $this->getUserDir();
+        $file = $userDir . "/$path";
         FileSystemTool::mkfile($file, $data);
 
         if (true === $is_private) {
             FileSystemTool::mkfile($file . ".private", $data);
         }
 
+
         //--------------------------------------------
         // RETURNING THE LINK
         //--------------------------------------------
+        $userId = basename($userDir);
+        return $this->getResourceUrl($userId, $path);
     }
 
 
@@ -353,6 +359,7 @@ class LightUserDataService implements LightInitializerInterface
     public function getResourceUrl(string $userIdentifier, string $relativePath): string
     {
         $file = $this->rootDir . "/" . $userIdentifier . "/" . $relativePath;
+
         if (file_exists($file)) {
 
 

@@ -7,7 +7,7 @@ LightUserDataService::save
 
 
 
-LightUserDataService::save — Saves the data for the current user to the given relative path.
+LightUserDataService::save — and returns the url of the saved resource.
 
 
 
@@ -16,12 +16,13 @@ Description
 ================
 
 
-public [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/save.md)(string $path, string $data, ?array $options = []) : void
+public [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/save.md)(string $path, string $data, ?array $options = []) : string
 
 
 
 
-Saves the data for the current user to the given relative path.
+Saves the data for the current user to the given relative path,
+and returns the url of the saved resource.
 
 The available options are:
 - tags: an array of tags to bind to the given resource
@@ -50,7 +51,7 @@ Parameters
 Return values
 ================
 
-Returns void.
+Returns string.
 
 
 Exceptions thrown
@@ -66,7 +67,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L289-L339)
+See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L291-L345)
 
 
 See Also

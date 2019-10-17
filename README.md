@@ -101,6 +101,11 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.3.0 -- 2019-10-17
+
+    - updated LightUserDataService->save now returns the url to the saved resource 
+    
+
 - 1.2.0 -- 2019-10-17
 
     - rename LightUserDataService->getResourceLink to getResourceUrl 
