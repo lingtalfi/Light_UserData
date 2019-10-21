@@ -101,6 +101,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.4.0 -- 2019-10-21
+
+    - add ValidUserDataUrlValidator class 
+    
 - 1.3.1 -- 2019-10-21
 
     - fix route not registered as ajax 

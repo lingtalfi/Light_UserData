@@ -1,9 +1,10 @@
 dependencies: 
     Ling: 
         - SimplePdoWrapper
-        - Bat
+        - Chloroform
         - Light
         - Light_User
+        - Bat
         - DirScanner
         - Light_Initializer
         - Light_PluginDatabaseInstaller

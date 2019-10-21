@@ -71,6 +71,14 @@ Table of contents
     - [TagApiInterface::updateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface/updateTagById.md) &ndash; Updates the tag row identified by the given id.
     - [TagApiInterface::insertTag](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface/insertTag.md) &ndash; Inserts the given tag in the database.
     - [TagApiInterface::deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface/deleteTagById.md) &ndash; Deletes the tag identified by the given id.
+- [ValidUserDataUrlValidator](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/Validator/ValidUserDataUrlValidator.md) &ndash; The ValidUserDataUrlValidator class.
+    - [ValidUserDataUrlValidator::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/Validator/ValidUserDataUrlValidator/__construct.md) &ndash; Builds the AbstractValidator instance.
+    - [ValidUserDataUrlValidator::test](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/Validator/ValidUserDataUrlValidator/test.md) &ndash; of the validator.
+    - [ValidUserDataUrlValidator::setCurrentUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/Validator/ValidUserDataUrlValidator/setCurrentUser.md) &ndash; Sets the currentUser.
+    - [ValidUserDataUrlValidator::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Chloroform/Validator/ValidUserDataUrlValidator/setContainer.md) &ndash; Sets the container.
+    - AbstractValidator::create &ndash; Builds and returns the instance for this class.
+    - AbstractValidator::toArray &ndash; Returns the array version of a validator.
+    - AbstractValidator::setErrorMessage &ndash; Overrides a default error message, and returns this instance (for chaining).
 - [LightUserDataController](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController.md) &ndash; The LightUserDataController class.
     - [LightUserDataController::render](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController/render.md) &ndash; or throws an exception.
     - LightController::__construct &ndash; Builds the LightController instance.
@@ -94,14 +102,16 @@ Table of contents
     - [LightUserDataService::isPrivate](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/isPrivate.md) &ndash; Returns whether the given file is private or not.
     - [LightUserDataService::refreshReferences](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/refreshReferences.md) &ndash; You should call this method every time you change the obfuscating method.
     - [LightUserDataService::getUserRealDirectoryName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserRealDirectoryName.md) &ndash; or returns false if no directory matches.
+    - [LightUserDataService::getUserObfuscatedDirectoryName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserObfuscatedDirectoryName.md) &ndash; or returns false in case of no match.
 
 
 Dependencies
 ============
 - [SimplePdoWrapper](https://github.com/lingtalfi/SimplePdoWrapper)
-- [Bat](https://github.com/lingtalfi/Bat)
+- [Chloroform](https://github.com/lingtalfi/Chloroform)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_User](https://github.com/lingtalfi/Light_User)
+- [Bat](https://github.com/lingtalfi/Bat)
 - [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [Light_Initializer](https://github.com/lingtalfi/Light_Initializer)
 - [Light_PluginDatabaseInstaller](https://github.com/lingtalfi/Light_PluginDatabaseInstaller)

@@ -505,6 +505,24 @@ class LightUserDataService implements LightInitializerInterface
 
     }
 
+    /**
+     * Returns the obfuscated name of the user directory, which identifier was given,
+     * or returns false in case of no match.
+     *
+     * @param string $userId
+     * @return string|false
+     * @throws \Exception
+     */
+    public function getUserObfuscatedDirectoryName(string $userId)
+    {
+        $row = $this->factory->getDirectoryMapApi()->getDirectoryMapByRealName($userId);
+        if (null !== $row) {
+            return $row['obfuscated_name'];
+        }
+        return false;
+
+    }
+
 
 
     //--------------------------------------------
