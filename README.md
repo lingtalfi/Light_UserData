@@ -101,6 +101,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.4.1 -- 2019-10-21
+
+    - update LightUserDataService->getResourceUrl, now also returns a random parameter to force the browser to download the image  
+    
 - 1.4.0 -- 2019-10-21
 
     - add ValidUserDataUrlValidator class 

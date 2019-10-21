@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getUserRealDirectoryName](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L498-L506)
+See the source code for method [LightUserDataService::getUserRealDirectoryName](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L508-L516)
 
 
 See Also

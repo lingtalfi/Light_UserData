@@ -374,6 +374,16 @@ class LightUserDataService implements LightInitializerInterface
                 return $rr->getUrl("luda_route-virtual_server", [
                     "file" => $relativePath,
                     "id" => $obfuscatedName,
+                    /**
+                     * I like to add a random parameter, to force the browser reloading the image every time.
+                     * That's because I was creating an user form where the user could upload his avatar via ajax,
+                     * and the file was delivered by this method, but the avatar didn't refresh (browser optimization I suppose)
+                     * until I refreshed the page.
+                     * So now with this random trick (t=$random), the browser is forced to reload the image,
+                     * and the form works fine.
+                     *
+                     */
+                    "t" => time(),
                 ]);
 
 

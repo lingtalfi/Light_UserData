@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getUserObfuscatedDirectoryName](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L516-L524)
+See the source code for method [LightUserDataService::getUserObfuscatedDirectoryName](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L526-L534)
 
 
 See Also
