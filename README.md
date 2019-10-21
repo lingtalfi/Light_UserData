@@ -101,6 +101,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.3.1 -- 2019-10-21
+
+    - fix route not registered as ajax 
+    
 - 1.3.0 -- 2019-10-17
 
     - updated LightUserDataService->save now returns the url to the saved resource 

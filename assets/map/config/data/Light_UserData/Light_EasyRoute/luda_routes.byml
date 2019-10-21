@@ -3,3 +3,4 @@ Light_UserData:
         luda_route-virtual_server:
             pattern: /user-data
             controller: Ling\Light_UserData\Controller\LightUserDataController->render
+            is_ajax: true
