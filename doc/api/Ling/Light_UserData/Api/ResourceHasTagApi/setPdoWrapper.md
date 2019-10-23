@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L134-L137)
+See the source code for method [ResourceHasTagApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L141-L144)
 
 
 See Also

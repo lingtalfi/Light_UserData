@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [TagApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L129-L132)
+See the source code for method [TagApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L178-L181)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [TagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi.md) class.
 
-Previous method: [deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/deleteTagById.md)<br>
+Previous method: [deleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/deleteTagByName.md)<br>
 

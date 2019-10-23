@@ -94,6 +94,9 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
         return $ret;
     }
 
+
+
+
     /**
      * @implementation
      */
@@ -106,6 +109,8 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
         ]);
     }
 
+
+
     /**
      * @implementation
      */
@@ -117,6 +122,8 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
 
         ]);
     }
+
+
 
 
 

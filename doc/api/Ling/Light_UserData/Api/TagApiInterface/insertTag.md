@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApiInterface::insertTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L59-L59)
+See the source code for method [TagApiInterface::insertTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApiInterface.php#L33-L33)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [TagApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface.md) class.
 
-Previous method: [updateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface/updateTagById.md)<br>Next method: [deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface/deleteTagById.md)<br>
+Next method: [getTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApiInterface/getTagById.md)<br>
 

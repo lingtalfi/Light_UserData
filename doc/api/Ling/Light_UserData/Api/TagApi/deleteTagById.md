@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [TagApi::deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L108-L114)
+See the source code for method [TagApi::deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/TagApi.php#L144-L150)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [TagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi.md) class.
 
-Previous method: [updateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/updateTagById.md)<br>Next method: [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/setPdoWrapper.md)<br>
+Previous method: [updateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/updateTagByName.md)<br>Next method: [deleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/deleteTagByName.md)<br>
 

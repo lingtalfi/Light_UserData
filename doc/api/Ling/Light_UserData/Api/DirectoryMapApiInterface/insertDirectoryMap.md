@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DirectoryMapApiInterface::insertDirectoryMap](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApiInterface.php#L59-L59)
+See the source code for method [DirectoryMapApiInterface::insertDirectoryMap](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApiInterface.php#L33-L33)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [DirectoryMapApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApiInterface.md) class.
 
-Previous method: [updateDirectoryMapByObfuscatedName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApiInterface/updateDirectoryMapByObfuscatedName.md)<br>Next method: [deleteDirectoryMapByObfuscatedName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApiInterface/deleteDirectoryMapByObfuscatedName.md)<br>
+Next method: [getDirectoryMapByObfuscatedName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/DirectoryMapApiInterface/getDirectoryMapByObfuscatedName.md)<br>
 

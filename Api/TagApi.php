@@ -91,6 +91,29 @@ class TagApi implements TagApiInterface
         return $ret;
     }
 
+
+    /**
+     * @implementation
+     */
+    public function getTagByName(string $name, $default = null, bool $throwNotFoundEx = false)
+    {
+        $ret = $this->pdoWrapper->fetch("select * from `luda_tag` where name=:name", [
+            "name" => $name,
+
+        ]);
+        if (false === $ret) {
+            if (true === $throwNotFoundEx) {
+                throw new \RuntimeException("Row not found with name=$name.");
+            } else {
+                $ret = $default;
+            }
+        }
+        return $ret;
+    }
+
+
+
+
     /**
      * @implementation
      */
@@ -105,6 +128,19 @@ class TagApi implements TagApiInterface
     /**
      * @implementation
      */
+    public function updateTagByName(string $name, array $tag)
+    {
+        $this->pdoWrapper->update("luda_tag", $tag, [
+            "name" => $name,
+
+        ]);
+    }
+
+
+
+    /**
+     * @implementation
+     */
     public function deleteTagById(int $id)
     {
         $this->pdoWrapper->delete("luda_tag", [
@@ -112,6 +148,19 @@ class TagApi implements TagApiInterface
 
         ]);
     }
+
+    /**
+     * @implementation
+     */
+    public function deleteTagByName(string $name)
+    {
+        $this->pdoWrapper->delete("luda_tag", [
+            "name" => $name,
+
+        ]);
+    }
+
+
 
 
 

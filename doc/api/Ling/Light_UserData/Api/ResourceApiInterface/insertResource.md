@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L59-L59)
+See the source code for method [ResourceApiInterface::insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L33-L33)
 
 
 See Also
@@ -79,5 +79,5 @@ See Also
 
 The [ResourceApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface.md) class.
 
-Previous method: [updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceById.md)<br>Next method: [deleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/deleteResourceById.md)<br>
+Next method: [getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceById.md)<br>
 

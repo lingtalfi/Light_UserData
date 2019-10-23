@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L359-L398)
+See the source code for method [LightUserDataService::getResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L361-L400)
 
 
 See Also

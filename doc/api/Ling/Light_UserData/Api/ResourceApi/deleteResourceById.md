@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApi::deleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L108-L114)
+See the source code for method [ResourceApi::deleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L144-L150)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [ResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi.md) class.
 
-Previous method: [updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/updateResourceById.md)<br>Next method: [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setPdoWrapper.md)<br>
+Previous method: [updateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/updateResourceByRealPath.md)<br>Next method: [deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/deleteResourceByRealPath.md)<br>
 

@@ -4,7 +4,7 @@
 
 The ResourceApiInterface class
 ================
-2019-09-27 --> 2019-10-21
+2019-09-27 --> 2019-10-23
 
 
 
@@ -25,10 +25,13 @@ Class synopsis
 abstract class <span class="pl-k">ResourceApiInterface</span>  {
 
 - Methods
-    - abstract public [getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceById.md)(int $id, ?$default = null, ?bool $throwNotFoundEx = false) : mixed
-    - abstract public [updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceById.md)(int $id, array $resource) : void
     - abstract public [insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/insertResource.md)(array $resource, ?bool $ignoreDuplicate = true, ?bool $returnRic = false) : mixed
+    - abstract public [getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceById.md)(int $id, ?$default = null, ?bool $throwNotFoundEx = false) : mixed
+    - abstract public [getResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceByRealPath.md)(string $real_path, ?$default = null, ?bool $throwNotFoundEx = false) : mixed
+    - abstract public [updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceById.md)(int $id, array $resource) : void
+    - abstract public [updateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceByRealPath.md)(string $real_path, array $resource) : void
     - abstract public [deleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/deleteResourceById.md)(int $id) : void
+    - abstract public [deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/deleteResourceByRealPath.md)(string $real_path) : void
 
 }
 
@@ -40,10 +43,13 @@ abstract class <span class="pl-k">ResourceApiInterface</span>  {
 Methods
 ==============
 
-- [ResourceApiInterface::getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceById.md) &ndash; Returns the resource row identified by the given id.
-- [ResourceApiInterface::updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceById.md) &ndash; Updates the resource row identified by the given id.
 - [ResourceApiInterface::insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/insertResource.md) &ndash; Inserts the given resource in the database.
+- [ResourceApiInterface::getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceById.md) &ndash; Returns the resource row identified by the given id.
+- [ResourceApiInterface::getResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceByRealPath.md) &ndash; Returns the resource row identified by the given real_path.
+- [ResourceApiInterface::updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceById.md) &ndash; Updates the resource row identified by the given id.
+- [ResourceApiInterface::updateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceByRealPath.md) &ndash; Updates the resource row identified by the given real_path.
 - [ResourceApiInterface::deleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/deleteResourceById.md) &ndash; Deletes the resource identified by the given id.
+- [ResourceApiInterface::deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/deleteResourceByRealPath.md) &ndash; Deletes the resource identified by the given real_path.
 
 
 

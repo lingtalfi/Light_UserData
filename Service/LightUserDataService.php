@@ -291,8 +291,10 @@ class LightUserDataService implements LightInitializerInterface
     public function save(string $path, string $data, array $options = []): string
     {
 
+        $this->getUserDir(); // assuming the user calling the save method owns the file (for now...)
         $tags = $options['tags'] ?? [];
         $is_private = $options['is_private'] ?? false;
+        $userIdentifier = $this->getUserIdentifier();
 
 
         /**
@@ -303,9 +305,9 @@ class LightUserDataService implements LightInitializerInterface
          * @var $exception \Exception
          */
         $exception = null;
-        $res = $db->transaction(function () use ($tags, $path) {
+        $res = $db->transaction(function () use ($tags, $path, $userIdentifier) {
             $resourceId = $this->factory->getResourceApi()->insertResource([
-                "real_path" => $path,
+                "real_path" => $userIdentifier . "/" . $path,
             ]);
 
             if ($tags) {
@@ -534,6 +536,94 @@ class LightUserDataService implements LightInitializerInterface
     }
 
 
+    /**
+     * Removes the 2svp extension from the given resource, and returns the new resource name.
+     *
+     *
+     * The resource is a relative path from the user directory to the desired file.
+     *
+     * Note: the user is identified by the given userOrIdentifier.
+     *
+     *
+     *
+     * In more details, this method:
+     * - updates the resource in the luda_resource table
+     * - renames the file on the file system
+     *
+     *
+     * @param string $resource
+     * @param LightUserInterface|string|null $userOrIdentifier
+     * @return string
+     * @throws \Exception
+     */
+    public function update2SvpResource(string $resource, $userOrIdentifier = null): string
+    {
+        if (false !== strpos($resource, '.2svp')) {
+
+            $userIdentifier = $this->getUserIdentifierByUserOrIdentifier($userOrIdentifier);
+            $newResource = str_replace('.2svp', '', $resource);
+            $this->rename($resource, $newResource, $userIdentifier);
+            return $newResource;
+
+        } else {
+            throw new LightUserDataException("The given resource doesn't contain the \".2svp\" extension.");
+        }
+    }
+
+
+    /**
+     * Renames the file identified by oldRealPath to a new file identified by newRealPath.
+     *
+     * This method will:
+     *
+     * - update the luda_resource.real_path column in the database.
+     *          Or, if another entry already exists with this real_path, we remove the old entry (note: real_path is a unique index,
+     *          so we can't have the same value more than once).
+     *
+     * - rename the file on the file system
+     *
+     * If the user is not passed, the @page(current user) will be assumed.
+     *
+     *
+     * @param string $oldRealPath
+     * @param string $newRealPath
+     * @param LightUserInterface|string|null $userOrIdentifier
+     * @throws \Exception
+     */
+    public function rename(string $oldRealPath, string $newRealPath, $userOrIdentifier = null)
+    {
+
+        $userIdentifier = $this->getUserIdentifierByUserOrIdentifier($userOrIdentifier);
+
+        $realResource = $userIdentifier . "/" . $oldRealPath;
+
+        // updating the database
+        $row = $this->factory->getResourceApi()->getResourceByRealPath($realResource, null, true);
+        $resourceId = $row['id'];
+
+        $newResource = $userIdentifier . "/" . $newRealPath;
+        $row['real_path'] = $newResource;
+
+        // is there already an entry with the new fileName? if so update that entry, otherwise update the old entry.
+        $alreadyExistingRow = $this->factory->getResourceApi()->getResourceByRealPath($newResource);
+        if (null !== $alreadyExistingRow) {
+            // should be the case when you updating a row, using the symbolic file name system with 2svp
+            $this->factory->getResourceApi()->deleteResourceById($resourceId);
+        } else {
+            // should be the case when you insert a row for the first time, using the symbolic file name system with 2svp
+            $this->factory->getResourceApi()->updateResourceById($resourceId, $row);
+        }
+
+
+        // updating the filesystem
+        $oldFile = $this->rootDir . "/" . $realResource;
+        $newFile = $this->rootDir . "/" . $newResource;
+        FileSystemTool::move($oldFile, $newFile);
+
+    }
+
+
+
 
     //--------------------------------------------
     //
@@ -545,13 +635,52 @@ class LightUserDataService implements LightInitializerInterface
      */
     protected function getUserDir(): string
     {
+        $identifier = $this->getUserIdentifier();
+        return $this->rootDir . "/" . $identifier;
+    }
+
+
+    /**
+     * Returns the @page(current user) identifier.
+     *
+     * @return string
+     * @throws \Exception
+     */
+    protected function getUserIdentifier(): string
+    {
         $user = $this->currentUser;
         if (null === $user) {
             $user = $this->container->get("user_manager")->getUser();
         }
-        $identifier = $user->getIdentifier();
-        return $this->rootDir . "/" . $identifier;
+        return $user->getIdentifier();
     }
 
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Returns the user identifier from the given userOrIdentifier.
+     *
+     *
+     * @param LightUserInterface|string|null $userOrIdentifier
+     * @return string
+     * @throws \Exception
+     */
+    private function getUserIdentifierByUserOrIdentifier($userOrIdentifier): string
+    {
+        if (null === $userOrIdentifier) {
+            $userIdentifier = $this->getUserIdentifier();
+        } elseif (is_string($userOrIdentifier)) {
+            $userIdentifier = $userOrIdentifier;
+        } elseif ($userOrIdentifier instanceof LightUserInterface) {
+            $userIdentifier = $userOrIdentifier->getIdentifier();
+        } else {
+            $type = gettype($userOrIdentifier);
+            throw new LightUserDataException("Unable to guess userIdentifier from the given userOrIdentifier (type=$type).");
+        }
+        return $userIdentifier;
+    }
 
 }

@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L37-L37)
+See the source code for method [ResourceApiInterface::updateResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L78-L78)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [ResourceApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface.md) class.
 
-Previous method: [getResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceById.md)<br>Next method: [insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/insertResource.md)<br>
+Previous method: [getResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/getResourceByRealPath.md)<br>Next method: [updateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceByRealPath.md)<br>
 

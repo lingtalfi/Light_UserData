@@ -91,6 +91,29 @@ class ResourceApi implements ResourceApiInterface
         return $ret;
     }
 
+
+    /**
+     * @implementation
+     */
+    public function getResourceByRealPath(string $real_path, $default = null, bool $throwNotFoundEx = false)
+    {
+        $ret = $this->pdoWrapper->fetch("select * from `luda_resource` where real_path=:real_path", [
+            "real_path" => $real_path,
+
+        ]);
+        if (false === $ret) {
+            if (true === $throwNotFoundEx) {
+                throw new \RuntimeException("Row not found with real_path=$real_path.");
+            } else {
+                $ret = $default;
+            }
+        }
+        return $ret;
+    }
+
+
+
+
     /**
      * @implementation
      */
@@ -105,6 +128,19 @@ class ResourceApi implements ResourceApiInterface
     /**
      * @implementation
      */
+    public function updateResourceByRealPath(string $real_path, array $resource)
+    {
+        $this->pdoWrapper->update("luda_resource", $resource, [
+            "real_path" => $real_path,
+
+        ]);
+    }
+
+
+
+    /**
+     * @implementation
+     */
     public function deleteResourceById(int $id)
     {
         $this->pdoWrapper->delete("luda_resource", [
@@ -112,6 +148,19 @@ class ResourceApi implements ResourceApiInterface
 
         ]);
     }
+
+    /**
+     * @implementation
+     */
+    public function deleteResourceByRealPath(string $real_path)
+    {
+        $this->pdoWrapper->delete("luda_resource", [
+            "real_path" => $real_path,
+
+        ]);
+    }
+
+
 
 
 

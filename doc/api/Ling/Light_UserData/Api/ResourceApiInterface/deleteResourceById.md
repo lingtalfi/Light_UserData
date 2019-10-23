@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApiInterface::deleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L69-L69)
+See the source code for method [ResourceApiInterface::deleteResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApiInterface.php#L100-L100)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [ResourceApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface.md) class.
 
-Previous method: [insertResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/insertResource.md)<br>
+Previous method: [updateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/updateResourceByRealPath.md)<br>Next method: [deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApiInterface/deleteResourceByRealPath.md)<br>
 
