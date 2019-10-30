@@ -46,7 +46,7 @@ Returns [CustomDirectoryMapApi](https://github.com/lingtalfi/Light_UserData/blob
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::getDirectoryMapApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L38-L43)
+See the source code for method [LightUserDataApiFactory::getDirectoryMapApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L45-L51)
 
 
 See Also

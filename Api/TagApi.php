@@ -6,6 +6,9 @@ namespace Ling\Light_UserData\Api;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_MicroPermission\Exception\LightMicroPermissionException;
+
 
 /**
  * The TagApi class.
@@ -20,11 +23,25 @@ class TagApi implements TagApiInterface
     protected $pdoWrapper;
 
     /**
+     * This property holds the microPermissionPrefix for this instance.
+     * @var string
+     */
+    protected $microPermissionPrefix;
+
+    /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+    /**
      * Builds the TagApi instance.
      */
     public function __construct()
     {
         $this->pdoWrapper = null;
+		$this->microPermissionPrefix = "Light_UserData.tables.luda_tag";
+		$this->container = null;
     }
 
 
@@ -34,6 +51,113 @@ class TagApi implements TagApiInterface
      * @implementation
      */
     public function insertTag(array $tag, bool $ignoreDuplicate = true, bool $returnRic = false)
+    { 
+		$this->checkMicroPermission("create");
+        return $this->doInsertTag($tag, $ignoreDuplicate, $returnRic);
+    }
+
+    /**
+     * @implementation
+     */
+    public function getTagById(int $id, $default = null, bool $throwNotFoundEx = false)
+    { 
+		$this->checkMicroPermission("read");
+        return $this->doGetTagById($id, $default, $throwNotFoundEx);
+    }
+
+
+    /**
+     * @implementation
+     */
+    public function getTagByName(string $name, $default = null, bool $throwNotFoundEx = false)
+    { 
+		$this->checkMicroPermission("read");
+        return $this->doGetTagByName($name, $default, $throwNotFoundEx);
+    }
+
+
+
+
+    /**
+     * @implementation
+     */
+    public function updateTagById(int $id, array $tag)
+    { 
+		$this->checkMicroPermission("update");
+        $this->doUpdateTagById($id, $tag);
+    }
+
+    /**
+     * @implementation
+     */
+    public function updateTagByName(string $name, array $tag)
+    { 
+		$this->checkMicroPermission("update");
+        $this->doUpdateTagByName($name, $tag);
+    }
+
+
+
+    /**
+     * @implementation
+     */
+    public function deleteTagById(int $id)
+    { 
+		$this->checkMicroPermission("delete");
+        $this->doDeleteTagById($id);
+    }
+
+    /**
+     * @implementation
+     */
+    public function deleteTagByName(string $name)
+    { 
+		$this->checkMicroPermission("delete");
+        $this->doDeleteTagByName($name);
+    }
+
+
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the pdoWrapper.
+     *
+     * @param SimplePdoWrapperInterface $pdoWrapper
+     */
+    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
+    {
+        $this->pdoWrapper = $pdoWrapper;
+    }
+
+
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * The working horse behind the insertTag method.
+     * See the insertTag method for more details.
+     *
+     * @param array $tag
+     * @param bool=true $ignoreDuplicate
+     * @param bool=false $returnRic
+     * @return mixed
+     * @throws \Exception
+     */
+    protected function doInsertTag(array $tag, bool $ignoreDuplicate = true, bool $returnRic = false)
     {
         try {
 
@@ -73,9 +197,16 @@ class TagApi implements TagApiInterface
     }
 
     /**
-     * @implementation
+     * The working horse behind the getTagById method.
+     * See the getTagById method for more details.
+     *
+     * @param int $id
+     * @param mixed=null $default
+     * @param bool $throwNotFoundEx
+     * @return mixed
+     * @throws \Exception
      */
-    public function getTagById(int $id, $default = null, bool $throwNotFoundEx = false)
+    protected function doGetTagById(int $id, $default = null, bool $throwNotFoundEx = false)
     {
         $ret = $this->pdoWrapper->fetch("select * from `luda_tag` where id=:id", [
             "id" => $id,
@@ -93,9 +224,16 @@ class TagApi implements TagApiInterface
 
 
     /**
-     * @implementation
+     * The working horse behind the getTagByName method.
+     * See the getTagByName method for more details.
+     *
+     * @param string $name
+     * @param mixed=null $default
+     * @param bool $throwNotFoundEx
+     * @return mixed
+     * @throws \Exception
      */
-    public function getTagByName(string $name, $default = null, bool $throwNotFoundEx = false)
+    protected function doGetTagByName(string $name, $default = null, bool $throwNotFoundEx = false)
     {
         $ret = $this->pdoWrapper->fetch("select * from `luda_tag` where name=:name", [
             "name" => $name,
@@ -115,9 +253,15 @@ class TagApi implements TagApiInterface
 
 
     /**
-     * @implementation
+     * The working horse behind the updateTagById method.
+     * See the updateTagById method for more details.
+     *
+     * @param int $id
+     * @param array $tag
+     * @throws \Exception
+     * @return void
      */
-    public function updateTagById(int $id, array $tag)
+    protected function doUpdateTagById(int $id, array $tag)
     {
         $this->pdoWrapper->update("luda_tag", $tag, [
             "id" => $id,
@@ -126,9 +270,15 @@ class TagApi implements TagApiInterface
     }
 
     /**
-     * @implementation
+     * The working horse behind the updateTagByName method.
+     * See the updateTagByName method for more details.
+     *
+     * @param string $name
+     * @param array $tag
+     * @throws \Exception
+     * @return void
      */
-    public function updateTagByName(string $name, array $tag)
+    protected function doUpdateTagByName(string $name, array $tag)
     {
         $this->pdoWrapper->update("luda_tag", $tag, [
             "name" => $name,
@@ -139,9 +289,14 @@ class TagApi implements TagApiInterface
 
 
     /**
-     * @implementation
+     * The working horse behind the deleteTagById method.
+     * See the deleteTagById method for more details.
+     *
+     * @param int $id
+     * @throws \Exception
+     * @return void
      */
-    public function deleteTagById(int $id)
+    protected function doDeleteTagById(int $id)
     {
         $this->pdoWrapper->delete("luda_tag", [
             "id" => $id,
@@ -150,19 +305,20 @@ class TagApi implements TagApiInterface
     }
 
     /**
-     * @implementation
+     * The working horse behind the deleteTagByName method.
+     * See the deleteTagByName method for more details.
+     *
+     * @param string $name
+     * @throws \Exception
+     * @return void
      */
-    public function deleteTagByName(string $name)
+    protected function doDeleteTagByName(string $name)
     {
         $this->pdoWrapper->delete("luda_tag", [
             "name" => $name,
 
         ]);
     }
-
-
-
-
 
 
 
@@ -171,12 +327,21 @@ class TagApi implements TagApiInterface
     //
     //--------------------------------------------
     /**
-     * Sets the pdoWrapper.
+     * Checks whether the current user has the micro permission which type is specified.
+     * See [the micro-permission recommended notation for database interaction](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md)
+     * for more details.
      *
-     * @param SimplePdoWrapperInterface $pdoWrapper
+     *
+     *
+     * @param string $type
+     * @throws \Exception
      */
-    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
+    protected function checkMicroPermission(string $type)
     {
-        $this->pdoWrapper = $pdoWrapper;
+        $microPermission = $this->microPermissionPrefix . "." . $type;
+        if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
+            throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
+        }
     }
+
 }

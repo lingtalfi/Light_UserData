@@ -6,6 +6,7 @@ namespace Ling\Light_UserData\Api;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\Light_UserData\Api\Custom\CustomDirectoryMapApi;
+use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 
 
 
@@ -22,13 +23,19 @@ class LightUserDataApiFactory
     protected $pdoWrapper;
 
     /**
+     * This property holds the container for this instance.
+     * @var LightServiceContainerInterface
+     */
+    protected $container;
+
+    /**
      * Builds the LightUserDataApiFactory instance.
      */
     public function __construct()
     {
         $this->pdoWrapper = null;
+		$this->container = null;
     }
-
 
     /**
      * Returns a CustomDirectoryMapApi.
@@ -38,6 +45,7 @@ class LightUserDataApiFactory
     public function getDirectoryMapApi(): CustomDirectoryMapApi
     {
         $o = new CustomDirectoryMapApi();
+		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -50,6 +58,7 @@ class LightUserDataApiFactory
     public function getResourceApi(): ResourceApiInterface
     {
         $o = new ResourceApi();
+		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -62,6 +71,7 @@ class LightUserDataApiFactory
     public function getResourceHasTagApi(): ResourceHasTagApiInterface
     {
         $o = new ResourceHasTagApi();
+		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -74,6 +84,7 @@ class LightUserDataApiFactory
     public function getTagApi(): TagApiInterface
     {
         $o = new TagApi();
+		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -95,5 +106,13 @@ class LightUserDataApiFactory
         $this->pdoWrapper = $pdoWrapper;
     }
 
-
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+    }
 }

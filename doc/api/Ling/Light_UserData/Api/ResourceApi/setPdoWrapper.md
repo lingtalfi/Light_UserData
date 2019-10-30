@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [ResourceApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L178-L181)
+See the source code for method [ResourceApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L130-L133)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [ResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi.md) class.
 
-Previous method: [deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/deleteResourceByRealPath.md)<br>
+Previous method: [deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/deleteResourceByRealPath.md)<br>Next method: [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setContainer.md)<br>
 

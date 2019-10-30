@@ -64,6 +64,14 @@ user_data_vars:
 # --------------------------------------
 # hooks
 # --------------------------------------
+breeze_generator.methods_collection:
+    -
+        method: addConfigurationEntryByFile
+        args:
+            key: luda
+            file: ${app_dir}/config/data/Light_UserData/Light_BreezeGenerator/luda.byml
+
+
 $easy_route.methods_collection:
     -
         method: registerBundleFile
@@ -92,6 +100,7 @@ $plugin_database_installer.methods_collection:
                     - @service(user_data)
                     - uninstallDatabase
 
+
 ```
 
 
@@ -101,6 +110,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.6.0 -- 2019-10-30
+
+    - updated configuration and api with new breeze generator's micro permission implementation
+    
 - 1.5.0 -- 2019-10-23
 
     - implemented second part of 2svp system  

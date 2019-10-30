@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [CustomDirectoryMapApi::getDirectoryMapByRealName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/CustomDirectoryMapApi.php#L30-L44)
+See the source code for method [CustomDirectoryMapApi::getDirectoryMapByRealName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/CustomDirectoryMapApi.php#L31-L45)
 
 
 See Also

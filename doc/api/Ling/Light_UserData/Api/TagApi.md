@@ -4,7 +4,7 @@
 
 The TagApi class
 ================
-2019-09-27 --> 2019-10-23
+2019-09-27 --> 2019-10-30
 
 
 
@@ -26,6 +26,8 @@ class <span class="pl-k">TagApi</span> implements [TagApiInterface](https://gith
 
 - Properties
     - protected [Ling\SimplePdoWrapper\SimplePdoWrapperInterface](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md) [$pdoWrapper](#property-pdoWrapper) ;
+    - protected string [$microPermissionPrefix](#property-microPermissionPrefix) ;
+    - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/__construct.md)() : void
@@ -37,6 +39,15 @@ class <span class="pl-k">TagApi</span> implements [TagApiInterface](https://gith
     - public [deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/deleteTagById.md)(int $id) : void
     - public [deleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/deleteTagByName.md)(string $name) : void
     - public [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/setPdoWrapper.md)([Ling\SimplePdoWrapper\SimplePdoWrapperInterface](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md) $pdoWrapper) : void
+    - public [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
+    - protected [doInsertTag](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doInsertTag.md)(array $tag, ?bool $ignoreDuplicate = true, ?bool $returnRic = false) : mixed
+    - protected [doGetTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doGetTagById.md)(int $id, ?$default = null, ?bool $throwNotFoundEx = false) : mixed
+    - protected [doGetTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doGetTagByName.md)(string $name, ?$default = null, ?bool $throwNotFoundEx = false) : mixed
+    - protected [doUpdateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doUpdateTagById.md)(int $id, array $tag) : void
+    - protected [doUpdateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doUpdateTagByName.md)(string $name, array $tag) : void
+    - protected [doDeleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doDeleteTagById.md)(int $id) : void
+    - protected [doDeleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doDeleteTagByName.md)(string $name) : void
+    - protected [checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/checkMicroPermission.md)(string $type) : void
 
 }
 
@@ -49,6 +60,18 @@ Properties
 - <span id="property-pdoWrapper"><b>pdoWrapper</b></span>
 
     This property holds the pdoWrapper for this instance.
+    
+    
+
+- <span id="property-microPermissionPrefix"><b>microPermissionPrefix</b></span>
+
+    This property holds the microPermissionPrefix for this instance.
+    
+    
+
+- <span id="property-container"><b>container</b></span>
+
+    This property holds the container for this instance.
     
     
 
@@ -66,6 +89,15 @@ Methods
 - [TagApi::deleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/deleteTagById.md) &ndash; Deletes the tag identified by the given id.
 - [TagApi::deleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/deleteTagByName.md) &ndash; Deletes the tag identified by the given name.
 - [TagApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
+- [TagApi::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/setContainer.md) &ndash; Sets the container.
+- [TagApi::doInsertTag](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doInsertTag.md) &ndash; The working horse behind the insertTag method.
+- [TagApi::doGetTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doGetTagById.md) &ndash; The working horse behind the getTagById method.
+- [TagApi::doGetTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doGetTagByName.md) &ndash; The working horse behind the getTagByName method.
+- [TagApi::doUpdateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doUpdateTagById.md) &ndash; The working horse behind the updateTagById method.
+- [TagApi::doUpdateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doUpdateTagByName.md) &ndash; The working horse behind the updateTagByName method.
+- [TagApi::doDeleteTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doDeleteTagById.md) &ndash; The working horse behind the deleteTagById method.
+- [TagApi::doDeleteTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/doDeleteTagByName.md) &ndash; The working horse behind the deleteTagByName method.
+- [TagApi::checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/TagApi/checkMicroPermission.md) &ndash; Checks whether the current user has the micro permission which type is specified.
 
 
 

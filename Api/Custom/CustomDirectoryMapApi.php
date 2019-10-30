@@ -13,6 +13,7 @@ use Ling\Light_UserData\Api\DirectoryMapApi;
 class CustomDirectoryMapApi extends DirectoryMapApi
 {
 
+
     /**
      * Returns the directoryMap row identified by the given realName.
      *

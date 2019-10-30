@@ -71,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DirectoryMapApi::insertDirectoryMap](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L36-L73)
+See the source code for method [DirectoryMapApi::insertDirectoryMap](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L53-L57)
 
 
 See Also

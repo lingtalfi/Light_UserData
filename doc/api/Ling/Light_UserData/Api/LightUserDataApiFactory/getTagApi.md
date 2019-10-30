@@ -46,7 +46,7 @@ Returns [TagApiInterface](https://github.com/lingtalfi/Light_UserData/blob/maste
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::getTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L74-L79)
+See the source code for method [LightUserDataApiFactory::getTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L84-L90)
 
 
 See Also
