@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApi::doUpdateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L281-L287)
+See the source code for method [ResourceApi::doUpdateResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L290-L296)
 
 
 See Also

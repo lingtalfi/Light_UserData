@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [DirectoryMapApi::doUpdateDirectoryMapByObfuscatedName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L209-L215)
+See the source code for method [DirectoryMapApi::doUpdateDirectoryMapByObfuscatedName](https://github.com/lingtalfi/Light_UserData/blob/master/Api/DirectoryMapApi.php#L218-L224)
 
 
 See Also

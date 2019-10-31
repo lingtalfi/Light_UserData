@@ -69,7 +69,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::update2SvpResource](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L559-L571)
+See the source code for method [LightUserDataService::update2SvpResource](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L579-L591)
 
 
 See Also

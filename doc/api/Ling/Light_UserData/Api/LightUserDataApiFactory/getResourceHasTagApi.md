@@ -46,7 +46,7 @@ Returns [ResourceHasTagApiInterface](https://github.com/lingtalfi/Light_UserData
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::getResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L71-L77)
+See the source code for method [LightUserDataApiFactory::getResourceHasTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L80-L87)
 
 
 See Also

@@ -46,7 +46,7 @@ Returns [ResourceApiInterface](https://github.com/lingtalfi/Light_UserData/blob/
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::getResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L58-L64)
+See the source code for method [LightUserDataApiFactory::getResourceApi](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L66-L73)
 
 
 See Also

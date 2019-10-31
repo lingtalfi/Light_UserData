@@ -53,7 +53,7 @@ Returns mixed.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L99-L109)
+See the source code for method [LightUserDataService::initialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L108-L118)
 
 
 See Also

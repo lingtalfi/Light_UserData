@@ -69,6 +69,13 @@ class LightUserDataService implements LightInitializerInterface
 
 
     /**
+     * This property holds the name of the plugin used to handle the microPermissions for the classes located in the Api/ directory.
+     * @var string
+     */
+    protected $microPermissionPlugin;
+
+
+    /**
      * This property holds the directoryKey for this instance.
      * @var string
      */
@@ -86,6 +93,8 @@ class LightUserDataService implements LightInitializerInterface
         $this->obfuscationAlgorithm = "default";
         $this->obfuscationSecret = 'abc';
         $this->factory = new LightUserDataApiFactory();
+        $this->microPermissionPlugin = null;
+        $this->directoryKey = "directory";
         $this->directoryKey = "directory";
     }
 
@@ -196,6 +205,17 @@ class LightUserDataService implements LightInitializerInterface
     {
         $this->container = $container;
         $this->factory->setPdoWrapper($container->get("database"));
+    }
+
+    /**
+     * Sets the microPermissionPlugin.
+     *
+     * @param string $microPermissionPlugin
+     */
+    public function setMicroPermissionPlugin(string $microPermissionPlugin)
+    {
+        $this->microPermissionPlugin = $microPermissionPlugin;
+        $this->factory->setMicroPermissionPlugin($microPermissionPlugin);
     }
 
 

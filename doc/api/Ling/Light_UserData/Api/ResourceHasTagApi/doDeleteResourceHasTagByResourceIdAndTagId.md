@@ -59,7 +59,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::doDeleteResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L234-L241)
+See the source code for method [ResourceHasTagApi::doDeleteResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L243-L250)
 
 
 See Also

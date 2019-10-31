@@ -23,10 +23,10 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     protected $pdoWrapper;
 
     /**
-     * This property holds the microPermissionPrefix for this instance.
+     * This property holds the microPermissionPlugin for this instance.
      * @var string
      */
-    protected $microPermissionPrefix;
+    protected $microPermissionPlugin;
 
     /**
      * This property holds the container for this instance.
@@ -40,7 +40,7 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     public function __construct()
     {
         $this->pdoWrapper = null;
-		$this->microPermissionPrefix = "Light_UserData.tables.luda_directory_map";
+		$this->microPermissionPlugin = "Light_UserData";
 		$this->container = null;
     }
 
@@ -113,6 +113,15 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     public function setContainer(LightServiceContainerInterface $container)
     {
         $this->container = $container;
+    }
+    /**
+     * Sets the name of the plugin used to handle the micro-permissions.
+     *
+     * @param string $pluginName
+     */
+    public function setMicroPermissionPlugin(string $pluginName)
+    {
+        $this->microPermissionPlugin = $pluginName;
     }
 
 
@@ -250,7 +259,7 @@ class DirectoryMapApi implements DirectoryMapApiInterface
      */
     protected function checkMicroPermission(string $type)
     {
-        $microPermission = $this->microPermissionPrefix . "." . $type;
+        $microPermission = $this->microPermissionPlugin . ".tables.luda_directory_map." . $type;
         if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
             throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
         }

@@ -56,15 +56,18 @@ user_data:
             secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
+        setMicroPermissionPlugin:
+            plugin: ${user_data_vars.micro_permission_plugin}
 
 
 user_data_vars:
     install_parent_plugin: Light_UserDatabase
+    micro_permission_plugin: Light_UserDatabase
 
 # --------------------------------------
 # hooks
 # --------------------------------------
-breeze_generator.methods_collection:
+$breeze_generator.methods_collection:
     -
         method: addConfigurationEntryByFile
         args:
@@ -110,6 +113,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.7.0 -- 2019-10-31
+
+    - updated configuration and api with new breeze generator's micro permission implementation, and allow for delegation of the micro permission handler. 
+    
 - 1.6.0 -- 2019-10-30
 
     - updated configuration and api with new breeze generator's micro permission implementation

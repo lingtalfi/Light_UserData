@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L259-L265)
+See the source code for method [ResourceHasTagApi::checkMicroPermission](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceHasTagApi.php#L268-L274)
 
 
 See Also

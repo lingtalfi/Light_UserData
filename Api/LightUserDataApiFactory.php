@@ -29,12 +29,19 @@ class LightUserDataApiFactory
     protected $container;
 
     /**
+     * This property holds the microPermissionPlugin for this instance.
+     * @var string
+     */
+    protected $microPermissionPlugin;
+
+    /**
      * Builds the LightUserDataApiFactory instance.
      */
     public function __construct()
     {
         $this->pdoWrapper = null;
 		$this->container = null;
+		$this->microPermissionPlugin = "Light_UserData";
     }
 
     /**
@@ -46,6 +53,7 @@ class LightUserDataApiFactory
     {
         $o = new CustomDirectoryMapApi();
 		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -59,6 +67,7 @@ class LightUserDataApiFactory
     {
         $o = new ResourceApi();
 		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -72,6 +81,7 @@ class LightUserDataApiFactory
     {
         $o = new ResourceHasTagApi();
 		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -85,6 +95,7 @@ class LightUserDataApiFactory
     {
         $o = new TagApi();
 		$o->setContainer($this->container);
+		$o->setMicroPermissionPlugin($this->microPermissionPlugin);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -114,5 +125,14 @@ class LightUserDataApiFactory
     public function setContainer(LightServiceContainerInterface $container)
     {
         $this->container = $container;
+    }
+    /**
+     * Sets the name of the plugin used to handle the micro-permissions.
+     *
+     * @param string $pluginName
+     */
+    public function setMicroPermissionPlugin(string $pluginName)
+    {
+        $this->microPermissionPlugin = $pluginName;
     }
 }
