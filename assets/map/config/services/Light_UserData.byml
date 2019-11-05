@@ -54,3 +54,12 @@ $plugin_database_installer.methods_collection:
                 -
                     - @service(user_data)
                     - uninstallDatabase
+
+
+$realform_handler_alias_helper.methods_collection:
+    -
+        method: registerRealformHandlerAliasHelper
+        args:
+            plugin: Light_UserData
+            helper:
+                instance: Ling\Light_UserData\Realform\RealformHandlerAliasHelper\LightUserDataRealformHandlerAliasHelper

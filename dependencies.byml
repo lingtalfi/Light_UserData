@@ -6,6 +6,7 @@ dependencies:
         - Chloroform
         - Light_User
         - Bat
+        - Light_Realform
         - DirScanner
         - Light_Initializer
         - Light_PluginDatabaseInstaller

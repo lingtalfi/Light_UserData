@@ -4,7 +4,7 @@
 
 The LightUserDataException class
 ================
-2019-09-27 --> 2019-10-31
+2019-09-27 --> 2019-11-05
 
 
 
@@ -54,4 +54,4 @@ See the source code of [Ling\Light_UserData\Exception\LightUserDataException](ht
 
 SeeAlso
 ==============
-Previous class: [LightUserDataController](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController.md)<br>Next class: [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md)<br>
+Previous class: [LightUserDataController](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Controller/LightUserDataController.md)<br>Next class: [LightUserDataRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md)<br>

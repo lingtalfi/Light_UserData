@@ -113,6 +113,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.7.1 -- 2019-11-05
+
+    - fix LightUserDataService->list not returning an empty array if the dir does not exist 
+    
 - 1.7.0 -- 2019-10-31
 
     - updated configuration and api with new breeze generator's micro permission implementation, and allow for delegation of the micro permission handler. 

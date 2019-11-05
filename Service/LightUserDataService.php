@@ -205,6 +205,7 @@ class LightUserDataService implements LightInitializerInterface
     {
         $this->container = $container;
         $this->factory->setPdoWrapper($container->get("database"));
+        $this->factory->setContainer($container);
     }
 
     /**
@@ -288,7 +289,10 @@ class LightUserDataService implements LightInitializerInterface
         if (null !== $directory) {
             $dir .= "/" . $directory;
         }
-        return YorgDirScannerTool::getFilesWithoutExtension($dir, "private", false, true, true);
+        if (is_dir($dir)) {
+            return YorgDirScannerTool::getFilesWithoutExtension($dir, "private", false, true, true);
+        }
+        return [];
     }
 
 

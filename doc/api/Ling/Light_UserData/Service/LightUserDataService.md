@@ -4,7 +4,7 @@
 
 The LightUserDataService class
 ================
-2019-09-27 --> 2019-10-31
+2019-09-27 --> 2019-11-05
 
 
 
@@ -161,4 +161,4 @@ See the source code of [Ling\Light_UserData\Service\LightUserDataService](https:
 
 SeeAlso
 ==============
-Previous class: [LightUserDataException](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Exception/LightUserDataException.md)<br>
+Previous class: [LightUserDataRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md)<br>
