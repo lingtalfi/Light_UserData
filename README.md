@@ -113,6 +113,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.7.2 -- 2019-11-07
+
+    - fix LightUserData2SvpDataTransformer->transform validating non 2svp files
+    
 - 1.7.1 -- 2019-11-05
 
     - fix LightUserDataService->list not returning an empty array if the dir does not exist 
