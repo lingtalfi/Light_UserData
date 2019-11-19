@@ -9,10 +9,10 @@ use Ling\Bat\HashTool;
 use Ling\DirScanner\YorgDirScannerTool;
 use Ling\Light\Core\Light;
 use Ling\Light\Http\HttpRequestInterface;
-use Ling\Light\ReverseRouter\LightReverseRouterInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
+use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightUserInterface;
 use Ling\Light_UserData\Api\LightUserDataApiFactory;
 use Ling\Light_UserData\Exception\LightUserDataException;
@@ -394,7 +394,7 @@ class LightUserDataService implements LightInitializerInterface
                 $obfuscatedName = $row['obfuscated_name'];
 
                 /**
-                 * @var $rr LightReverseRouterInterface
+                 * @var $rr LightReverseRouterService
                  */
                 $rr = $this->container->get('reverse_router');
                 return $rr->getUrl("luda_route-virtual_server", [

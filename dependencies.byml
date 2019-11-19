@@ -10,6 +10,7 @@ dependencies:
         - DirScanner
         - Light_Initializer
         - Light_PluginDatabaseInstaller
+        - Light_ReverseRouter
         - Light_UserDatabase
     
 

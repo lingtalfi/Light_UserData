@@ -113,6 +113,10 @@ $plugin_database_installer.methods_collection:
 History Log
 =============
 
+- 1.8.0 -- 2019-11-19
+
+    - update plugin to accommodate renamed Light_ReverseRouter service 
+    
 - 1.7.2 -- 2019-11-07
 
     - fix LightUserData2SvpDataTransformer->transform validating non 2svp files
