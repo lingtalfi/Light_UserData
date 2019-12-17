@@ -1,6 +1,6 @@
 Light_UserData, conception notes
 =====================
-2019-09-27
+2019-09-27 -> 2019-12-16
 
 
 
@@ -159,6 +159,68 @@ directory under the application root, but not inside the web root directory:
 ----- www/              The web root directory
 ----- user-data/        <--- HERE
 ```
+
+
+
+
+Maximum storage capacity
+-------------------
+2019-12-16
+
+
+
+Because we cannot trust an user, we implement a maximum storage capacity (aka msc), so the user can store a certain amount of files, 
+but not more than that.
+
+
+Because different users might have different msc, we create maximum storage capacity classes using the following convention:
+
+- Light_UserData_MSC_1
+- Light_UserData_MSC_1a
+- Light_UserData_MSC_1b
+- ...
+- Light_UserData_MSC_2
+- Light_UserData_MSC_3
+- ...
+
+So in general:
+- Light_UserData_MSC_XXX
+
+Where XXX represents the msc class identifier.
+
+The main idea is that the msc class identifier always starts with a number which represents the level of the class.
+
+A class with a higher level can always store more than a class with lesser level.
+
+So for instance a class **Light_UserData_MSC_2** will always store more than any **Light_UserData_MSC_1** class.
+
+All the variations letters (**Light_UserData_MSC_1a**, **Light_UserData_MSC_1b**, ...) can be created by the developer
+to ensure that the aforementioned rule is always respected.
+
+
+
+
+
+Our plugin creates the following permissions by default:
+
+- Light_UserData_MSC_10: 20Mb
+
+
+And it binds them to both the existing users and the newly created ones (assuming the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin is used).
+
+
+For security reasons, an user without an msc class bound to him/her will be denied any storage (i.e. equivalent to msc=0).
+
+
+
+
+
+
+
+
+
+
+
 
 
 

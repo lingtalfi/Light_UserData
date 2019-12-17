@@ -7,16 +7,15 @@ namespace Ling\Light_UserData\Service;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\HashTool;
 use Ling\DirScanner\YorgDirScannerTool;
-use Ling\Light\Core\Light;
-use Ling\Light\Http\HttpRequestInterface;
+use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_Initializer\Initializer\LightInitializerInterface;
 use Ling\Light_PluginDatabaseInstaller\Service\LightPluginDatabaseInstallerService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightUserInterface;
 use Ling\Light_UserData\Api\LightUserDataApiFactory;
 use Ling\Light_UserData\Exception\LightUserDataException;
 use Ling\Light_UserDatabase\LightWebsiteUserDatabaseInterface;
+use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
 
@@ -25,7 +24,7 @@ use Ling\SimplePdoWrapper\Util\MysqlInfoUtil;
  *
  * For more details, refer to the @page(conception notes).
  */
-class LightUserDataService implements LightInitializerInterface
+class LightUserDataService
 {
 
 
@@ -103,9 +102,17 @@ class LightUserDataService implements LightInitializerInterface
     //
     //--------------------------------------------
     /**
-     * @implementation
+     * Listener for the @page(Light.initialize_2 event).
+     * It will populate the light user data into the tables from the @page(Light_UserDatabase plugin).
+     *
+     * This listener depends on Light_UserDatabase plugin being installed first (hence using a level 2 light initializer).
+     * See more details on the @page(light events page).
+     *
+     *
+     * @param LightEvent $event
+     * @throws \Exception
      */
-    public function initialize(Light $light, HttpRequestInterface $httpRequest)
+    public function initialize(LightEvent $event)
     {
         /**
          * @var $pih LightPluginDatabaseInstallerService
@@ -133,7 +140,7 @@ class LightUserDataService implements LightInitializerInterface
 
         $util = new MysqlInfoUtil();
         $util->setWrapper($db);
-        if (false === $util->hasTable("luda_directory_map")) {
+        if (true || false === $util->hasTable("luda_directory_map")) {
 
 
             /**
@@ -141,6 +148,36 @@ class LightUserDataService implements LightInitializerInterface
              * https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
              */
             $db->executeStatement(file_get_contents(__DIR__ . "/../assets/fixtures/recreate-structure.sql"));
+
+
+            /**
+             * @var $userDb LightUserDatabaseService
+             */
+            $userDb = $this->container->get('user_database');
+            $permId = $userDb->getPermissionApi()->insertPermission([
+                "name" => 'Light_UserData.Light_UserData_MSC_10',
+            ]);
+
+
+            $userIds = $userDb->getAllUserIds();
+            foreach ($userIds as $userId) {
+                $userDb->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
+                    'user_id' => $userId,
+                    'permission_group_id' => $permId,
+                ]);
+            }
+
+            $userDb->getPermissionOptionsApi()->insertPermissionOptions([
+                'permission_id' => $permId,
+                'name' => 'maximum_capacity_storage',
+                'value' => 10 * 1024 * 1024,
+                'plugin' => "Light_UserData",
+                'description' => <<<EEE
+The maximum storage capacity allowed for users having this permission. 
+EEE
+                ,
+            ]);
+
             $this->refreshReferences();
 
         }
@@ -196,83 +233,6 @@ class LightUserDataService implements LightInitializerInterface
     //
     //--------------------------------------------
     /**
-     * Sets the container.
-     *
-     * @param LightServiceContainerInterface $container
-     * @throws \Exception
-     */
-    public function setContainer(LightServiceContainerInterface $container)
-    {
-        $this->container = $container;
-        $this->factory->setPdoWrapper($container->get("database"));
-        $this->factory->setContainer($container);
-    }
-
-    /**
-     * Sets the microPermissionPlugin.
-     *
-     * @param string $microPermissionPlugin
-     */
-    public function setMicroPermissionPlugin(string $microPermissionPlugin)
-    {
-        $this->microPermissionPlugin = $microPermissionPlugin;
-        $this->factory->setMicroPermissionPlugin($microPermissionPlugin);
-    }
-
-
-    /**
-     * Sets the obfuscation parameters to use.
-     *
-     * @param string $algoName
-     * @param string $secret
-     */
-    public function setObfuscationParams(string $algoName, string $secret)
-    {
-        $this->obfuscationAlgorithm = $algoName;
-        $this->obfuscationSecret = $secret;
-    }
-
-    /**
-     * Sets the rootDir.
-     *
-     * @param string $rootDir
-     */
-    public function setRootDir(string $rootDir)
-    {
-        $this->rootDir = $rootDir;
-    }
-
-    /**
-     * Returns the rootDir of this instance.
-     *
-     * @return string
-     */
-    public function getRootDir(): string
-    {
-        return $this->rootDir;
-    }
-
-
-    /**
-     * Sets a temporary user.
-     *
-     * @param LightUserInterface $user
-     */
-    public function setTemporaryUser(LightUserInterface $user)
-    {
-        $this->currentUser = $user;
-    }
-
-    /**
-     * Unsets the temporary user if any.
-     */
-    public function unsetTemporaryUser()
-    {
-        $this->currentUser = null;
-    }
-
-
-    /**
      * Returns the array of the files owned by the current user.
      * If the directory is specified, only the list of the files found in that directory will be returned.
      *
@@ -299,6 +259,10 @@ class LightUserDataService implements LightInitializerInterface
     /**
      * Saves the data for the current user to the given relative path,
      * and returns the url of the saved resource.
+     *
+     *
+     * If the maximum user storage capacity is reached, the resource is not uploaded and an exception is thrown.
+     *
      *
      * The available options are:
      * - tags: an array of tags to bind to the given resource
@@ -645,6 +609,117 @@ class LightUserDataService implements LightInitializerInterface
         FileSystemTool::move($oldFile, $newFile);
 
     }
+
+
+    /**
+     * Returns the maximum number of bytes that the given user is allowed to use.
+     * Meaning, if the user tries to upload a file that would go beyond that number, the file would be rejected.
+     *
+     *
+     *
+     * @param LightUserInterface $user
+     * @return int
+     */
+    public function getMaximumCapacityByUser(LightUserInterface $user): int
+    {
+        // defaults to 20M
+        return 20 * 1024 * 1024;
+    }
+
+
+    /**
+     * Returns the current storage space used by the given user, in bytes.
+     *
+     * @param LightUserInterface $user
+     * @return int
+     */
+    public function getCurrentCapacityByUser(LightUserInterface $user): int
+    {
+
+    }
+
+
+    //--------------------------------------------
+    //
+    //--------------------------------------------
+    /**
+     * Sets the container.
+     *
+     * @param LightServiceContainerInterface $container
+     * @throws \Exception
+     */
+    public function setContainer(LightServiceContainerInterface $container)
+    {
+        $this->container = $container;
+        $this->factory->setPdoWrapper($container->get("database"));
+        $this->factory->setContainer($container);
+    }
+
+    /**
+     * Sets the microPermissionPlugin.
+     *
+     * @param string $microPermissionPlugin
+     */
+    public function setMicroPermissionPlugin(string $microPermissionPlugin)
+    {
+        $this->microPermissionPlugin = $microPermissionPlugin;
+        $this->factory->setMicroPermissionPlugin($microPermissionPlugin);
+    }
+
+
+    /**
+     * Sets the obfuscation parameters to use.
+     *
+     * @param string $algoName
+     * @param string $secret
+     */
+    public function setObfuscationParams(string $algoName, string $secret)
+    {
+        $this->obfuscationAlgorithm = $algoName;
+        $this->obfuscationSecret = $secret;
+    }
+
+    /**
+     * Sets the rootDir.
+     *
+     * @param string $rootDir
+     */
+    public function setRootDir(string $rootDir)
+    {
+        $this->rootDir = $rootDir;
+    }
+
+    /**
+     * Returns the rootDir of this instance.
+     *
+     * @return string
+     */
+    public function getRootDir(): string
+    {
+        return $this->rootDir;
+    }
+
+
+    /**
+     * Sets a temporary user.
+     *
+     * @param LightUserInterface $user
+     */
+    public function setTemporaryUser(LightUserInterface $user)
+    {
+        $this->currentUser = $user;
+    }
+
+    /**
+     * Unsets the temporary user if any.
+     */
+    public function unsetTemporaryUser()
+    {
+        $this->currentUser = null;
+    }
+
+
+
 
 
 

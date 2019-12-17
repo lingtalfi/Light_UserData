@@ -8,7 +8,6 @@ dependencies:
         - Bat
         - Light_Realform
         - DirScanner
-        - Light_Initializer
         - Light_PluginDatabaseInstaller
         - Light_ReverseRouter
         - Light_UserDatabase

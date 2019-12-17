@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::setTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L261-L264)
+See the source code for method [LightUserDataService::setTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L708-L711)
 
 
 See Also

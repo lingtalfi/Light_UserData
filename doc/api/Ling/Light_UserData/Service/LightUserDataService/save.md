@@ -24,6 +24,10 @@ public [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/
 Saves the data for the current user to the given relative path,
 and returns the url of the saved resource.
 
+
+If the maximum user storage capacity is reached, the resource is not uploaded and an exception is thrown.
+
+
 The available options are:
 - tags: an array of tags to bind to the given resource
 - is_private: bool=false
@@ -67,7 +71,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L315-L371)
+See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L279-L335)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27
+2019-09-27 -> 2019-12-17
 
 
 
@@ -61,7 +61,6 @@ user_data:
 
 
 user_data_vars:
-    install_parent_plugin: Light_UserDatabase
     micro_permission_plugin: Light_UserDatabase
 
 # --------------------------------------
@@ -81,13 +80,16 @@ $easy_route.methods_collection:
         args:
             file: config/data/Light_UserData/Light_EasyRoute/luda_routes.byml
 
-$initializer.methods_collection:
+
+$events.methods_collection:
     -
-        method: registerInitializer
+        method: registerListener
         args:
-            initializer: @service(user_data)
-            slot: install
-            parent: ${user_data_vars.install_parent_plugin}
+            events: Light.Light.initialize_2
+            listener:
+                instance: @service(user_data)
+                callable_method: initialize
+
 
 
 $plugin_database_installer.methods_collection:
@@ -104,6 +106,15 @@ $plugin_database_installer.methods_collection:
                     - uninstallDatabase
 
 
+$realform_handler_alias_helper.methods_collection:
+    -
+        method: registerRealformHandlerAliasHelper
+        args:
+            plugin: Light_UserData
+            helper:
+                instance: Ling\Light_UserData\Realform\RealformHandlerAliasHelper\LightUserDataRealformHandlerAliasHelper
+
+
 ```
 
 
@@ -112,6 +123,10 @@ $plugin_database_installer.methods_collection:
 
 History Log
 =============
+
+- 1.9.0 -- 2019-12-17
+
+    - update plugin to accommodate Light 0.50 new initialization system
 
 - 1.8.0 -- 2019-11-19
 
