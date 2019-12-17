@@ -85,7 +85,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.Light.initialize_2
+            events: Light.initialize_2
             listener:
                 instance: @service(user_data)
                 callable_method: initialize
@@ -113,8 +113,6 @@ $realform_handler_alias_helper.methods_collection:
             plugin: Light_UserData
             helper:
                 instance: Ling\Light_UserData\Realform\RealformHandlerAliasHelper\LightUserDataRealformHandlerAliasHelper
-
-
 ```
 
 
@@ -124,6 +122,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.9.1 -- 2019-12-17
+
+    - fix functional typo in service configuration
+    
 - 1.9.0 -- 2019-12-17
 
     - update plugin to accommodate Light 0.50 new initialization system

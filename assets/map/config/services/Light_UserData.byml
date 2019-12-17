@@ -37,7 +37,7 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.Light.initialize_2
+            events: Light.initialize_2
             listener:
                 instance: @service(user_data)
                 callable_method: initialize
