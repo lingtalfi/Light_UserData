@@ -8,12 +8,8 @@ user_data:
             secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
-        setMicroPermissionPlugin:
-            plugin: ${user_data_vars.micro_permission_plugin}
 
 
-user_data_vars:
-    micro_permission_plugin: Light_UserDatabase
 
 # --------------------------------------
 # hooks

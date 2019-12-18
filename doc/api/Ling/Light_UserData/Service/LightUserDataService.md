@@ -4,7 +4,7 @@
 
 The LightUserDataService class
 ================
-2019-09-27 --> 2019-12-17
+2019-09-27 --> 2019-12-18
 
 
 
@@ -33,7 +33,6 @@ class <span class="pl-k">LightUserDataService</span>  {
     - protected string [$obfuscationAlgorithm](#property-obfuscationAlgorithm) ;
     - protected string [$obfuscationSecret](#property-obfuscationSecret) ;
     - protected [Ling\Light_UserData\Api\LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory.md) [$factory](#property-factory) ;
-    - protected string [$microPermissionPlugin](#property-microPermissionPlugin) ;
     - private string [$directoryKey](#property-directoryKey) ;
 
 - Methods
@@ -54,7 +53,6 @@ class <span class="pl-k">LightUserDataService</span>  {
     - public [getMaximumCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getMaximumCapacityByUser.md)([Ling\Light_User\LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md) $user) : int
     - public [getCurrentCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getCurrentCapacityByUser.md)([Ling\Light_User\LightUserInterface](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/LightUserInterface.md) $user) : int
     - public [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public [setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setMicroPermissionPlugin.md)(string $microPermissionPlugin) : void
     - public [setObfuscationParams](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setObfuscationParams.md)(string $algoName, string $secret) : void
     - public [setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setRootDir.md)(string $rootDir) : void
     - public [getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getRootDir.md)() : string
@@ -108,12 +106,6 @@ Properties
     
     
 
-- <span id="property-microPermissionPlugin"><b>microPermissionPlugin</b></span>
-
-    This property holds the name of the plugin used to handle the microPermissions for the classes located in the Api/ directory.
-    
-    
-
 - <span id="property-directoryKey"><b>directoryKey</b></span>
 
     This property holds the directoryKey for this instance.
@@ -142,7 +134,6 @@ Methods
 - [LightUserDataService::getMaximumCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getMaximumCapacityByUser.md) &ndash; Returns the maximum number of bytes that the given user is allowed to use.
 - [LightUserDataService::getCurrentCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getCurrentCapacityByUser.md) &ndash; Returns the current storage space used by the given user, in bytes.
 - [LightUserDataService::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setContainer.md) &ndash; Sets the container.
-- [LightUserDataService::setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setMicroPermissionPlugin.md) &ndash; Sets the microPermissionPlugin.
 - [LightUserDataService::setObfuscationParams](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setObfuscationParams.md) &ndash; Sets the obfuscation parameters to use.
 - [LightUserDataService::setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setRootDir.md) &ndash; Sets the rootDir.
 - [LightUserDataService::getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getRootDir.md) &ndash; Returns the rootDir of this instance.

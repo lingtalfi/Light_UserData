@@ -66,7 +66,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceApi::getResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L72-L76)
+See the source code for method [ResourceApi::getResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/Api/ResourceApi.php#L65-L69)
 
 
 See Also

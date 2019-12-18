@@ -4,10 +4,10 @@
 namespace Ling\Light_UserData\Api;
 
 
-use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
-use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_MicroPermission\Exception\LightMicroPermissionException;
+use Ling\SimplePdoWrapper\SimplePdoWrapper;
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 
 /**
@@ -22,11 +22,6 @@ class DirectoryMapApi implements DirectoryMapApiInterface
      */
     protected $pdoWrapper;
 
-    /**
-     * This property holds the microPermissionPlugin for this instance.
-     * @var string
-     */
-    protected $microPermissionPlugin;
 
     /**
      * This property holds the container for this instance.
@@ -40,19 +35,16 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     public function __construct()
     {
         $this->pdoWrapper = null;
-		$this->microPermissionPlugin = "Light_UserData";
-		$this->container = null;
+        $this->container = null;
     }
-
-
 
 
     /**
      * @implementation
      */
     public function insertDirectoryMap(array $directoryMap, bool $ignoreDuplicate = true, bool $returnRic = false)
-    { 
-		$this->checkMicroPermission("create");
+    {
+        $this->checkMicroPermission("create");
         return $this->doInsertDirectoryMap($directoryMap, $ignoreDuplicate, $returnRic);
     }
 
@@ -60,31 +52,28 @@ class DirectoryMapApi implements DirectoryMapApiInterface
      * @implementation
      */
     public function getDirectoryMapByObfuscatedName(string $obfuscated_name, $default = null, bool $throwNotFoundEx = false)
-    { 
-		$this->checkMicroPermission("read");
+    {
+        $this->checkMicroPermission("read");
         return $this->doGetDirectoryMapByObfuscatedName($obfuscated_name, $default, $throwNotFoundEx);
     }
-
-
 
 
     /**
      * @implementation
      */
     public function updateDirectoryMapByObfuscatedName(string $obfuscated_name, array $directoryMap)
-    { 
-		$this->checkMicroPermission("update");
+    {
+        $this->checkMicroPermission("update");
         $this->doUpdateDirectoryMapByObfuscatedName($obfuscated_name, $directoryMap);
     }
-
 
 
     /**
      * @implementation
      */
     public function deleteDirectoryMapByObfuscatedName(string $obfuscated_name)
-    { 
-		$this->checkMicroPermission("delete");
+    {
+        $this->checkMicroPermission("delete");
         $this->doDeleteDirectoryMapByObfuscatedName($obfuscated_name);
     }
 
@@ -113,15 +102,6 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     public function setContainer(LightServiceContainerInterface $container)
     {
         $this->container = $container;
-    }
-    /**
-     * Sets the name of the plugin used to handle the micro-permissions.
-     *
-     * @param string $pluginName
-     */
-    public function setMicroPermissionPlugin(string $pluginName)
-    {
-        $this->microPermissionPlugin = $pluginName;
     }
 
 
@@ -204,16 +184,14 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     }
 
 
-
-
     /**
      * The working horse behind the updateDirectoryMapByObfuscatedName method.
      * See the updateDirectoryMapByObfuscatedName method for more details.
      *
      * @param string $obfuscated_name
      * @param array $directoryMap
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
     protected function doUpdateDirectoryMapByObfuscatedName(string $obfuscated_name, array $directoryMap)
     {
@@ -224,14 +202,13 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     }
 
 
-
     /**
      * The working horse behind the deleteDirectoryMapByObfuscatedName method.
      * See the deleteDirectoryMapByObfuscatedName method for more details.
      *
      * @param string $obfuscated_name
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
     protected function doDeleteDirectoryMapByObfuscatedName(string $obfuscated_name)
     {
@@ -259,7 +236,7 @@ class DirectoryMapApi implements DirectoryMapApiInterface
      */
     protected function checkMicroPermission(string $type)
     {
-        $microPermission = $this->microPermissionPlugin . ".tables.luda_directory_map." . $type;
+        $microPermission = "tables.luda_directory_map." . $type;
         if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
             throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
         }

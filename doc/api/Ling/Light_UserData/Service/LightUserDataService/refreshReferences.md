@@ -51,7 +51,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::refreshReferences](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L442-L487)
+See the source code for method [LightUserDataService::refreshReferences](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L464-L509)
 
 
 See Also

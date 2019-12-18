@@ -201,9 +201,9 @@ to ensure that the aforementioned rule is always respected.
 
 
 
-Our plugin creates the following permissions by default:
+Our plugin creates the following plugin option by default:
 
-- Light_UserData_MSC_10: 20Mb
+- Light_UserData_MSC_10 with value 20M
 
 
 And it binds them to both the existing users and the newly created ones (assuming the [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin is used).

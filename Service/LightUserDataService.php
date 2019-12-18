@@ -67,11 +67,6 @@ class LightUserDataService
     protected $factory;
 
 
-    /**
-     * This property holds the name of the plugin used to handle the microPermissions for the classes located in the Api/ directory.
-     * @var string
-     */
-    protected $microPermissionPlugin;
 
 
     /**
@@ -92,7 +87,6 @@ class LightUserDataService
         $this->obfuscationAlgorithm = "default";
         $this->obfuscationSecret = 'abc';
         $this->factory = new LightUserDataApiFactory();
-        $this->microPermissionPlugin = null;
         $this->directoryKey = "directory";
         $this->directoryKey = "directory";
     }
@@ -144,6 +138,23 @@ class LightUserDataService
 
 
             /**
+             * Here we do the following:
+             *
+             * - create the following tables:
+             *      - luda_directory_map
+             *      - luda_resource
+             *      - luda_tag
+             *      - luda_permission
+             *
+             * - create the "Light_UserData.Light_UserData_MSC_10" plugin option with value = 20M
+             * - bind the "Light_UserData.Light_UserData_MSC_10" plugin option to the "default" user group (see [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin for more details)
+             * - update the extra field of the user table to add the directory option.
+             *
+             *
+             */
+
+
+            /**
              * We cannot put this statement inside the transaction, because of the mysql implicit commit rule:
              * https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
              */
@@ -151,35 +162,36 @@ class LightUserDataService
 
 
             /**
-             * @var $userDb LightUserDatabaseService
+             * However for the part below, we can put all the statements in a transaction.
              */
-            $userDb = $this->container->get('user_database');
-            $permId = $userDb->getPermissionApi()->insertPermission([
-                "name" => 'Light_UserData.Light_UserData_MSC_10',
-            ]);
-
-
-            $userIds = $userDb->getAllUserIds();
-            foreach ($userIds as $userId) {
-                $userDb->getUserHasPermissionGroupApi()->insertUserHasPermissionGroup([
-                    'user_id' => $userId,
-                    'permission_group_id' => $permId,
+            /**
+             * @var $exception \Exception
+             */
+            $exception = null;
+            $res = $db->transaction(function () {
+                /**
+                 * @var $userDb LightUserDatabaseService
+                 */
+                $userDb = $this->container->get('user_database');
+                $optionId = $userDb->getPluginOptionApi()->insertPluginOption([
+                    "plugin" => 'Light_UserData',
+                    "name" => 'Light_UserData.Light_UserData_MSC_10',
+                    "value" => '20M',
+                    "description" => "The maximum capacity storage for the user of that group. Example: 20M, 50M, etc.",
                 ]);
+
+                $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                    'user_group_id' => $userDb->getUserGroupApi()->getUserGroupIdByName('default'),
+                    'plugin_option_id' => $optionId,
+                ]);
+
+                $this->refreshReferences();
+
+
+            }, $exception);
+            if (false === $res) {
+                throw $exception;
             }
-
-            $userDb->getPermissionOptionsApi()->insertPermissionOptions([
-                'permission_id' => $permId,
-                'name' => 'maximum_capacity_storage',
-                'value' => 10 * 1024 * 1024,
-                'plugin' => "Light_UserData",
-                'description' => <<<EEE
-The maximum storage capacity allowed for users having this permission. 
-EEE
-                ,
-            ]);
-
-            $this->refreshReferences();
-
         }
     }
 
@@ -202,18 +214,20 @@ EEE
         $db->executeStatement("DROP table if exists luda_directory_map");
 
 
-        //--------------------------------------------
-        // REMOVING REFERENCES FROM THE LUD_USER TABLE
-        //--------------------------------------------
         /**
          * @var $exception \Exception
          */
         $exception = null;
         $res = $db->transaction(function () {
+
+
             /**
              * @var $userDb LightWebsiteUserDatabaseInterface
              */
             $userDb = $this->container->get("user_database");
+            //--------------------------------------------
+            // REMOVING REFERENCES FROM THE LUD_USER TABLE
+            //--------------------------------------------
             $rows = $userDb->getAllUserInfo();
             foreach ($rows as $row) {
                 $extra = $row['extra'];
@@ -221,6 +235,14 @@ EEE
                 $row['extra'] = $extra;
                 $userDb->updateUserById($row['id'], $row);
             }
+
+
+            //--------------------------------------------
+            // REMOVING THE OPTIONS
+            //--------------------------------------------
+            $userDb->getPluginOptionApi()->deletePluginOptionByName('Light_UserData.Light_UserData_MSC_10');
+
+
         }, $exception);
 
         if (false === $res) {
@@ -653,17 +675,6 @@ EEE
         $this->container = $container;
         $this->factory->setPdoWrapper($container->get("database"));
         $this->factory->setContainer($container);
-    }
-
-    /**
-     * Sets the microPermissionPlugin.
-     *
-     * @param string $microPermissionPlugin
-     */
-    public function setMicroPermissionPlugin(string $microPermissionPlugin)
-    {
-        $this->microPermissionPlugin = $microPermissionPlugin;
-        $this->factory->setMicroPermissionPlugin($microPermissionPlugin);
     }
 
 

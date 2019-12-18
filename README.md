@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2019-12-17
+2019-09-27 -> 2019-12-18
 
 
 
@@ -56,12 +56,8 @@ user_data:
             secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
-        setMicroPermissionPlugin:
-            plugin: ${user_data_vars.micro_permission_plugin}
 
 
-user_data_vars:
-    micro_permission_plugin: Light_UserDatabase
 
 # --------------------------------------
 # hooks
@@ -122,6 +118,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.10.0 -- 2019-12-18
+
+    - update to accommodate Light_MicroPermission 2.0
+    
 - 1.9.1 -- 2019-12-17
 
     - fix functional typo in service configuration

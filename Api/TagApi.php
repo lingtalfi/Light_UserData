@@ -4,10 +4,10 @@
 namespace Ling\Light_UserData\Api;
 
 
-use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
-use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_MicroPermission\Exception\LightMicroPermissionException;
+use Ling\SimplePdoWrapper\SimplePdoWrapper;
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 
 /**
@@ -22,11 +22,6 @@ class TagApi implements TagApiInterface
      */
     protected $pdoWrapper;
 
-    /**
-     * This property holds the microPermissionPlugin for this instance.
-     * @var string
-     */
-    protected $microPermissionPlugin;
 
     /**
      * This property holds the container for this instance.
@@ -40,19 +35,16 @@ class TagApi implements TagApiInterface
     public function __construct()
     {
         $this->pdoWrapper = null;
-		$this->microPermissionPlugin = "Light_UserData";
-		$this->container = null;
+        $this->container = null;
     }
-
-
 
 
     /**
      * @implementation
      */
     public function insertTag(array $tag, bool $ignoreDuplicate = true, bool $returnRic = false)
-    { 
-		$this->checkMicroPermission("create");
+    {
+        $this->checkMicroPermission("create");
         return $this->doInsertTag($tag, $ignoreDuplicate, $returnRic);
     }
 
@@ -60,8 +52,8 @@ class TagApi implements TagApiInterface
      * @implementation
      */
     public function getTagById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { 
-		$this->checkMicroPermission("read");
+    {
+        $this->checkMicroPermission("read");
         return $this->doGetTagById($id, $default, $throwNotFoundEx);
     }
 
@@ -70,20 +62,18 @@ class TagApi implements TagApiInterface
      * @implementation
      */
     public function getTagByName(string $name, $default = null, bool $throwNotFoundEx = false)
-    { 
-		$this->checkMicroPermission("read");
+    {
+        $this->checkMicroPermission("read");
         return $this->doGetTagByName($name, $default, $throwNotFoundEx);
     }
-
-
 
 
     /**
      * @implementation
      */
     public function updateTagById(int $id, array $tag)
-    { 
-		$this->checkMicroPermission("update");
+    {
+        $this->checkMicroPermission("update");
         $this->doUpdateTagById($id, $tag);
     }
 
@@ -91,19 +81,18 @@ class TagApi implements TagApiInterface
      * @implementation
      */
     public function updateTagByName(string $name, array $tag)
-    { 
-		$this->checkMicroPermission("update");
+    {
+        $this->checkMicroPermission("update");
         $this->doUpdateTagByName($name, $tag);
     }
-
 
 
     /**
      * @implementation
      */
     public function deleteTagById(int $id)
-    { 
-		$this->checkMicroPermission("delete");
+    {
+        $this->checkMicroPermission("delete");
         $this->doDeleteTagById($id);
     }
 
@@ -111,8 +100,8 @@ class TagApi implements TagApiInterface
      * @implementation
      */
     public function deleteTagByName(string $name)
-    { 
-		$this->checkMicroPermission("delete");
+    {
+        $this->checkMicroPermission("delete");
         $this->doDeleteTagByName($name);
     }
 
@@ -141,15 +130,6 @@ class TagApi implements TagApiInterface
     public function setContainer(LightServiceContainerInterface $container)
     {
         $this->container = $container;
-    }
-    /**
-     * Sets the name of the plugin used to handle the micro-permissions.
-     *
-     * @param string $pluginName
-     */
-    public function setMicroPermissionPlugin(string $pluginName)
-    {
-        $this->microPermissionPlugin = $pluginName;
     }
 
 
@@ -259,16 +239,14 @@ class TagApi implements TagApiInterface
     }
 
 
-
-
     /**
      * The working horse behind the updateTagById method.
      * See the updateTagById method for more details.
      *
      * @param int $id
      * @param array $tag
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
     protected function doUpdateTagById(int $id, array $tag)
     {
@@ -284,8 +262,8 @@ class TagApi implements TagApiInterface
      *
      * @param string $name
      * @param array $tag
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
     protected function doUpdateTagByName(string $name, array $tag)
     {
@@ -296,14 +274,13 @@ class TagApi implements TagApiInterface
     }
 
 
-
     /**
      * The working horse behind the deleteTagById method.
      * See the deleteTagById method for more details.
      *
      * @param int $id
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
     protected function doDeleteTagById(int $id)
     {
@@ -318,8 +295,8 @@ class TagApi implements TagApiInterface
      * See the deleteTagByName method for more details.
      *
      * @param string $name
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
     protected function doDeleteTagByName(string $name)
     {
@@ -347,7 +324,7 @@ class TagApi implements TagApiInterface
      */
     protected function checkMicroPermission(string $type)
     {
-        $microPermission = $this->microPermissionPlugin . ".tables.luda_tag." . $type;
+        $microPermission = "tables.luda_tag." . $type;
         if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
             throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
         }

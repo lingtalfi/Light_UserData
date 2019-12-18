@@ -23,12 +23,6 @@ class ResourceApi implements ResourceApiInterface
     protected $pdoWrapper;
 
     /**
-     * This property holds the microPermissionPlugin for this instance.
-     * @var string
-     */
-    protected $microPermissionPlugin;
-
-    /**
      * This property holds the container for this instance.
      * @var LightServiceContainerInterface
      */
@@ -40,7 +34,6 @@ class ResourceApi implements ResourceApiInterface
     public function __construct()
     {
         $this->pdoWrapper = null;
-		$this->microPermissionPlugin = "Light_UserData";
 		$this->container = null;
     }
 
@@ -141,15 +134,6 @@ class ResourceApi implements ResourceApiInterface
     public function setContainer(LightServiceContainerInterface $container)
     {
         $this->container = $container;
-    }
-    /**
-     * Sets the name of the plugin used to handle the micro-permissions.
-     *
-     * @param string $pluginName
-     */
-    public function setMicroPermissionPlugin(string $pluginName)
-    {
-        $this->microPermissionPlugin = $pluginName;
     }
 
 
@@ -347,7 +331,7 @@ class ResourceApi implements ResourceApiInterface
      */
     protected function checkMicroPermission(string $type)
     {
-        $microPermission = $this->microPermissionPlugin . ".tables.luda_resource." . $type;
+        $microPermission =  "tables.luda_resource." . $type;
         if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
             throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
         }

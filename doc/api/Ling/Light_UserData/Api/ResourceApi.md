@@ -4,7 +4,7 @@
 
 The ResourceApi class
 ================
-2019-09-27 --> 2019-12-17
+2019-09-27 --> 2019-12-18
 
 
 
@@ -26,7 +26,6 @@ class <span class="pl-k">ResourceApi</span> implements [ResourceApiInterface](ht
 
 - Properties
     - protected [Ling\SimplePdoWrapper\SimplePdoWrapperInterface](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md) [$pdoWrapper](#property-pdoWrapper) ;
-    - protected string [$microPermissionPlugin](#property-microPermissionPlugin) ;
     - protected [Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) [$container](#property-container) ;
 
 - Methods
@@ -40,7 +39,6 @@ class <span class="pl-k">ResourceApi</span> implements [ResourceApiInterface](ht
     - public [deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/deleteResourceByRealPath.md)(string $real_path) : void
     - public [setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setPdoWrapper.md)([Ling\SimplePdoWrapper\SimplePdoWrapperInterface](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/api/Ling/SimplePdoWrapper/SimplePdoWrapperInterface.md) $pdoWrapper) : void
     - public [setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setContainer.md)([Ling\Light\ServiceContainer\LightServiceContainerInterface](https://github.com/lingtalfi/Light/blob/master/doc/api/Ling/Light/ServiceContainer/LightServiceContainerInterface.md) $container) : void
-    - public [setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setMicroPermissionPlugin.md)(string $pluginName) : void
     - protected [doInsertResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doInsertResource.md)(array $resource, ?bool $ignoreDuplicate = true, ?bool $returnRic = false) : mixed
     - protected [doGetResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doGetResourceById.md)(int $id, ?$default = null, ?bool $throwNotFoundEx = false) : mixed
     - protected [doGetResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doGetResourceByRealPath.md)(string $real_path, ?$default = null, ?bool $throwNotFoundEx = false) : mixed
@@ -61,12 +59,6 @@ Properties
 - <span id="property-pdoWrapper"><b>pdoWrapper</b></span>
 
     This property holds the pdoWrapper for this instance.
-    
-    
-
-- <span id="property-microPermissionPlugin"><b>microPermissionPlugin</b></span>
-
-    This property holds the microPermissionPlugin for this instance.
     
     
 
@@ -91,7 +83,6 @@ Methods
 - [ResourceApi::deleteResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/deleteResourceByRealPath.md) &ndash; Deletes the resource identified by the given real_path.
 - [ResourceApi::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setPdoWrapper.md) &ndash; Sets the pdoWrapper.
 - [ResourceApi::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setContainer.md) &ndash; Sets the container.
-- [ResourceApi::setMicroPermissionPlugin](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/setMicroPermissionPlugin.md) &ndash; Sets the name of the plugin used to handle the micro-permissions.
 - [ResourceApi::doInsertResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doInsertResource.md) &ndash; The working horse behind the insertResource method.
 - [ResourceApi::doGetResourceById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doGetResourceById.md) &ndash; The working horse behind the getResourceById method.
 - [ResourceApi::doGetResourceByRealPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/ResourceApi/doGetResourceByRealPath.md) &ndash; The working horse behind the getResourceByRealPath method.

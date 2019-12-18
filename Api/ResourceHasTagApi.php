@@ -4,10 +4,10 @@
 namespace Ling\Light_UserData\Api;
 
 
-use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
-use Ling\SimplePdoWrapper\SimplePdoWrapper;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_MicroPermission\Exception\LightMicroPermissionException;
+use Ling\SimplePdoWrapper\SimplePdoWrapper;
+use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 
 /**
@@ -22,11 +22,6 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
      */
     protected $pdoWrapper;
 
-    /**
-     * This property holds the microPermissionPlugin for this instance.
-     * @var string
-     */
-    protected $microPermissionPlugin;
 
     /**
      * This property holds the container for this instance.
@@ -40,19 +35,16 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
     public function __construct()
     {
         $this->pdoWrapper = null;
-		$this->microPermissionPlugin = "Light_UserData";
-		$this->container = null;
+        $this->container = null;
     }
-
-
 
 
     /**
      * @implementation
      */
     public function insertResourceHasTag(array $resourceHasTag, bool $ignoreDuplicate = true, bool $returnRic = false)
-    { 
-		$this->checkMicroPermission("create");
+    {
+        $this->checkMicroPermission("create");
         return $this->doInsertResourceHasTag($resourceHasTag, $ignoreDuplicate, $returnRic);
     }
 
@@ -60,31 +52,28 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
      * @implementation
      */
     public function getResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, $default = null, bool $throwNotFoundEx = false)
-    { 
-		$this->checkMicroPermission("read");
+    {
+        $this->checkMicroPermission("read");
         return $this->doGetResourceHasTagByResourceIdAndTagId($resource_id, $tag_id, $default, $throwNotFoundEx);
     }
-
-
 
 
     /**
      * @implementation
      */
     public function updateResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, array $resourceHasTag)
-    { 
-		$this->checkMicroPermission("update");
+    {
+        $this->checkMicroPermission("update");
         $this->doUpdateResourceHasTagByResourceIdAndTagId($resource_id, $tag_id, $resourceHasTag);
     }
-
 
 
     /**
      * @implementation
      */
     public function deleteResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id)
-    { 
-		$this->checkMicroPermission("delete");
+    {
+        $this->checkMicroPermission("delete");
         $this->doDeleteResourceHasTagByResourceIdAndTagId($resource_id, $tag_id);
     }
 
@@ -114,15 +103,7 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
     {
         $this->container = $container;
     }
-    /**
-     * Sets the name of the plugin used to handle the micro-permissions.
-     *
-     * @param string $pluginName
-     */
-    public function setMicroPermissionPlugin(string $pluginName)
-    {
-        $this->microPermissionPlugin = $pluginName;
-    }
+
 
 
     //--------------------------------------------
@@ -148,7 +129,7 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
             }
             $ric = [
                 'resource_id' => $resourceHasTag["resource_id"],
-				'tag_id' => $resourceHasTag["tag_id"],
+                'tag_id' => $resourceHasTag["tag_id"],
 
             ];
             return $ric;
@@ -171,7 +152,7 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
                 }
                 return [
                     'resource_id' => $res["resource_id"],
-				'tag_id' => $res["tag_id"],
+                    'tag_id' => $res["tag_id"],
 
                 ];
             }
@@ -184,7 +165,7 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
      * See the getResourceHasTagByResourceIdAndTagId method for more details.
      *
      * @param int $resource_id
-	 * @param int $tag_id
+     * @param int $tag_id
      * @param mixed=null $default
      * @param bool $throwNotFoundEx
      * @return mixed
@@ -194,7 +175,7 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
     {
         $ret = $this->pdoWrapper->fetch("select * from `luda_resource_has_tag` where resource_id=:resource_id and tag_id=:tag_id", [
             "resource_id" => $resource_id,
-				"tag_id" => $tag_id,
+            "tag_id" => $tag_id,
 
         ]);
         if (false === $ret) {
@@ -208,27 +189,24 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
     }
 
 
-
-
     /**
      * The working horse behind the updateResourceHasTagByResourceIdAndTagId method.
      * See the updateResourceHasTagByResourceIdAndTagId method for more details.
      *
      * @param int $resource_id
-	 * @param int $tag_id
+     * @param int $tag_id
      * @param array $resourceHasTag
-     * @throws \Exception
      * @return void
+     * @throws \Exception
      */
     protected function doUpdateResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, array $resourceHasTag)
     {
         $this->pdoWrapper->update("luda_resource_has_tag", $resourceHasTag, [
             "resource_id" => $resource_id,
-			"tag_id" => $tag_id,
+            "tag_id" => $tag_id,
 
         ]);
     }
-
 
 
     /**
@@ -236,15 +214,15 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
      * See the deleteResourceHasTagByResourceIdAndTagId method for more details.
      *
      * @param int $resource_id
-	 * @param int $tag_id
-     * @throws \Exception
+     * @param int $tag_id
      * @return void
+     * @throws \Exception
      */
     protected function doDeleteResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id)
     {
         $this->pdoWrapper->delete("luda_resource_has_tag", [
             "resource_id" => $resource_id,
-			"tag_id" => $tag_id,
+            "tag_id" => $tag_id,
 
         ]);
     }
@@ -267,7 +245,7 @@ class ResourceHasTagApi implements ResourceHasTagApiInterface
      */
     protected function checkMicroPermission(string $type)
     {
-        $microPermission = $this->microPermissionPlugin . ".tables.luda_resource_has_tag." . $type;
+        $microPermission = "tables.luda_resource_has_tag." . $type;
         if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
             throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
         }
