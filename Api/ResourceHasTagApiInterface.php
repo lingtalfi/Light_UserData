@@ -6,6 +6,7 @@ namespace Ling\Light_UserData\Api;
 
 /**
  * The ResourceHasTagApiInterface interface.
+ * It implements the @page(ling standard object methods) concept.
  */
 interface ResourceHasTagApiInterface
 {
@@ -48,6 +49,8 @@ interface ResourceHasTagApiInterface
      * @throws \Exception
      */
     public function getResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, $default = null, bool $throwNotFoundEx = false);
+
+
 
 
 

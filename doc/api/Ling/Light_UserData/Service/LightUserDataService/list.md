@@ -57,7 +57,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::list](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L268-L278)
+See the source code for method [LightUserDataService::list](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L306-L316)
 
 
 See Also
@@ -65,5 +65,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [uninstallDatabase](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/uninstallDatabase.md)<br>Next method: [save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/save.md)<br>
+Previous method: [onNewUserBefore](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/onNewUserBefore.md)<br>Next method: [save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/save.md)<br>
 

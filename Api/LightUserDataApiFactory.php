@@ -5,8 +5,8 @@ namespace Ling\Light_UserData\Api;
 
 
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
-use Ling\Light_UserData\Api\Custom\CustomDirectoryMapApi;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
+use Ling\Light_UserData\Api\Custom\CustomDirectoryMapApi;
 
 
 
@@ -28,20 +28,16 @@ class LightUserDataApiFactory
      */
     protected $container;
 
-    /**
-     * This property holds the microPermissionPlugin for this instance.
-     * @var string
-     */
-    protected $microPermissionPlugin;
+
 
     /**
-     * Builds the LightUserDataApiFactory instance.
+     * Builds the LightUserDataApiFactoryObjectFactory instance.
      */
     public function __construct()
     {
         $this->pdoWrapper = null;
-		$this->container = null;
-		$this->microPermissionPlugin = "Light_UserData";
+        $this->container = null;
+		
     }
 
     /**
@@ -52,7 +48,6 @@ class LightUserDataApiFactory
     public function getDirectoryMapApi(): CustomDirectoryMapApi
     {
         $o = new CustomDirectoryMapApi();
-		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -65,7 +60,6 @@ class LightUserDataApiFactory
     public function getResourceApi(): ResourceApiInterface
     {
         $o = new ResourceApi();
-		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -78,7 +72,6 @@ class LightUserDataApiFactory
     public function getResourceHasTagApi(): ResourceHasTagApiInterface
     {
         $o = new ResourceHasTagApi();
-		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -91,7 +84,6 @@ class LightUserDataApiFactory
     public function getTagApi(): TagApiInterface
     {
         $o = new TagApi();
-		$o->setContainer($this->container);
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -122,4 +114,6 @@ class LightUserDataApiFactory
     {
         $this->container = $container;
     }
+
+
 }

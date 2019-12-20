@@ -6,6 +6,7 @@ namespace Ling\Light_UserData\Api;
 
 /**
  * The ResourceApiInterface interface.
+ * It implements the @page(ling standard object methods) concept.
  */
 interface ResourceApiInterface
 {
@@ -64,6 +65,15 @@ interface ResourceApiInterface
      */
     public function getResourceByRealPath(string $real_path, $default = null, bool $throwNotFoundEx = false);
 
+
+
+    /**
+     * Returns an array of all resource ids.
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getAllIds(): array;
 
 
 

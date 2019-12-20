@@ -50,7 +50,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getMaximumCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L645-L649)
+See the source code for method [LightUserDataService::getMaximumCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L675-L679)
 
 
 See Also

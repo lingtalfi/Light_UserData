@@ -6,6 +6,7 @@ namespace Ling\Light_UserData\Api;
 
 /**
  * The TagApiInterface interface.
+ * It implements the @page(ling standard object methods) concept.
  */
 interface TagApiInterface
 {
@@ -64,6 +65,15 @@ interface TagApiInterface
      */
     public function getTagByName(string $name, $default = null, bool $throwNotFoundEx = false);
 
+
+
+    /**
+     * Returns an array of all tag ids.
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getAllIds(): array;
 
 
 

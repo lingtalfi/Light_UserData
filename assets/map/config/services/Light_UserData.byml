@@ -37,6 +37,20 @@ $events.methods_collection:
             listener:
                 instance: @service(user_data)
                 callable_method: initialize
+    -
+        method: registerListener
+        args:
+            events: Light_Database.on_lud_user_group_create
+            listener:
+                instance: @service(user_data)
+                callable_method: onUserGroupCreate
+    -
+        method: registerListener
+        args:
+            events: Light_UserDatabase.on_new_user_before
+            listener:
+                instance: @service(user_data)
+                callable_method: onNewUserBefore
 
 
 

@@ -5,7 +5,8 @@ conf:
     # with the usePrefixInClassName property
     prefix: luda
     usePrefixInClassName: false
-    factoryClassName: LightUserData
+    factoryClassName: LightUserDataApiFactory
+    baseClassName: LightUserDataBaseApi
     namespace: Ling\Light_UserData\Api
     # The suffix to add to the class name.
     # For instance if the class is User and the suffix is Object,
@@ -16,7 +17,7 @@ conf:
     # Used mainly for debugging purposes, in production you probably should set this to false
     # The default value is false
     overwriteExisting: true
-    useMicroPermission: true
+    useMicroPermission: false
     microPermissionPluginName: Light_UserData
     generate:
         prefix: luda

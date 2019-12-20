@@ -49,7 +49,7 @@ Returns int.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getCurrentCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L658-L661)
+See the source code for method [LightUserDataService::getCurrentCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L688-L691)
 
 
 See Also

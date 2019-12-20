@@ -3,126 +3,36 @@
 
 namespace Ling\Light_UserData\Api;
 
-
-use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_MicroPermission\Exception\LightMicroPermissionException;
 use Ling\SimplePdoWrapper\SimplePdoWrapper;
-use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 
 
 /**
  * The DirectoryMapApi class.
  */
-class DirectoryMapApi implements DirectoryMapApiInterface
+class DirectoryMapApi extends LightUserDataBaseApi implements DirectoryMapApiInterface
 {
 
-    /**
-     * This property holds the pdoWrapper for this instance.
-     * @var SimplePdoWrapperInterface
-     */
-    protected $pdoWrapper;
-
-
-    /**
-     * This property holds the container for this instance.
-     * @var LightServiceContainerInterface
-     */
-    protected $container;
 
     /**
      * Builds the DirectoryMapApi instance.
      */
     public function __construct()
     {
-        $this->pdoWrapper = null;
-        $this->container = null;
+        parent::__construct();
+        $this->table = "luda_directory_map";
     }
+
+
 
 
     /**
      * @implementation
      */
     public function insertDirectoryMap(array $directoryMap, bool $ignoreDuplicate = true, bool $returnRic = false)
-    {
-        $this->checkMicroPermission("create");
-        return $this->doInsertDirectoryMap($directoryMap, $ignoreDuplicate, $returnRic);
-    }
-
-    /**
-     * @implementation
-     */
-    public function getDirectoryMapByObfuscatedName(string $obfuscated_name, $default = null, bool $throwNotFoundEx = false)
-    {
-        $this->checkMicroPermission("read");
-        return $this->doGetDirectoryMapByObfuscatedName($obfuscated_name, $default, $throwNotFoundEx);
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function updateDirectoryMapByObfuscatedName(string $obfuscated_name, array $directoryMap)
-    {
-        $this->checkMicroPermission("update");
-        $this->doUpdateDirectoryMapByObfuscatedName($obfuscated_name, $directoryMap);
-    }
-
-
-    /**
-     * @implementation
-     */
-    public function deleteDirectoryMapByObfuscatedName(string $obfuscated_name)
-    {
-        $this->checkMicroPermission("delete");
-        $this->doDeleteDirectoryMapByObfuscatedName($obfuscated_name);
-    }
-
-
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * Sets the pdoWrapper.
-     *
-     * @param SimplePdoWrapperInterface $pdoWrapper
-     */
-    public function setPdoWrapper(SimplePdoWrapperInterface $pdoWrapper)
-    {
-        $this->pdoWrapper = $pdoWrapper;
-    }
-
-
-    /**
-     * Sets the container.
-     *
-     * @param LightServiceContainerInterface $container
-     */
-    public function setContainer(LightServiceContainerInterface $container)
-    {
-        $this->container = $container;
-    }
-
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
-    /**
-     * The working horse behind the insertDirectoryMap method.
-     * See the insertDirectoryMap method for more details.
-     *
-     * @param array $directoryMap
-     * @param bool=true $ignoreDuplicate
-     * @param bool=false $returnRic
-     * @return mixed
-     * @throws \Exception
-     */
-    protected function doInsertDirectoryMap(array $directoryMap, bool $ignoreDuplicate = true, bool $returnRic = false)
-    {
+    { 
         try {
 
-            $lastInsertId = $this->pdoWrapper->insert("luda_directory_map", $directoryMap);
+            $lastInsertId = $this->pdoWrapper->insert($this->table, $directoryMap);
             if (false === $returnRic) {
                 return $lastInsertId;
             }
@@ -138,7 +48,7 @@ class DirectoryMapApi implements DirectoryMapApiInterface
                     throw $e;
                 }
 
-                $query = "select obfuscated_name from `luda_directory_map`";
+                $query = "select obfuscated_name from `$this->table`";
                 $allMarkers = [];
                 SimplePdoWrapper::addWhereSubStmt($query, $allMarkers, $directoryMap);
                 $res = $this->pdoWrapper->fetch($query, $allMarkers);
@@ -158,18 +68,11 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     }
 
     /**
-     * The working horse behind the getDirectoryMapByObfuscatedName method.
-     * See the getDirectoryMapByObfuscatedName method for more details.
-     *
-     * @param string $obfuscated_name
-     * @param mixed=null $default
-     * @param bool $throwNotFoundEx
-     * @return mixed
-     * @throws \Exception
+     * @implementation
      */
-    protected function doGetDirectoryMapByObfuscatedName(string $obfuscated_name, $default = null, bool $throwNotFoundEx = false)
-    {
-        $ret = $this->pdoWrapper->fetch("select * from `luda_directory_map` where obfuscated_name=:obfuscated_name", [
+    public function getDirectoryMapByObfuscatedName(string $obfuscated_name, $default = null, bool $throwNotFoundEx = false)
+    { 
+        $ret = $this->pdoWrapper->fetch("select * from `$this->table` where obfuscated_name=:obfuscated_name", [
             "obfuscated_name" => $obfuscated_name,
 
         ]);
@@ -184,35 +87,22 @@ class DirectoryMapApi implements DirectoryMapApiInterface
     }
 
 
-    /**
-     * The working horse behind the updateDirectoryMapByObfuscatedName method.
-     * See the updateDirectoryMapByObfuscatedName method for more details.
-     *
-     * @param string $obfuscated_name
-     * @param array $directoryMap
-     * @return void
-     * @throws \Exception
-     */
-    protected function doUpdateDirectoryMapByObfuscatedName(string $obfuscated_name, array $directoryMap)
-    {
-        $this->pdoWrapper->update("luda_directory_map", $directoryMap, [
-            "obfuscated_name" => $obfuscated_name,
 
-        ]);
+
+    /**
+     * @implementation
+     */
+    public function getAllObfuscatedNames(): array
+    { 
+         return $this->pdoWrapper->fetchAll("select obfuscated_name from `$this->table`", [], \PDO::FETCH_COLUMN);
     }
 
-
     /**
-     * The working horse behind the deleteDirectoryMapByObfuscatedName method.
-     * See the deleteDirectoryMapByObfuscatedName method for more details.
-     *
-     * @param string $obfuscated_name
-     * @return void
-     * @throws \Exception
+     * @implementation
      */
-    protected function doDeleteDirectoryMapByObfuscatedName(string $obfuscated_name)
-    {
-        $this->pdoWrapper->delete("luda_directory_map", [
+    public function updateDirectoryMapByObfuscatedName(string $obfuscated_name, array $directoryMap)
+    { 
+        $this->pdoWrapper->update($this->table, $directoryMap, [
             "obfuscated_name" => $obfuscated_name,
 
         ]);
@@ -220,26 +110,20 @@ class DirectoryMapApi implements DirectoryMapApiInterface
 
 
 
-
-    //--------------------------------------------
-    //
-    //--------------------------------------------
     /**
-     * Checks whether the current user has the micro permission which type is specified.
-     * See [the micro-permission recommended notation for database interaction](https://github.com/lingtalfi/Light_MicroPermission/blob/master/doc/pages/recommended-micropermission-notation.md)
-     * for more details.
-     *
-     *
-     *
-     * @param string $type
-     * @throws \Exception
+     * @implementation
      */
-    protected function checkMicroPermission(string $type)
-    {
-        $microPermission = "tables.luda_directory_map." . $type;
-        if (false === $this->container->get("micro_permission")->hasMicroPermission($microPermission)) {
-            throw new LightMicroPermissionException("Permission denied! You don't have the micro permission $microPermission.");
-        }
+    public function deleteDirectoryMapByObfuscatedName(string $obfuscated_name)
+    { 
+        $this->pdoWrapper->delete($this->table, [
+            "obfuscated_name" => $obfuscated_name,
+
+        ]);
     }
+
+
+
+
+
 
 }

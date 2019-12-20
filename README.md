@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2019-12-18
+2019-09-27 -> 2019-12-20
 
 
 
@@ -85,6 +85,20 @@ $events.methods_collection:
             listener:
                 instance: @service(user_data)
                 callable_method: initialize
+    -
+        method: registerListener
+        args:
+            events: Light_Database.on_lud_user_group_create
+            listener:
+                instance: @service(user_data)
+                callable_method: onUserGroupCreate
+    -
+        method: registerListener
+        args:
+            events: Light_UserDatabase.on_new_user_before
+            listener:
+                instance: @service(user_data)
+                callable_method: onNewUserBefore
 
 
 
@@ -118,6 +132,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.11.0 -- 2019-12-20
+
+    - update LightUserDataService, implemented Light_UserData.Light_UserData_MSC_10 option 
+    
 - 1.10.0 -- 2019-12-18
 
     - update to accommodate Light_MicroPermission 2.0

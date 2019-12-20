@@ -1,8 +1,9 @@
 dependencies: 
     Ling: 
-        - Light
-        - Light_MicroPermission
         - SimplePdoWrapper
+        - Light
+        - Light_Database
+        - Light_MicroPermission
         - Chloroform
         - Light_User
         - Bat

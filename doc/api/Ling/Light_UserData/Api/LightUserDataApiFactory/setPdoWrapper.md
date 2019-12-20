@@ -49,7 +49,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L111-L114)
+See the source code for method [LightUserDataApiFactory::setPdoWrapper](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L103-L106)
 
 
 See Also

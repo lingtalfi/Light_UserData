@@ -72,7 +72,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::rename](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L603-L633)
+See the source code for method [LightUserDataService::rename](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L633-L663)
 
 
 See Also

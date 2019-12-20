@@ -67,8 +67,6 @@ class LightUserDataService
     protected $factory;
 
 
-
-
     /**
      * This property holds the directoryKey for this instance.
      * @var string
@@ -87,7 +85,6 @@ class LightUserDataService
         $this->obfuscationAlgorithm = "default";
         $this->obfuscationSecret = 'abc';
         $this->factory = new LightUserDataApiFactory();
-        $this->directoryKey = "directory";
         $this->directoryKey = "directory";
     }
 
@@ -134,7 +131,7 @@ class LightUserDataService
 
         $util = new MysqlInfoUtil();
         $util->setWrapper($db);
-        if (true || false === $util->hasTable("luda_directory_map")) {
+        if (false === $util->hasTable("luda_directory_map")) {
 
 
             /**
@@ -189,6 +186,7 @@ class LightUserDataService
 
 
             }, $exception);
+
             if (false === $res) {
                 throw $exception;
             }
@@ -222,7 +220,7 @@ class LightUserDataService
 
 
             /**
-             * @var $userDb LightWebsiteUserDatabaseInterface
+             * @var $userDb LightUserDatabaseService
              */
             $userDb = $this->container->get("user_database");
             //--------------------------------------------
@@ -250,6 +248,46 @@ class LightUserDataService
         }
 
     }
+
+
+    /**
+     * Listener for the @page(Light_Database.on_lud_user_group_create event).
+     *
+     * @param LightEvent $event
+     * @throws \Exception
+     */
+    public function onUserGroupCreate(LightEvent $event)
+    {
+        $groupId = $event->getVar("return");
+
+        /**
+         * @var $userDb LightUserDatabaseService
+         */
+        $userDb = $this->container->get("user_database");
+        $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+            'user_group_id' => $groupId,
+            'plugin_option_id' => $userDb->getPluginOptionApi()->getPluginOptionIdByName("Light_UserData.Light_UserData_MSC_10"),
+        ]);
+
+
+    }
+
+
+    /**
+     * Listener for the @page(Light_UserDatabase.on_new_user_before).
+     * It adds the "directory" key into the extra column.
+     *
+     * @param LightEvent $event
+     * @throws \Exception
+     */
+    public function onNewUserBefore(LightEvent $event)
+    {
+        $userInfo = $event->getVar("userInfo", null, true);
+        $obfuscated = $this->createDirectoryMapByIdentifier($userInfo['identifier']);
+        $userInfo['extra'][$this->directoryKey] = $obfuscated;
+        $event->setVar("userInfo", $userInfo);
+    }
+
 
     //--------------------------------------------
     //
@@ -475,7 +513,7 @@ class LightUserDataService
         $exception = null;
         $res = $db->transaction(function () {
 
-            $api = $this->factory->getDirectoryMapApi();
+
             /**
              * @var $userDb LightWebsiteUserDatabaseInterface
              */
@@ -483,15 +521,7 @@ class LightUserDataService
             $rows = $userDb->getAllUserInfo();
             foreach ($rows as $row) {
                 $identifier = $row['identifier'];
-                $string = $identifier . $this->obfuscationSecret;
-                $algorithmOptions = [];
-                $obfuscated = password_hash($string, HashTool::getPasswordHashAlgorithm($this->obfuscationAlgorithm), $algorithmOptions);
-
-                $api->insertDirectoryMap([
-                    "obfuscated_name" => $obfuscated,
-                    "real_name" => $identifier,
-                ], false);
-
+                $obfuscated = $this->createDirectoryMapByIdentifier($identifier);
 
                 $extra = $row['extra'];
                 $extra[$this->directoryKey] = $obfuscated;
@@ -793,4 +823,27 @@ class LightUserDataService
         return $userIdentifier;
     }
 
+
+    /**
+     * Creates an entry in the directory map table, and returns the obfuscated name (of the directory corresponding
+     * to the user), based on the given user identifier.
+     *
+     * @param string $identifier
+     * @return string
+     * @throws \Exception
+     */
+    private function createDirectoryMapByIdentifier(string $identifier): string
+    {
+        $string = $identifier . $this->obfuscationSecret;
+        $algorithmOptions = [];
+        $obfuscated = password_hash($string, HashTool::getPasswordHashAlgorithm($this->obfuscationAlgorithm), $algorithmOptions);
+
+
+        $api = $this->factory->getDirectoryMapApi();
+        $api->insertDirectoryMap([
+            "obfuscated_name" => $obfuscated,
+            "real_name" => $identifier,
+        ], false);
+        return $obfuscated;
+    }
 }

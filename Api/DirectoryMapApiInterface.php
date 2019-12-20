@@ -6,6 +6,7 @@ namespace Ling\Light_UserData\Api;
 
 /**
  * The DirectoryMapApiInterface interface.
+ * It implements the @page(ling standard object methods) concept.
  */
 interface DirectoryMapApiInterface
 {
@@ -48,6 +49,15 @@ interface DirectoryMapApiInterface
      */
     public function getDirectoryMapByObfuscatedName(string $obfuscated_name, $default = null, bool $throwNotFoundEx = false);
 
+
+
+    /**
+     * Returns an array of all directoryMap obfuscated_names.
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getAllObfuscatedNames(): array;
 
 
 

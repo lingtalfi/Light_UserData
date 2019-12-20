@@ -7,7 +7,7 @@ LightUserDataApiFactory::__construct
 
 
 
-LightUserDataApiFactory::__construct — Builds the LightUserDataApiFactory instance.
+LightUserDataApiFactory::__construct — Builds the LightUserDataApiFactoryObjectFactory instance.
 
 
 
@@ -21,7 +21,7 @@ public [LightUserDataApiFactory::__construct](https://github.com/lingtalfi/Light
 
 
 
-Builds the LightUserDataApiFactory instance.
+Builds the LightUserDataApiFactoryObjectFactory instance.
 
 
 
@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L40-L45)
+See the source code for method [LightUserDataApiFactory::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L36-L41)
 
 
 See Also
