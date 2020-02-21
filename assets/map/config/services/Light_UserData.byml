@@ -33,39 +33,19 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.initialize_2
-            listener:
-                instance: @service(user_data)
-                callable_method: initialize
-    -
-        method: registerListener
-        args:
             events: Light_Database.on_lud_user_group_create
             listener:
                 instance: @service(user_data)
                 callable_method: onUserGroupCreate
+
+
+$plugin_installer.methods_collection:
     -
-        method: registerListener
-        args:
-            events: Light_UserDatabase.on_new_user_before
-            listener:
-                instance: @service(user_data)
-                callable_method: onNewUserBefore
-
-
-
-$plugin_database_installer.methods_collection:
-    -
-        method: registerInstaller
+        method: registerPlugin
         args:
             plugin: Light_UserData
-            installer:
-                -
-                    - @service(user_data)
-                    - installDatabase
-                -
-                    - @service(user_data)
-                    - uninstallDatabase
+            installer: @service(user_data)
+
 
 
 $realform_handler_alias_helper.methods_collection:

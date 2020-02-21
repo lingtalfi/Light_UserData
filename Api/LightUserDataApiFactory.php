@@ -6,7 +6,12 @@ namespace Ling\Light_UserData\Api;
 
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_UserData\Api\Custom\CustomDirectoryMapApi;
+use Ling\Light_UserData\Api\Custom\CustomTagApi;
+use Ling\Light_UserData\Api\Interfaces\TagApiInterface;
+use Ling\Light_UserData\Api\Custom\CustomResourceApi;
+use Ling\Light_UserData\Api\Interfaces\ResourceApiInterface;
+use Ling\Light_UserData\Api\Interfaces\ResourceHasTagApiInterface;
+use Ling\Light_UserData\Api\Classes\ResourceHasTagApi;
 
 
 
@@ -41,13 +46,13 @@ class LightUserDataApiFactory
     }
 
     /**
-     * Returns a CustomDirectoryMapApi.
+     * Returns a TagApiInterface.
      *
-     * @return CustomDirectoryMapApi
+     * @return CustomTagApi
      */
-    public function getDirectoryMapApi(): CustomDirectoryMapApi
+    public function getTagApi(): TagApiInterface
     {
-        $o = new CustomDirectoryMapApi();
+        $o = new CustomTagApi();
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -55,11 +60,11 @@ class LightUserDataApiFactory
     /**
      * Returns a ResourceApiInterface.
      *
-     * @return ResourceApiInterface
+     * @return CustomResourceApi
      */
     public function getResourceApi(): ResourceApiInterface
     {
-        $o = new ResourceApi();
+        $o = new CustomResourceApi();
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }
@@ -67,23 +72,11 @@ class LightUserDataApiFactory
     /**
      * Returns a ResourceHasTagApiInterface.
      *
-     * @return ResourceHasTagApiInterface
+     * @return ResourceHasTagApi
      */
     public function getResourceHasTagApi(): ResourceHasTagApiInterface
     {
         $o = new ResourceHasTagApi();
-        $o->setPdoWrapper($this->pdoWrapper);
-        return $o;
-    }
-
-    /**
-     * Returns a TagApiInterface.
-     *
-     * @return TagApiInterface
-     */
-    public function getTagApi(): TagApiInterface
-    {
-        $o = new TagApi();
         $o->setPdoWrapper($this->pdoWrapper);
         return $o;
     }

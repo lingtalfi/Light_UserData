@@ -7,7 +7,7 @@ LightUserDataService::onUserGroupCreate
 
 
 
-LightUserDataService::onUserGroupCreate — Listener for the Light_Database.on_lud_user_group_create event.
+LightUserDataService::onUserGroupCreate — Listener for the [Light_Database.on_lud_user_group_create event](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -21,7 +21,7 @@ public [LightUserDataService::onUserGroupCreate](https://github.com/lingtalfi/Li
 
 
 
-Listener for the Light_Database.on_lud_user_group_create event.
+Listener for the [Light_Database.on_lud_user_group_create event](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md).
 
 
 
@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::onUserGroupCreate](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L259-L273)
+See the source code for method [LightUserDataService::onUserGroupCreate](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L249-L271)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [uninstallDatabase](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/uninstallDatabase.md)<br>Next method: [onNewUserBefore](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/onNewUserBefore.md)<br>
+Previous method: [getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getDependencies.md)<br>Next method: [list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/list.md)<br>
 

@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataApiFactory::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L36-L41)
+See the source code for method [LightUserDataApiFactory::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/LightUserDataApiFactory.php#L41-L46)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [LightUserDataApiFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory.md) class.
 
-Next method: [getDirectoryMapApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory/getDirectoryMapApi.md)<br>
+Next method: [getTagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/LightUserDataApiFactory/getTagApi.md)<br>
 
