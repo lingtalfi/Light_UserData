@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::removeResourceByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L495-L506)
+See the source code for method [LightUserDataService::removeResourceByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L494-L505)
 
 
 See Also

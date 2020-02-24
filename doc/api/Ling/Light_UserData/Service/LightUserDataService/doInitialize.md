@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::doInitialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1064-L1071)
+See the source code for method [LightUserDataService::doInitialize](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1063-L1070)
 
 
 See Also

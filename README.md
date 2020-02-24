@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2019-12-20
+2019-09-27 -> 2019-12-24
 
 
 
@@ -125,6 +125,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.12.1 -- 2020-02-24
+
+    - update LightUserDataService->list, remove debug stop
+    
 - 1.12.0 -- 2020-02-21
 
     - handling fileEditor protocol

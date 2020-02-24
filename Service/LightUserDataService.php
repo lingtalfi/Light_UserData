@@ -288,7 +288,6 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function list(string $directory = null): array
     {
-        throw new \Exception("decide whether return path should be relative or absolute");
         $dir = $this->getUserDir();
         if (null !== $directory) {
             $dir .= "/" . $directory;
