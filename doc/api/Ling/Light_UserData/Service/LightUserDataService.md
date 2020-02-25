@@ -4,7 +4,7 @@
 
 The LightUserDataService class
 ================
-2019-09-27 --> 2020-02-24
+2019-09-27 --> 2020-02-25
 
 
 
@@ -65,6 +65,7 @@ class <span class="pl-k">LightUserDataService</span> implements [PluginInstaller
     - protected [getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceByPath.md)(string $path, ?[Ling\Light_User\WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md) $user = null) : array | false
     - protected [checkUserMaximumStorageLimit](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkUserMaximumStorageLimit.md)(int $nbBytesToAdd, ?[Ling\Light_User\WebsiteLightUser](https://github.com/lingtalfi/Light_User/blob/master/doc/api/Ling/Light_User/WebsiteLightUser.md) $user = null) : void
     - protected [getIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getIdentifierByUrl.md)(string $url) : string
+    - protected [checkPermission](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkPermission.md)(?string $permission = null) : void
     - private [getUserIdentifierByUserOrIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserIdentifierByUserOrIdentifier.md)($userOrIdentifier) : string
     - private [doInitialize](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/doInitialize.md)() : void
     - private [getOriginalPathFromAbsolutePath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getOriginalPathFromAbsolutePath.md)(string $path) : string | false
@@ -158,6 +159,7 @@ Methods
 - [LightUserDataService::getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceByPath.md) &ndash; or returns false if the resource was not found.
 - [LightUserDataService::checkUserMaximumStorageLimit](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkUserMaximumStorageLimit.md) &ndash; be still honored after adding the given number of bytes.
 - [LightUserDataService::getIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getIdentifierByUrl.md) &ndash; Returns the identifier from a given url.
+- [LightUserDataService::checkPermission](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkPermission.md) &ndash; Checks that the current user has the given permission.
 - [LightUserDataService::getUserIdentifierByUserOrIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUserIdentifierByUserOrIdentifier.md) &ndash; Returns the user identifier from the given userOrIdentifier.
 - [LightUserDataService::doInitialize](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/doInitialize.md) &ndash; The working horse behind the initialize method.
 - [LightUserDataService::getOriginalPathFromAbsolutePath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getOriginalPathFromAbsolutePath.md) &ndash; Returns the path of the original copy of a given file, or false if that file doesn't exist.

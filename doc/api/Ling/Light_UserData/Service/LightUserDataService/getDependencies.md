@@ -48,7 +48,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L229-L234)
+See the source code for method [LightUserDataService::getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L242-L247)
 
 
 See Also

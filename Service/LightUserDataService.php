@@ -127,6 +127,8 @@ class LightUserDataService implements PluginInstallerInterface
              *
              * - create the "Light_UserData.Light_UserData_MSC_10" plugin option with value = 20M
              * - bind the "Light_UserData.Light_UserData_MSC_10" plugin option to the "default" user group (see [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin for more details)
+             * - creates the Light_UserData.user permission in the lud_permission table
+             *
              *
              *
              */
@@ -163,6 +165,11 @@ class LightUserDataService implements PluginInstallerInterface
                 $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
                     'user_group_id' => $userDb->getUserGroupApi()->getUserGroupIdByName('default'),
                     'plugin_option_id' => $optionId,
+                ]);
+
+
+                $userDb->getPermissionApi()->insertPermission([
+                    "name" => "Light_UserData.user",
                 ]);
 
 
@@ -211,6 +218,12 @@ class LightUserDataService implements PluginInstallerInterface
                 // REMOVING THE OPTIONS
                 //--------------------------------------------
                 $userDb->getPluginOptionApi()->deletePluginOptionsByPluginName('Light_UserData');
+
+
+                //--------------------------------------------
+                // REMOVING THE PERMISSIONS
+                //--------------------------------------------
+                $userDb->getPermissionApi()->deletePermissionByName("Light_UserData.user");
 
 
             }, $exception);
@@ -288,6 +301,8 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function list(string $directory = null): array
     {
+        $this->checkPermission();
+
         $dir = $this->getUserDir();
         if (null !== $directory) {
             $dir .= "/" . $directory;
@@ -355,6 +370,7 @@ class LightUserDataService implements PluginInstallerInterface
     public function save(string $path, string $data, array $options = []): string
     {
 
+        $this->checkPermission();
         $user = $this->getValidWebsiteUser();
         $userDir = $this->getUserDir(); // assuming the user calling the save method owns the file (for now...)
 
@@ -493,6 +509,7 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function removeResourceByUrl(string $url)
     {
+        $this->checkPermission();
         $info = $this->getResourceInfoByResourceUrl($url);
         $id = $info['id'];
         $path = $info['abs_path'];
@@ -686,6 +703,7 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function update2SvpResource(string $resource, $userOrIdentifier = null): string
     {
+        $this->checkPermission();
         if (false !== strpos($resource, '.2svp')) {
 
             $userIdentifier = $this->getUserIdentifierByUserOrIdentifier($userOrIdentifier);
@@ -1023,7 +1041,25 @@ class LightUserDataService implements PluginInstallerInterface
     }
 
 
-
+    /**
+     * Checks that the current user has the given permission.
+     * If the given permission is null (by default), it defaults to: "Light_UserData.user".
+     * See the @page(Light_UserData permissions document) for more details.
+     *
+     *
+     * @param string|null $permission
+     * @throws \Exception
+     */
+    protected function checkPermission(string $permission = null)
+    {
+        if (null === $permission) {
+            $permission = "Light_UserData.user";
+        }
+        $user = $this->getValidWebsiteUser();
+        if (false === $user->hasRight($permission)) {
+            throw new LightUserDataException("Permission denied: missing the Light_UserData.user permission.");
+        }
+    }
 
 
     //--------------------------------------------

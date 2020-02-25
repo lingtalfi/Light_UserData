@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2019-12-24
+2019-09-27 -> 2020-02-25
 
 
 
@@ -30,6 +30,7 @@ Summary
 - [Light_UserData api](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData.md) (generated with [DocTools](https://github.com/lingtalfi/DocTools))
 - Pages
     - [Conception notes](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md)
+    - [Permissions](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/permissions.md)
 - [Services](#services)
 
 
@@ -125,6 +126,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.13.0 -- 2020-02-25
+
+    - add Light_UserData.user permission
+    
 - 1.12.1 -- 2020-02-24
 
     - update LightUserDataService->list, remove debug stop

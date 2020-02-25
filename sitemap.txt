@@ -224,6 +224,7 @@ https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserD
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper/getDataTransformer.md
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/__construct.md
+https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkPermission.md
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/checkUserMaximumStorageLimit.md
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/createDirectoryMapByIdentifier.md
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/doInitialize.md
@@ -272,3 +273,4 @@ https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserD
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData.md
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes-v1.11.md
 https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md
+https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/permissions.md
