@@ -279,8 +279,17 @@ class LightUserDataService implements PluginInstallerInterface
             'user_group_id' => $groupId,
             'plugin_option_id' => $pluginOption['id'],
         ]);
+    }
 
 
+    /**
+     * Returns the Light_USerData factory.
+     *
+     * @return LightUserDataApiFactory
+     */
+    public function getFactory(): LightUserDataApiFactory
+    {
+        return $this->factory;
     }
 
 

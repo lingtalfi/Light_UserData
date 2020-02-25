@@ -64,7 +64,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L980-L990)
+See the source code for method [LightUserDataService::getResourceByPath](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L989-L999)
 
 
 See Also

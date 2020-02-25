@@ -126,6 +126,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.14.0 -- 2020-02-25
+
+    - add Light_UserDataService->getFactory method
+    
 - 1.13.0 -- 2020-02-25
 
     - add Light_UserData.user permission
