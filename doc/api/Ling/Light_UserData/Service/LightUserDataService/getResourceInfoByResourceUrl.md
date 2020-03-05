@@ -56,7 +56,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceInfoByResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L659-L663)
+See the source code for method [LightUserDataService::getResourceInfoByResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L664-L668)
 
 
 See Also

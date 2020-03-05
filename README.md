@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-02-25
+2019-09-27 -> 2020-03-05
 
 
 
@@ -82,32 +82,19 @@ $events.methods_collection:
     -
         method: registerListener
         args:
-            events: Light.initialize_2
-            listener:
-                instance: @service(user_data)
-                callable_method: initialize
-    -
-        method: registerListener
-        args:
             events: Light_Database.on_lud_user_group_create
             listener:
                 instance: @service(user_data)
                 callable_method: onUserGroupCreate
 
 
-
-$plugin_database_installer.methods_collection:
+$plugin_installer.methods_collection:
     -
-        method: registerInstaller
+        method: registerPlugin
         args:
             plugin: Light_UserData
-            installer:
-                -
-                    - @service(user_data)
-                    - installDatabase
-                -
-                    - @service(user_data)
-                    - uninstallDatabase
+            installer: @service(user_data)
+
 
 
 $realform_handler_alias_helper.methods_collection:
@@ -117,6 +104,22 @@ $realform_handler_alias_helper.methods_collection:
             plugin: Light_UserData
             helper:
                 instance: Ling\Light_UserData\Realform\RealformHandlerAliasHelper\LightUserDataRealformHandlerAliasHelper
+
+
+
+$user_row_restriction.methods_collection:
+    -
+        method: registerRowRestrictionHandlerByTablePrefix
+        args:
+            prefix: luda
+            handler:
+                instance: Ling\Light_UserData\Light_UserRowRestriction\LightUserDataRowRestrictionHandler
+                methods:
+                    setContainer:
+                        container: @container()
+
+
+
 ```
 
 
@@ -126,6 +129,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.15.0 -- 2020-03-05
+
+    - add LightUserDataRowRestrictionHandler class
+    
 - 1.14.0 -- 2020-02-25
 
     - add Light_UserDataService->getFactory method

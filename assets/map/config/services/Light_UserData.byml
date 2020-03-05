@@ -55,3 +55,18 @@ $realform_handler_alias_helper.methods_collection:
             plugin: Light_UserData
             helper:
                 instance: Ling\Light_UserData\Realform\RealformHandlerAliasHelper\LightUserDataRealformHandlerAliasHelper
+
+
+
+$user_row_restriction.methods_collection:
+    -
+        method: registerRowRestrictionHandlerByTablePrefix
+        args:
+            prefix: luda
+            handler:
+                instance: Ling\Light_UserData\Light_UserRowRestriction\LightUserDataRowRestrictionHandler
+                methods:
+                    setContainer:
+                        container: @container()
+
+

@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::onUserGroupCreate](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L262-L282)
+See the source code for method [LightUserDataService::onUserGroupCreate](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L267-L287)
 
 
 See Also

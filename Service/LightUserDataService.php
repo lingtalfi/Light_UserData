@@ -172,6 +172,10 @@ class LightUserDataService implements PluginInstallerInterface
                     "name" => "Light_UserData.user",
                 ]);
 
+                $userDb->getPermissionApi()->insertPermission([
+                    "name" => "Light_UserData.admin",
+                ]);
+
 
             }, $exception);
 
@@ -224,6 +228,7 @@ class LightUserDataService implements PluginInstallerInterface
                 // REMOVING THE PERMISSIONS
                 //--------------------------------------------
                 $userDb->getPermissionApi()->deletePermissionByName("Light_UserData.user");
+                $userDb->getPermissionApi()->deletePermissionByName("Light_UserData.admin");
 
 
             }, $exception);

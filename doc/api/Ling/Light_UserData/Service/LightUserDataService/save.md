@@ -103,7 +103,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L379-L507)
+See the source code for method [LightUserDataService::save](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L384-L512)
 
 
 See Also
