@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-03-05
+2019-09-27 -> 2020-03-06
 
 
 
@@ -107,16 +107,8 @@ $realform_handler_alias_helper.methods_collection:
 
 
 
-$user_row_restriction.methods_collection:
-    -
-        method: registerRowRestrictionHandlerByTablePrefix
-        args:
-            prefix: luda
-            handler:
-                instance: Ling\Light_UserData\Light_UserRowRestriction\LightUserDataRowRestrictionHandler
-                methods:
-                    setContainer:
-                        container: @container()
+
+
 
 
 
@@ -129,6 +121,10 @@ $user_row_restriction.methods_collection:
 History Log
 =============
 
+- 1.16.0 -- 2020-03-06
+
+    - remove LightUserDataRowRestrictionHandler  
+    
 - 1.15.0 -- 2020-03-05
 
     - add LightUserDataRowRestrictionHandler class
