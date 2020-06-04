@@ -7,9 +7,11 @@ namespace Ling\Light_UserData\Controller;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\MimeTypeTool;
 use Ling\Light\Controller\LightController;
+use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\Http\HttpResponse;
 use Ling\Light\Http\HttpResponseInterface;
 use Ling\Light_UserData\Service\LightUserDataService;
+use Ling\Panda_Headers\Panda_Headers_Tool;
 
 
 /**
@@ -31,18 +33,28 @@ class LightUserDataController extends LightController
      *
      *
      * @param string $id
-     * @return HttpResponseInterface
+     * @param HttpRequestInterface $request
      * @throws \Exception
      */
-    public function render(string $id): HttpResponseInterface
+    public function render(string $id, HttpRequestInterface $request): HttpResponseInterface
     {
 
-        $getMetaInfo = (bool)($_GET['meta'] ?? false);
-        $original = (bool)($_GET['original'] ?? false);
+
+        $get = $request->getGet();
+
+        $getMetaInfo = (bool)($get['m'] ?? false);
+
+
+        $original = (bool)($get['o'] ?? false);
+        $configId = $get['c'] ?? null;
+        $useVirtual = (bool)($get['v'] ?? false);
+
 
         $options = [
             'addExtraInfo' => $getMetaInfo,
             'original' => $original,
+            'configId' => $configId,
+            'vm' => $useVirtual,
         ];
 
 
@@ -57,31 +69,35 @@ class LightUserDataController extends LightController
         $relPath = $info['rel_path'];
 
 
-        $extension = FileSystemTool::getFileExtension($file);
+        $extension = FileSystemTool::getFileExtension($relPath);
 
         $found = true;
-        $mime = MimeTypeTool::getMimeTypeByFileExtension($extension, null, $found);
+        $mime = MimeTypeTool::getMimeType($file);
         if (false === $found) {
             $this->getContainer()->get('logger')->log("Mime type not found in MimeTypeTool::getMimeTypeByFileExtension with extension $extension.", "todo");
         }
 
 
         $response = new HttpResponse(file_get_contents($file));
-        $response->setMimeType($mime);
-        $response->setFileName($relPath);
+
+        $response->setContentType($mime);
+
+//        $response->setFileName($relPath);
 
         if (true === $getMetaInfo) {
 
-            $response->setHeader("fe_is_private", $info['is_private']);
-            $response->setHeader("fe_date_creation", $info['date_creation']);
-            $response->setHeader("fe_date_last_update", $info['date_last_update']);
-            $response->setHeader("fe_protocol", "fileEditor");
-            $response->setHeader("fe_original_url", $info['original_url']);
-            $tags = $info['tags'];
-            foreach ($tags as $tag) {
-                $response->setHeader("fe_tags", $tag, false); // note: tag mustn't contain a comma with this implementation
-            }
+            Panda_Headers_Tool::attachHeaders([
+                "is_private" => $info['is_private'],
+                "date_creation" => $info['date_creation'],
+                "date_last_update" => $info['date_last_update'],
+                "original_url" => $info['original_url'],
+                "tags" => $info['tags'],
+                "name" => $info['filename'],
+                "directory" => $info['dir'],
+            ], $response);
         }
+
+//        az($response);
 
         return $response;
 

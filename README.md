@@ -1,6 +1,11 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-03-06
+2019-09-27 -> 2020-06-04
+
+
+
+
+
 
 
 
@@ -57,6 +62,12 @@ user_data:
             secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
+        setVirtualMachine:
+            vm:
+                instance: Ling\Light_UserData\VirtualStorage\LightUserDataVirtualStorage
+                methods:
+                    setRootDir:
+                        dir: ${app_dir}/tmp/Light_UserData/vm
 
 
 
@@ -112,6 +123,7 @@ $realform_handler_alias_helper.methods_collection:
 
 
 
+
 ```
 
 
@@ -121,6 +133,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.17.0 -- 2020-06-04
+
+    - add virtual machine concept and implementation
+    
 - 1.16.0 -- 2020-03-06
 
     - remove LightUserDataRowRestrictionHandler  
