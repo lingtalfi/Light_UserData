@@ -13,6 +13,7 @@ use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
 use Ling\Light_Database\Service\LightDatabaseService;
 use Ling\Light_PluginInstaller\PluginInstaller\PluginInstallerInterface;
+use Ling\Light_PluginInstaller\PluginInstaller\PluginPostInstallerInterface;
 use Ling\Light_PluginInstaller\Service\LightPluginInstallerService;
 use Ling\Light_ReverseRouter\Service\LightReverseRouterService;
 use Ling\Light_User\LightUserInterface;
@@ -29,7 +30,7 @@ use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
  *
  * For more details, refer to the @page(conception notes).
  */
-class LightUserDataService implements PluginInstallerInterface
+class LightUserDataService implements PluginInstallerInterface, PluginPostInstallerInterface
 {
 
 
@@ -123,79 +124,82 @@ class LightUserDataService implements PluginInstallerInterface
          * @var $installer LightPluginInstallerService
          */
         $installer = $this->container->get("plugin_installer");
-        if (false === $installer->hasTable("luda_resource")) {
+
+
+        /**
+         * @var $db SimplePdoWrapperInterface
+         */
+        $db = $this->container->get("database");
+
+        /**
+         * Here we do the following:
+         *
+         * - create the following tables:
+         *      - luda_resource
+         *      - luda_resource_has_tag
+         *      - luda_tag
+         *
+         * - create the "Light_UserData.Light_UserData_MSC_10" plugin option with value = 20M
+         * - bind the "Light_UserData.Light_UserData_MSC_10" plugin option to the "default" user group (see [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin for more details)
+         * - creates the Light_UserData.user permission in the lud_permission table
+         *
+         *
+         *
+         */
+        $installer->debugLog("user_data: synchronizing tables.");
+
+        $installer->synchronizeByCreateFile("Light_UserData", __DIR__ . "/../assets/fixtures/recreate-structure.sql", [
+            "scope" => [
+                "luda_resource",
+                "luda_resource_has_tag",
+                "luda_tag",
+            ],
+        ]);
+
+
+        /**
+         * However for the part below, we can put all the statements in a transaction.
+         */
+        /**
+         * @var $exception \Exception
+         */
+        $exception = null;
+        $installer->debugLog("user_data: adding tables content.");
+        $res = $db->transaction(function () {
 
             /**
-             * @var $db SimplePdoWrapperInterface
+             * @var $userDb LightUserDatabaseService
              */
-            $db = $this->container->get("database");
-
-            /**
-             * Here we do the following:
-             *
-             * - create the following tables:
-             *      - luda_resource
-             *      - luda_resource_has_tag
-             *      - luda_tag
-             *
-             * - create the "Light_UserData.Light_UserData_MSC_10" plugin option with value = 20M
-             * - bind the "Light_UserData.Light_UserData_MSC_10" plugin option to the "default" user group (see [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase) plugin for more details)
-             * - creates the Light_UserData.user permission in the lud_permission table
-             *
-             *
-             *
-             */
+            $userDb = $this->container->get('user_database');
+            $optionId = $userDb->getPluginOptionApi()->insertPluginOption([
+                "category" => 'Light_UserData.MSC',
+                "name" => 'default',
+                "value" => '20M',
+                "description" => "The maximum storage capacity for the \"default\" user. Example: 20M, 50M, etc.",
+            ]);
 
 
-            /**
-             * We cannot put this statement inside the transaction, because of the mysql implicit commit rule:
-             * https://dev.mysql.com/doc/refman/8.0/en/implicit-commit.html
-             */
-            $db->executeStatement(file_get_contents(__DIR__ . "/../assets/fixtures/recreate-structure.sql"));
+            $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                'user_group_id' => $userDb->getUserGroupApi()->getUserGroupIdByName('default'),
+                'plugin_option_id' => $optionId,
+            ]);
 
 
-            /**
-             * However for the part below, we can put all the statements in a transaction.
-             */
-            /**
-             * @var $exception \Exception
-             */
-            $exception = null;
-            $res = $db->transaction(function () {
+            $userDb->getPermissionApi()->insertPermission([
+                "name" => "Light_UserData.user",
+            ]);
 
-                /**
-                 * @var $userDb LightUserDatabaseService
-                 */
-                $userDb = $this->container->get('user_database');
-                $optionId = $userDb->getPluginOptionApi()->insertPluginOption([
-                    "category" => 'Light_UserData.MSC',
-                    "name" => 'default',
-                    "value" => '20M',
-                    "description" => "The maximum storage capacity for the \"default\" user. Example: 20M, 50M, etc.",
-                ]);
+            $userDb->getPermissionApi()->insertPermission([
+                "name" => "Light_UserData.admin",
+            ]);
 
 
-                $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
-                    'user_group_id' => $userDb->getUserGroupApi()->getUserGroupIdByName('default'),
-                    'plugin_option_id' => $optionId,
-                ]);
+        }, $exception);
 
-
-                $userDb->getPermissionApi()->insertPermission([
-                    "name" => "Light_UserData.user",
-                ]);
-
-                $userDb->getPermissionApi()->insertPermission([
-                    "name" => "Light_UserData.admin",
-                ]);
-
-
-            }, $exception);
-
-            if (false === $res) {
-                throw $exception;
-            }
+        if (false === $res) {
+            throw $exception;
         }
+
     }
 
 
@@ -257,12 +261,45 @@ class LightUserDataService implements PluginInstallerInterface
     /**
      * @implementation
      */
+    public function isInstalled(): bool
+    {
+        $installer = $this->container->get("plugin_installer");
+        if (
+            true === $installer->hasTable("luda_tag") &&
+            true === $installer->hasTable("luda_resource") &&
+            true === $installer->hasTable("luda_resource_has_tag")
+        ) {
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * @implementation
+     */
     public function getDependencies(): array
     {
         return [
             "Light_UserDatabase",
         ];
     }
+
+    /**
+     * @implementation
+     */
+    public function registerPostInstallerCallables(): array
+    {
+        return [
+            [
+                0,
+                [$this, 'updateUserGroupHasPluginOptionTable']
+            ],
+        ];
+    }
+
+
+
 
 
 
@@ -279,24 +316,31 @@ class LightUserDataService implements PluginInstallerInterface
      */
     public function onUserGroupCreate(LightEvent $event)
     {
-        $this->doInitialize();
-        $groupId = $event->getVar("return");
+
         /**
-         * @var $userDb LightUserDatabaseService
+         * @var $installer LightPluginInstallerService
          */
-        $userDb = $this->container->get("user_database");
+        $installer = $this->container->get("plugin_installer");
+        if (false === $installer->pluginsAreBeingInstalled()) {
+
+            $groupId = $event->getVar("return");
+            /**
+             * @var $userDb LightUserDatabaseService
+             */
+            $userDb = $this->container->get("user_database");
 
 
-        $pluginOption = $userDb->getPluginOptionApi()->getPluginOption([
-            "category" => "Light_UserData.MSC",
-            "name" => "default",
-        ], [], null, true);
+            $pluginOptionId = $userDb->getPluginOptionApi()->getPluginOptionsColumn('id', [
+                "category" => "Light_UserData.MSC",
+                "name" => "default",
+            ], []);
 
 
-        $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
-            'user_group_id' => $groupId,
-            'plugin_option_id' => $pluginOption['id'],
-        ]);
+            $userDb->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                'user_group_id' => $groupId,
+                'plugin_option_id' => $pluginOptionId,
+            ]);
+        }
     }
 
 
@@ -1458,6 +1502,31 @@ class LightUserDataService implements PluginInstallerInterface
     }
 
 
+    /**
+     * Makes sure every entry in the lud_user_group table is bound to our plugin's option(s).
+     */
+    protected function updateUserGroupHasPluginOptionTable()
+    {
+        /**
+         * @var $userDb LightUserDatabaseService
+         */
+        $lud = $this->container->get("user_database");
+        $api = $lud->getFactory();
+        $ids = $api->getUserGroupApi()->getAllIds();
+        $pluginOptionId = $lud->getPluginOptionApi()->getPluginOptionsColumn('id', [
+            "category" => "Light_UserData.MSC",
+            "name" => "default",
+        ]);
+
+        foreach ($ids as $id) {
+            $api->getUserGroupHasPluginOptionApi()->insertUserGroupHasPluginOption([
+                'user_group_id' => $id,
+                'plugin_option_id' => $pluginOptionId,
+            ]);
+        }
+    }
+
+
     //--------------------------------------------
     //
     //--------------------------------------------
@@ -1482,23 +1551,6 @@ class LightUserDataService implements PluginInstallerInterface
             throw new LightUserDataException("Unable to guess userIdentifier from the given userOrIdentifier (type=$type).");
         }
         return $userIdentifier;
-    }
-
-
-    /**
-     * The working horse behind the initialize method.
-     * See the initialize method of this class for more details.
-     *
-     *
-     * @throws \Exception
-     */
-    private function doInitialize()
-    {
-        /**
-         * @var $installer LightPluginInstallerService
-         */
-        $installer = $this->container->get("plugin_installer");
-        $installer->install("Light_UserData");
     }
 
 

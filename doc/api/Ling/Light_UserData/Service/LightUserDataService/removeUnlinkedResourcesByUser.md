@@ -50,7 +50,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::removeUnlinkedResourcesByUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L794-L826)
+See the source code for method [LightUserDataService::removeUnlinkedResourcesByUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L838-L870)
 
 
 See Also

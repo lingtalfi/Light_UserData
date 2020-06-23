@@ -4,7 +4,7 @@
 
 The LightUserDataFileManagerHandlerException class
 ================
-2019-09-27 --> 2020-06-04
+2019-09-27 --> 2020-06-23
 
 
 

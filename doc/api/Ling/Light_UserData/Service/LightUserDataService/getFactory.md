@@ -46,7 +46,7 @@ Returns [CustomLightUserDataApiFactory](https://github.com/lingtalfi/Light_UserD
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L308-L311)
+See the source code for method [LightUserDataService::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L352-L355)
 
 
 See Also

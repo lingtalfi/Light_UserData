@@ -53,7 +53,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::handleFileManagerProtocol](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1185-L1189)
+See the source code for method [LightUserDataService::handleFileManagerProtocol](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1229-L1233)
 
 
 See Also
