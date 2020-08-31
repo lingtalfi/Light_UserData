@@ -11,6 +11,7 @@ namespace Ling\Light_UserData\Api\Generated\Interfaces;
 interface TagApiInterface
 {
 
+
     /**
      * Inserts the given tag in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
@@ -32,6 +33,50 @@ interface TagApiInterface
      * @throws \Exception
      */
     public function insertTag(array $tag, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Inserts the given tag rows in the database.
+     * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
+     * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
+     *
+     *
+     * If the rows you're trying to insert triggers a duplicate error, the behaviour of this method depends on
+     * the ignoreDuplicate flag:
+     * - if true, the error will be caught internally, the return of the method is not affected
+     * - if false, the error will not be caught, and depending on your configuration, it might either
+     *          trigger an exception, or fail silently in which case this method returns false.
+     *
+     *
+     *
+     * @param array $tags
+     * @param bool $ignoreDuplicate
+     * @param bool $returnRic
+     * @return mixed
+     * @throws \Exception
+     */
+    public function insertTags(array $tags, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
 
     /**
      * Returns the tag row identified by the given id.
@@ -225,10 +270,12 @@ interface TagApiInterface
      *
      * @param int $id
      * @param array $tag
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateTagById(int $id, array $tag);
+    public function updateTagById(int $id, array $tag, array $extraWhere = [], array $markers = []);
 
 
     /**
@@ -236,10 +283,26 @@ interface TagApiInterface
      *
      * @param string $name
      * @param array $tag
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateTagByName(string $name, array $tag);
+    public function updateTagByName(string $name, array $tag, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the tag row.
+     *
+     * @param array $tag
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateTag(array $tag, $where = null, array $markers = []);
 
 
 

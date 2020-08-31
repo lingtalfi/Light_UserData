@@ -51,7 +51,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getValidWebsiteUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1357-L1375)
+See the source code for method [LightUserDataService::getValidWebsiteUser](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1358-L1376)
 
 
 See Also

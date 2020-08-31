@@ -376,12 +376,12 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     {
         $this->checkPermission();
 
-        $dir = $this->getUserDir();
+        $dir = $this->getUserDir() . "/files";
         if (null !== $directory) {
             $dir .= "/" . $directory;
         }
         if (is_dir($dir)) {
-            return YorgDirScannerTool::getFilesWithoutExtension($dir, "private", false, true, true);
+            return YorgDirScannerTool::getFilesWithoutExtension($dir, "private", false, true, true, false, 2);
         }
         return [];
     }
@@ -1197,7 +1197,8 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
          * @var $udb LightUserDatabaseService
          */
         $udb = $this->container->get("user_database");
-        $option = $udb->getPluginOptionApi()->getOptionByCategoryAndUserId("Light_UserData.MSC", $userId);
+
+        $option = $udb->getFactory()->getPluginOptionApi()->getOptionByCategoryAndUserId("Light_UserData.MSC", $userId);
         return ConvertTool::convertHumanSizeToBytes($option['value']);
     }
 

@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-06-23
+2019-09-27 -> 2020-08-31
 
 
 
@@ -133,6 +133,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.18.1 -- 2020-08-31
+
+    - fix LightUserDataService->list returning hidden files
+    
 - 1.18.0 -- 2020-06-23
 
     - update service for new Light_PluginInstaller interface

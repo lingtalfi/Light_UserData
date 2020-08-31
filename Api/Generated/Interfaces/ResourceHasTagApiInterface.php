@@ -11,6 +11,7 @@ namespace Ling\Light_UserData\Api\Generated\Interfaces;
 interface ResourceHasTagApiInterface
 {
 
+
     /**
      * Inserts the given resourceHasTag in the database.
      * By default, it returns the result of the PDO::lastInsertId method.
@@ -32,6 +33,50 @@ interface ResourceHasTagApiInterface
      * @throws \Exception
      */
     public function insertResourceHasTag(array $resourceHasTag, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Inserts the given resourceHasTag rows in the database.
+     * By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
+     * If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
+     *
+     *
+     * If the rows you're trying to insert triggers a duplicate error, the behaviour of this method depends on
+     * the ignoreDuplicate flag:
+     * - if true, the error will be caught internally, the return of the method is not affected
+     * - if false, the error will not be caught, and depending on your configuration, it might either
+     *          trigger an exception, or fail silently in which case this method returns false.
+     *
+     *
+     *
+     * @param array $resourceHasTags
+     * @param bool $ignoreDuplicate
+     * @param bool $returnRic
+     * @return mixed
+     * @throws \Exception
+     */
+    public function insertResourceHasTags(array $resourceHasTags, bool $ignoreDuplicate = true, bool $returnRic = false);
+
+    /**
+     * Returns the rows corresponding to given components.
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetchAll(array $components = []): array;
+
+
+    /**
+     *
+     * Returns the first row corresponding to given components, or false if there is no match.
+     *
+     * The components is an array of [fetch all components](https://github.com/lingtalfi/SimplePdoWrapper/blob/master/doc/pages/fetch-all-components.md).
+     *
+     * @param array $components
+     * @return array
+     */
+    public function fetch(array $components = []);
 
     /**
      * Returns the resourceHasTag row identified by the given resource_id and tag_id.
@@ -144,10 +189,26 @@ interface ResourceHasTagApiInterface
      * @param int $resource_id
 	 * @param int $tag_id
      * @param array $resourceHasTag
+     * @param array $extraWhere
+     * @param array $markers
      * @return void
      * @throws \Exception
      */
-    public function updateResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, array $resourceHasTag);
+    public function updateResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, array $resourceHasTag, array $extraWhere = [], array $markers = []);
+
+
+
+
+    /**
+     * Updates the resourceHasTag row.
+     *
+     * @param array $resourceHasTag
+     * @param mixed $where
+     * @param array $markers
+     * @return void
+     * @throws \Exception
+     */
+    public function updateResourceHasTag(array $resourceHasTag, $where = null, array $markers = []);
 
 
 

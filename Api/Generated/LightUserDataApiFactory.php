@@ -54,6 +54,7 @@ class LightUserDataApiFactory
     {
         $o = new CustomTagApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -66,6 +67,7 @@ class LightUserDataApiFactory
     {
         $o = new CustomResourceApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
@@ -78,6 +80,7 @@ class LightUserDataApiFactory
     {
         $o = new CustomResourceHasTagApi();
         $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
         return $o;
     }
 
