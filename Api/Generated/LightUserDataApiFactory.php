@@ -12,6 +12,8 @@ use Ling\Light_UserData\Api\Custom\Classes\CustomResourceApi;
 use Ling\Light_UserData\Api\Custom\Interfaces\CustomResourceApiInterface;
 use Ling\Light_UserData\Api\Custom\Classes\CustomResourceHasTagApi;
 use Ling\Light_UserData\Api\Custom\Interfaces\CustomResourceHasTagApiInterface;
+use Ling\Light_UserData\Api\Custom\Classes\CustomResourceFileApi;
+use Ling\Light_UserData\Api\Custom\Interfaces\CustomResourceFileApiInterface;
 
 
 
@@ -79,6 +81,19 @@ class LightUserDataApiFactory
     public function getResourceHasTagApi(): CustomResourceHasTagApiInterface
     {
         $o = new CustomResourceHasTagApi();
+        $o->setPdoWrapper($this->pdoWrapper);
+        $o->setContainer($this->container);
+        return $o;
+    }
+
+    /**
+     * Returns a CustomResourceFileApiInterface.
+     *
+     * @return CustomResourceFileApiInterface
+     */
+    public function getResourceFileApi(): CustomResourceFileApiInterface
+    {
+        $o = new CustomResourceFileApi();
         $o->setPdoWrapper($this->pdoWrapper);
         $o->setContainer($this->container);
         return $o;

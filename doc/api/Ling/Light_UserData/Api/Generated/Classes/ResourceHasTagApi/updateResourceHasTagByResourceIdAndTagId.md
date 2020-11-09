@@ -7,7 +7,7 @@ ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId
 
 
 
-ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId — Updates the resourceHasTag row identified by the given resource_id and tag_id.
+ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId — Updates the resource has tag row identified by the given resource_id and tag_id.
 
 
 
@@ -21,7 +21,7 @@ public [ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId](https://git
 
 
 
-Updates the resourceHasTag row identified by the given resource_id and tag_id.
+Updates the resource has tag row identified by the given resource_id and tag_id.
 
 
 
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L247-L254)
+See the source code for method [ResourceHasTagApi::updateResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L251-L258)
 
 
 See Also

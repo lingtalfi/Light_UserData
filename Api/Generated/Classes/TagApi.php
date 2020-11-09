@@ -117,7 +117,7 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
         $q = '';
         $options = $this->fetchRoutine($q, $markers, $components);
         $fetchStyle = null;
-        if (true === $options['singleColumns']) {
+        if (true === $options['singleColumn']) {
             $fetchStyle = \PDO::FETCH_COLUMN;
         }
         return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
@@ -130,15 +130,19 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
     {
         $markers = [];
         $q = '';
-        $this->fetchRoutine($q, $markers, $components);
-        return $this->pdoWrapper->fetch($q, $markers);
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
     }
 
     /**
      * @implementation
      */
     public function getTagById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where id=:id", [
             "id" => $id,
 
@@ -158,7 +162,7 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
      * @implementation
      */
     public function getTagByName(string $name, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where name=:name", [
             "name" => $name,
 
@@ -290,22 +294,6 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
         ]);
     }
 
-    /**
-     * @implementation
-     */
-    public function getTagsByResourceResourceidentifier(string $resourceResourceIdentifier): array
-    {
-        return $this->pdoWrapper->fetchAll("
-        select a.* from `$this->table` a
-        inner join luda_resource_has_tag h on h.tag_id=a.id
-        where h.resource_id=:resource_id
-
-
-        ", [
-            ":resource_resource_identifier" => $resourceResourceIdentifier,
-        ]);
-    }
-
 
 
     /**
@@ -326,21 +314,6 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
     /**
      * @implementation
      */
-    public function getTagIdsByResourceResourceIdentifier(string $resourceResourceIdentifier): array
-    {
-        return $this->pdoWrapper->fetchAll("
-        select a.id from `$this->table` a
-        inner join luda_resource_has_tag h on h.tag_id=a.id
-        inner join luda_resource b on b.id=h.resource_id
-        where b.resource_identifier=:resource_resource_identifier
-        ", [
-            ":resource_resource_identifier" => $resourceResourceIdentifier,
-        ], \PDO::FETCH_COLUMN);
-    }
-
-    /**
-     * @implementation
-     */
     public function getTagNamesByResourceId(string $resourceId): array
     {
         return $this->pdoWrapper->fetchAll("
@@ -350,21 +323,6 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
         where b.id=:resource_id
         ", [
             ":resource_id" => $resourceId,
-        ], \PDO::FETCH_COLUMN);
-    }
-
-    /**
-     * @implementation
-     */
-    public function getTagNamesByResourceResourceIdentifier(string $resourceResourceIdentifier): array
-    {
-        return $this->pdoWrapper->fetchAll("
-        select a.name from `$this->table` a
-        inner join luda_resource_has_tag h on h.tag_id=a.id
-        inner join luda_resource b on b.id=h.resource_id
-        where b.resource_identifier=:resource_resource_identifier
-        ", [
-            ":resource_resource_identifier" => $resourceResourceIdentifier,
         ], \PDO::FETCH_COLUMN);
     }
 
@@ -382,7 +340,7 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
      * @implementation
      */
     public function updateTagById(int $id, array $tag, array $extraWhere = [], array $markers = [])
-    { 
+    {
         $this->pdoWrapper->update($this->table, $tag, array_merge([
             "id" => $id,
 
@@ -393,7 +351,7 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
      * @implementation
      */
     public function updateTagByName(string $name, array $tag, array $extraWhere = [], array $markers = [])
-    { 
+    {
         $this->pdoWrapper->update($this->table, $tag, array_merge([
             "name" => $name,
 
@@ -425,7 +383,7 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
      * @implementation
      */
     public function deleteTagById(int $id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "id" => $id,
 
@@ -436,7 +394,7 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
      * @implementation
      */
     public function deleteTagByName(string $name)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "name" => $name,
 
@@ -460,6 +418,8 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
     {
         $this->pdoWrapper->delete($this->table, Where::inst()->key("name")->in($names));
     }
+
+
 
 
 

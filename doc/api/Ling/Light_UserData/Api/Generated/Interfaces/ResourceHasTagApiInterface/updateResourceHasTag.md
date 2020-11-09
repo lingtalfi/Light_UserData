@@ -7,7 +7,7 @@ ResourceHasTagApiInterface::updateResourceHasTag
 
 
 
-ResourceHasTagApiInterface::updateResourceHasTag — Updates the resourceHasTag row.
+ResourceHasTagApiInterface::updateResourceHasTag — Updates the resource has tag row.
 
 
 
@@ -21,7 +21,7 @@ abstract public [ResourceHasTagApiInterface::updateResourceHasTag](https://githu
 
 
 
-Updates the resourceHasTag row.
+Updates the resource has tag row.
 
 
 

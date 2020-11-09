@@ -4,7 +4,7 @@
 
 The CustomTagApi class
 ================
-2019-09-27 --> 2020-08-31
+2019-09-27 --> 2020-11-09
 
 
 
@@ -47,11 +47,8 @@ class <span class="pl-k">CustomTagApi</span> extends [TagApi](https://github.com
     - public [TagApi::getTagsKey2Value](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsKey2Value.md)(string $key, string $value, $where, ?array $markers = []) : array
     - public [TagApi::getTagIdByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagIdByName.md)(string $name, ?$default = null, ?bool $throwNotFoundEx = false) : string | mixed
     - public [TagApi::getTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsByResourceId.md)(string $resourceId) : array
-    - public [TagApi::getTagsByResourceResourceidentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsByResourceResourceidentifier.md)(string $resourceResourceIdentifier) : array
     - public [TagApi::getTagIdsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagIdsByResourceId.md)(string $resourceId) : array
-    - public [TagApi::getTagIdsByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagIdsByResourceResourceIdentifier.md)(string $resourceResourceIdentifier) : array
     - public [TagApi::getTagNamesByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagNamesByResourceId.md)(string $resourceId) : array
-    - public [TagApi::getTagNamesByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagNamesByResourceResourceIdentifier.md)(string $resourceResourceIdentifier) : array
     - public [TagApi::getAllIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getAllIds.md)() : array
     - public [TagApi::updateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/updateTagById.md)(int $id, array $tag, ?array $extraWhere = [], ?array $markers = []) : void
     - public [TagApi::updateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/updateTagByName.md)(string $name, array $tag, ?array $extraWhere = [], ?array $markers = []) : void
@@ -90,11 +87,8 @@ Methods
 - [TagApi::getTagsKey2Value](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsKey2Value.md) &ndash; Returns an array of $key => $value from the tag rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [TagApi::getTagIdByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagIdByName.md) &ndash; Returns the id of the luda_tag table.
 - [TagApi::getTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsByResourceId.md) &ndash; Returns the rows of the luda_tag table bound to the given resource id.
-- [TagApi::getTagsByResourceResourceidentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsByResourceResourceidentifier.md) &ndash; Returns the rows of the luda_tag table bound to the given resource resource_identifier.
 - [TagApi::getTagIdsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagIdsByResourceId.md) &ndash; Returns an array of luda_tag.id bound to the given resource id.
-- [TagApi::getTagIdsByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagIdsByResourceResourceIdentifier.md) &ndash; Returns an array of luda_tag.id bound to the given resource resource_identifier.
 - [TagApi::getTagNamesByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagNamesByResourceId.md) &ndash; Returns an array of luda_tag.name bound to the given resource id.
-- [TagApi::getTagNamesByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagNamesByResourceResourceIdentifier.md) &ndash; Returns an array of luda_tag.name bound to the given resource resource_identifier.
 - [TagApi::getAllIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getAllIds.md) &ndash; Returns an array of all tag ids.
 - [TagApi::updateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/updateTagById.md) &ndash; Updates the tag row identified by the given id.
 - [TagApi::updateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/updateTagByName.md) &ndash; Updates the tag row identified by the given name.

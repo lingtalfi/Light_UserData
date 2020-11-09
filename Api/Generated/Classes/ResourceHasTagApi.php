@@ -119,7 +119,7 @@ class ResourceHasTagApi extends CustomLightUserDataBaseApi implements ResourceHa
         $q = '';
         $options = $this->fetchRoutine($q, $markers, $components);
         $fetchStyle = null;
-        if (true === $options['singleColumns']) {
+        if (true === $options['singleColumn']) {
             $fetchStyle = \PDO::FETCH_COLUMN;
         }
         return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
@@ -132,15 +132,19 @@ class ResourceHasTagApi extends CustomLightUserDataBaseApi implements ResourceHa
     {
         $markers = [];
         $q = '';
-        $this->fetchRoutine($q, $markers, $components);
-        return $this->pdoWrapper->fetch($q, $markers);
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
     }
 
     /**
      * @implementation
      */
     public function getResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where resource_id=:resource_id and tag_id=:tag_id", [
             "resource_id" => $resource_id,
 				"tag_id" => $tag_id,
@@ -245,7 +249,7 @@ class ResourceHasTagApi extends CustomLightUserDataBaseApi implements ResourceHa
      * @implementation
      */
     public function updateResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id, array $resourceHasTag, array $extraWhere = [], array $markers = [])
-    { 
+    {
         $this->pdoWrapper->update($this->table, $resourceHasTag, array_merge([
             "resource_id" => $resource_id,
 			"tag_id" => $tag_id,
@@ -278,32 +282,10 @@ class ResourceHasTagApi extends CustomLightUserDataBaseApi implements ResourceHa
      * @implementation
      */
     public function deleteResourceHasTagByResourceIdAndTagId(int $resource_id, int $tag_id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "resource_id" => $resource_id,
 			"tag_id" => $tag_id,
-
-        ]);
-    }
-
-    /**
-     * @implementation
-     */
-    public function deleteResourceHasTagByResourceId(int $resource_id)
-    { 
-        $this->pdoWrapper->delete($this->table, [
-            "resource_id" => $resource_id,
-
-        ]);
-    }
-
-    /**
-     * @implementation
-     */
-    public function deleteResourceHasTagByTagId(int $tag_id)
-    { 
-        $this->pdoWrapper->delete($this->table, [
-            "tag_id" => $tag_id,
 
         ]);
     }
@@ -327,6 +309,26 @@ class ResourceHasTagApi extends CustomLightUserDataBaseApi implements ResourceHa
     }
 
 
+
+
+    /**
+     * @implementation
+     */
+    public function deleteResourceHasTagByResourceId(int $resourceId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "resource_id" => $resourceId,
+        ]);
+    }
+    /**
+     * @implementation
+     */
+    public function deleteResourceHasTagByTagId(int $tagId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "tag_id" => $tagId,
+        ]);
+    }
 
 
     //--------------------------------------------

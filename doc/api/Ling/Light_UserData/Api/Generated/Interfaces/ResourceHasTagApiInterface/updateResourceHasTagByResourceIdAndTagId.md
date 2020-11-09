@@ -7,7 +7,7 @@ ResourceHasTagApiInterface::updateResourceHasTagByResourceIdAndTagId
 
 
 
-ResourceHasTagApiInterface::updateResourceHasTagByResourceIdAndTagId — Updates the resourceHasTag row identified by the given resource_id and tag_id.
+ResourceHasTagApiInterface::updateResourceHasTagByResourceIdAndTagId — Updates the resource has tag row identified by the given resource_id and tag_id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [ResourceHasTagApiInterface::updateResourceHasTagByResourceIdAnd
 
 
 
-Updates the resourceHasTag row identified by the given resource_id and tag_id.
+Updates the resource has tag row identified by the given resource_id and tag_id.
 
 
 

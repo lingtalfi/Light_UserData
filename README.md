@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-08-31
+2019-09-27 -> 2020-11-09
 
 
 
@@ -57,23 +57,26 @@ user_data:
     methods:
         setContainer:
             container: @container()
-        setObfuscationParams:
-            algo: default
-            secret: P0zeg7e,4dD
+#        setObfuscationParams:
+#            algo: default
+#            secret: P0zeg7e,4dD
         setRootDir:
             dir: ${app_dir}/user-data
-        setVirtualMachine:
-            vm:
-                instance: Ling\Light_UserData\VirtualStorage\LightUserDataVirtualStorage
-                methods:
-                    setRootDir:
-                        dir: ${app_dir}/tmp/Light_UserData/vm
 
 
 
 # --------------------------------------
 # hooks
 # --------------------------------------
+$ajax_handler.methods_collection:
+    -
+        method: registerHandler
+        args:
+            id: Light_UserData
+            handler:
+                instance: Ling\Light_UserData\AjaxHandler\LightUserDataAjaxHandler
+
+
 $breeze_generator.methods_collection:
     -
         method: addConfigurationEntryByFile
@@ -124,6 +127,7 @@ $realform_handler_alias_helper.methods_collection:
 
 
 
+
 ```
 
 
@@ -133,6 +137,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.0 -- 2020-09-11
+
+    - update service, use new resource/file concept, removed virtual file server in favor of real file server
+    
 - 1.18.1 -- 2020-08-31
 
     - fix LightUserDataService->list returning hidden files

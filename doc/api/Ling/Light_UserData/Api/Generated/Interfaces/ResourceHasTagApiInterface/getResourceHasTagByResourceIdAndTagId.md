@@ -7,7 +7,7 @@ ResourceHasTagApiInterface::getResourceHasTagByResourceIdAndTagId
 
 
 
-ResourceHasTagApiInterface::getResourceHasTagByResourceIdAndTagId — Returns the resourceHasTag row identified by the given resource_id and tag_id.
+ResourceHasTagApiInterface::getResourceHasTagByResourceIdAndTagId — Returns the resource has tag row identified by the given resource_id and tag_id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [ResourceHasTagApiInterface::getResourceHasTagByResourceIdAndTag
 
 
 
-Returns the resourceHasTag row identified by the given resource_id and tag_id.
+Returns the resource has tag row identified by the given resource_id and tag_id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception

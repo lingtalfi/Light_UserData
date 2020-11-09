@@ -117,7 +117,7 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
         $q = '';
         $options = $this->fetchRoutine($q, $markers, $components);
         $fetchStyle = null;
-        if (true === $options['singleColumns']) {
+        if (true === $options['singleColumn']) {
             $fetchStyle = \PDO::FETCH_COLUMN;
         }
         return $this->pdoWrapper->fetchAll($q, $markers, $fetchStyle);
@@ -130,15 +130,19 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
     {
         $markers = [];
         $q = '';
-        $this->fetchRoutine($q, $markers, $components);
-        return $this->pdoWrapper->fetch($q, $markers);
+        $options = $this->fetchRoutine($q, $markers, $components);
+        $fetchStyle = null;
+        if (true === $options['singleColumn']) {
+            $fetchStyle = \PDO::FETCH_COLUMN;
+        }
+        return $this->pdoWrapper->fetch($q, $markers, $fetchStyle);
     }
 
     /**
      * @implementation
      */
     public function getResourceById(int $id, $default = null, bool $throwNotFoundEx = false)
-    { 
+    {
         $ret = $this->pdoWrapper->fetch("select * from `$this->table` where id=:id", [
             "id" => $id,
 
@@ -157,15 +161,16 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
     /**
      * @implementation
      */
-    public function getResourceByResourceIdentifier(string $resource_identifier, $default = null, bool $throwNotFoundEx = false)
-    { 
-        $ret = $this->pdoWrapper->fetch("select * from `$this->table` where resource_identifier=:resource_identifier", [
-            "resource_identifier" => $resource_identifier,
+    public function getResourceByLudUserIdAndCanonical(int $lud_user_id, string $canonical, $default = null, bool $throwNotFoundEx = false)
+    {
+        $ret = $this->pdoWrapper->fetch("select * from `$this->table` where lud_user_id=:lud_user_id and canonical=:canonical", [
+            "lud_user_id" => $lud_user_id,
+				"canonical" => $canonical,
 
         ]);
         if (false === $ret) {
             if (true === $throwNotFoundEx) {
-                throw new \RuntimeException("Row not found with resource_identifier=$resource_identifier.");
+                throw new \RuntimeException("Row not found with lud_user_id=$lud_user_id, canonical=$canonical.");
             } else {
                 $ret = $default;
             }
@@ -253,16 +258,17 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
     /**
      * @implementation
      */
-    public function getResourceIdByResourceIdentifier(string $resource_identifier, $default = null, bool $throwNotFoundEx = false)
+    public function getResourceIdByLudUserIdAndCanonical(int $lud_user_id, string $canonical, $default = null, bool $throwNotFoundEx = false)
     {
-        $ret = $this->pdoWrapper->fetch("select id from `$this->table` where resource_identifier=:resource_identifier", [
-            "resource_identifier" => $resource_identifier,
+        $ret = $this->pdoWrapper->fetch("select id from `$this->table` where lud_user_id=:lud_user_id and canonical=:canonical", [
+            "lud_user_id" => $lud_user_id,
+			"canonical" => $canonical,
 
 
         ], \PDO::FETCH_COLUMN);
         if (false === $ret) {
             if (true === $throwNotFoundEx) {
-                throw new \RuntimeException("Row not found with resource_identifier=$resource_identifier.");
+                throw new \RuntimeException("Row not found with lud_user_id=$lud_user_id, canonical=$canonical.");
             } else {
                 $ret = $default;
             }
@@ -290,7 +296,7 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
      * @implementation
      */
     public function updateResourceById(int $id, array $resource, array $extraWhere = [], array $markers = [])
-    { 
+    {
         $this->pdoWrapper->update($this->table, $resource, array_merge([
             "id" => $id,
 
@@ -300,10 +306,11 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
     /**
      * @implementation
      */
-    public function updateResourceByResourceIdentifier(string $resource_identifier, array $resource, array $extraWhere = [], array $markers = [])
-    { 
+    public function updateResourceByLudUserIdAndCanonical(int $lud_user_id, string $canonical, array $resource, array $extraWhere = [], array $markers = [])
+    {
         $this->pdoWrapper->update($this->table, $resource, array_merge([
-            "resource_identifier" => $resource_identifier,
+            "lud_user_id" => $lud_user_id,
+			"canonical" => $canonical,
 
         ], $extraWhere), $markers);
     }
@@ -333,7 +340,7 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
      * @implementation
      */
     public function deleteResourceById(int $id)
-    { 
+    {
         $this->pdoWrapper->delete($this->table, [
             "id" => $id,
 
@@ -343,10 +350,11 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
     /**
      * @implementation
      */
-    public function deleteResourceByResourceIdentifier(string $resource_identifier)
-    { 
+    public function deleteResourceByLudUserIdAndCanonical(int $lud_user_id, string $canonical)
+    {
         $this->pdoWrapper->delete($this->table, [
-            "resource_identifier" => $resource_identifier,
+            "lud_user_id" => $lud_user_id,
+			"canonical" => $canonical,
 
         ]);
     }
@@ -364,12 +372,23 @@ class ResourceApi extends CustomLightUserDataBaseApi implements ResourceApiInter
     /**
      * @implementation
      */
-    public function deleteResourceByResourceIdentifiers(array $resource_identifiers)
+    public function deleteResourceByLudUserIdsAndCanonicals(array $lud_user_ids)
     {
-        $this->pdoWrapper->delete($this->table, Where::inst()->key("resource_identifier")->in($resource_identifiers));
+        $this->pdoWrapper->delete($this->table, Where::inst()->key("lud_user_id")->in($lud_user_ids));
     }
 
 
+
+
+    /**
+     * @implementation
+     */
+    public function deleteResourceByLudUserId(int $userId)
+    {
+        $this->pdoWrapper->delete($this->table, [
+            "lud_user_id" => $userId,
+        ]);
+    }
 
 
     //--------------------------------------------

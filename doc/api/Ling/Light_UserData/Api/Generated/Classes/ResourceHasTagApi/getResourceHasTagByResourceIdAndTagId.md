@@ -7,7 +7,7 @@ ResourceHasTagApi::getResourceHasTagByResourceIdAndTagId
 
 
 
-ResourceHasTagApi::getResourceHasTagByResourceIdAndTagId — Returns the resourceHasTag row identified by the given resource_id and tag_id.
+ResourceHasTagApi::getResourceHasTagByResourceIdAndTagId — Returns the resource has tag row identified by the given resource_id and tag_id.
 
 
 
@@ -21,7 +21,7 @@ public [ResourceHasTagApi::getResourceHasTagByResourceIdAndTagId](https://github
 
 
 
-Returns the resourceHasTag row identified by the given resource_id and tag_id.
+Returns the resource has tag row identified by the given resource_id and tag_id.
 
 If the row is not found, this method's return depends on the throwNotFoundEx flag:
 - if true, the method throws an exception
@@ -70,7 +70,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::getResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L142-L157)
+See the source code for method [ResourceHasTagApi::getResourceHasTagByResourceIdAndTagId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L146-L161)
 
 
 See Also

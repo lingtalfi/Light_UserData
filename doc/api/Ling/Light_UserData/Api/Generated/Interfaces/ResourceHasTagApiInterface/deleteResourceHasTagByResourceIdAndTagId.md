@@ -7,7 +7,7 @@ ResourceHasTagApiInterface::deleteResourceHasTagByResourceIdAndTagId
 
 
 
-ResourceHasTagApiInterface::deleteResourceHasTagByResourceIdAndTagId — Deletes the resourceHasTag identified by the given resource_id and tag_id.
+ResourceHasTagApiInterface::deleteResourceHasTagByResourceIdAndTagId — Deletes the resource has tag identified by the given resource_id and tag_id.
 
 
 
@@ -21,7 +21,7 @@ abstract public [ResourceHasTagApiInterface::deleteResourceHasTagByResourceIdAnd
 
 
 
-Deletes the resourceHasTag identified by the given resource_id and tag_id.
+Deletes the resource has tag identified by the given resource_id and tag_id.
 
 
 
@@ -66,5 +66,5 @@ See Also
 
 The [ResourceHasTagApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceHasTagApiInterface.md) class.
 
-Previous method: [delete](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceHasTagApiInterface/delete.md)<br>Next method: [deleteResourceHasTagByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceHasTagApiInterface/deleteResourceHasTagByResourceId.md)<br>
+Previous method: [delete](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceHasTagApiInterface/delete.md)<br>Next method: [deleteResourceHasTagByResourceIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceHasTagApiInterface/deleteResourceHasTagByResourceIds.md)<br>
 

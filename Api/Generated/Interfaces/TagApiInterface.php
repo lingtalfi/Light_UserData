@@ -21,7 +21,7 @@ interface TagApiInterface
      * If the row you're trying to insert triggers a duplicate error, the behaviour of this method depends on
      * the ignoreDuplicate flag:
      * - if true, the error will be caught internally, the return of the method is not affected
-     * - if false, the error will not be caught, and depending on your configuration, it might either
+     * - if false, the error will not be caught, and depending on your pdo configuration, it might either
      *          trigger an exception, or fail silently in which case this method returns false.
      *
      *
@@ -212,13 +212,6 @@ interface TagApiInterface
      */
     public function getTagsByResourceId(string $resourceId): array;
 
-    /**
-     * Returns the rows of the luda_tag table bound to the given resource resource_identifier.
-     * @param string $resourceResourceIdentifier
-     * @return array
-     */
-    public function getTagsByResourceResourceIdentifier(string $resourceResourceIdentifier): array;
-
 
 
     /**
@@ -230,27 +223,11 @@ interface TagApiInterface
 
 
     /**
-     * Returns an array of luda_tag.id bound to the given resource resource_identifier.
-     * @param string $resourceResourceIdentifier
-     * @return array
-     */
-    public function getTagIdsByResourceResourceIdentifier(string $resourceResourceIdentifier): array;
-
-
-    /**
      * Returns an array of luda_tag.name bound to the given resource id.
      * @param string $resourceId
      * @return array
      */
     public function getTagNamesByResourceId(string $resourceId): array;
-
-
-    /**
-     * Returns an array of luda_tag.name bound to the given resource resource_identifier.
-     * @param string $resourceResourceIdentifier
-     * @return array
-     */
-    public function getTagNamesByResourceResourceIdentifier(string $resourceResourceIdentifier): array;
 
 
 
@@ -357,6 +334,8 @@ interface TagApiInterface
      * @throws \Exception
      */
     public function deleteTagByNames(array $names);
+
+
 
 
 

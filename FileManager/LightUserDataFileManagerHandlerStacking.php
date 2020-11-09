@@ -9,19 +9,27 @@ use Ling\Bat\FileSystemTool;
 use Ling\Bat\UriTool;
 use Ling\Light\Http\HttpRequestInterface;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
-use Ling\Light_UploadGems\GemHelper\GemHelperInterface;
+use Ling\Light_UploadGems\GemHelper\GemHelper;
 use Ling\Light_UserData\Exception\LightUserDataFileManagerHandlerException;
 use Ling\Light_UserData\Service\LightUserDataService;
 use Ling\Light_UserData\TemporaryVirtualFileSystem\LightUserDataTemporaryVirtualFileSystem;
+use Ling\Light_UserManager\Service\LightUserManagerService;
 use Ling\Light_ZouUploader\ZouUploader;
 
 /**
- * The LightUserDataFileManagerHandler class.
+ * The LightUserDataFileManagerHandlerStacking class.
  *
  * The goal of this class is to handle the @page(file manager protocol) for the Light_UserData plugin.
  *
+ * This class use a stacking vfs, which is not recommended.
+ * Check out the @page(TemporaryVirtualFileSystem conceptions notes) for more details.
+ *
+ *
+ *
+ * This class is deprecated, I keep it just in case I need a reference to the commit method below.
+ *
  */
-class LightUserDataFileManagerHandler
+class LightUserDataFileManagerHandlerStacking
 {
 
 
@@ -226,7 +234,11 @@ class LightUserDataFileManagerHandler
             case "update":
 
 
-                $user = $this->service->getValidWebsiteUser();
+                /**
+                 * @var $um LightUserManagerService
+                 */
+                $um = $this->container->get("user_manager");
+                $user = $um->getValidWebsiteUser();
 
 
                 // part of the file manager protocol response...
@@ -646,11 +658,11 @@ class LightUserDataFileManagerHandler
      * We use internal heuristics, just look at the code to see how we do it.
      *
      * @param HttpRequestInterface $request
-     * @param GemHelperInterface $helper
+     * @param GemHelper $helper
      * @return string
      * @throws \Exception
      */
-    protected function getDestinationPath(HttpRequestInterface $request, GemHelperInterface $helper): string
+    protected function getDestinationPath(HttpRequestInterface $request, GemHelper $helper): string
     {
         $path = $helper->getCustomConfigValue("path"); // mandatory
         $filename = "";
@@ -722,6 +734,10 @@ class LightUserDataFileManagerHandler
      */
     private function getVirtualServerContextId()
     {
-        return $this->container->get("user_data")->getValidWebsiteUser()->getIdentifier();
+        /**
+         * @var $um LightUserManagerService
+         */
+        $um = $this->container->get("user_manager");
+        return $um->getValidWebsiteUser()->getIdentifier();
     }
 }

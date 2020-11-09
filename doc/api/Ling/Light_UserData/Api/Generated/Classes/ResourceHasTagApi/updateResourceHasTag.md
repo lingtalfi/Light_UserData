@@ -7,7 +7,7 @@ ResourceHasTagApi::updateResourceHasTag
 
 
 
-ResourceHasTagApi::updateResourceHasTag — Updates the resourceHasTag row.
+ResourceHasTagApi::updateResourceHasTag — Updates the resource has tag row.
 
 
 
@@ -21,7 +21,7 @@ public [ResourceHasTagApi::updateResourceHasTag](https://github.com/lingtalfi/Li
 
 
 
-Updates the resourceHasTag row.
+Updates the resource has tag row.
 
 
 
@@ -62,7 +62,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [ResourceHasTagApi::updateResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L261-L264)
+See the source code for method [ResourceHasTagApi::updateResourceHasTag](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/ResourceHasTagApi.php#L265-L268)
 
 
 See Also

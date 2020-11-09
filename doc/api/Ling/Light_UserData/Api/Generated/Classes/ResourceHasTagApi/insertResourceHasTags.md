@@ -7,7 +7,7 @@ ResourceHasTagApi::insertResourceHasTags
 
 
 
-ResourceHasTagApi::insertResourceHasTags — Inserts the given resourceHasTag rows in the database.
+ResourceHasTagApi::insertResourceHasTags — Inserts the given resource has tag rows in the database.
 
 
 
@@ -21,7 +21,7 @@ public [ResourceHasTagApi::insertResourceHasTags](https://github.com/lingtalfi/L
 
 
 
-Inserts the given resourceHasTag rows in the database.
+Inserts the given resource has tag rows in the database.
 By default, it returns an array of the result of the PDO::lastInsertId method for each insert.
 If the returnRic flag is set to true, the method will return an array of the ric array (for each insert) instead of the lastInsertId.
 

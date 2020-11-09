@@ -49,7 +49,7 @@ Returns array.
 
 Source Code
 ===========
-See the source code for method [TagApi::getTagIdsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/TagApi.php#L314-L324)
+See the source code for method [TagApi::getTagIdsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/TagApi.php#L302-L312)
 
 
 See Also
@@ -57,5 +57,5 @@ See Also
 
 The [TagApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi.md) class.
 
-Previous method: [getTagsByResourceResourceidentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsByResourceResourceidentifier.md)<br>Next method: [getTagIdsByResourceResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagIdsByResourceResourceIdentifier.md)<br>
+Previous method: [getTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagsByResourceId.md)<br>Next method: [getTagNamesByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/TagApi/getTagNamesByResourceId.md)<br>
 
