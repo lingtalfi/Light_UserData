@@ -1,6 +1,6 @@
 Ling/Light_UserData
 ================
-2019-09-27 --> 2020-11-09
+2019-09-27 --> 2020-11-10
 
 
 
@@ -472,6 +472,7 @@ Table of contents
     - [LightUserDataService::getResourcePathByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourcePathByResourceIdentifier.md) &ndash; Returns the absolute path to the source file of the resource which identifier is given.
     - [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceInfoByResourceIdentifier.md) &ndash; Returns a [resource info array](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md#the-resource-info-array) for the given resource id, or false if the resource info wasn't found.
     - [LightUserDataService::getUrlByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUrlByResourceIdentifier.md) &ndash; Returns the url to access the resource identified by the given $resourceIdentifier.
+    - [LightUserDataService::getWebAccessServiceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getWebAccessServiceUrl.md) &ndash; Returns the url of the web access service.
     - [LightUserDataService::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setContainer.md) &ndash; Sets the container.
     - [LightUserDataService::getContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getContainer.md) &ndash; Returns the container instance attached to the service.
     - [LightUserDataService::setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setRootDir.md) &ndash; Sets the rootDir.
@@ -481,41 +482,6 @@ Table of contents
     - [LightUserDataService::updateResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/updateResourceByFileItems.md) &ndash; Updates the resource (in the database) which identifier is given, and which is described by the given fileItems.
     - [LightUserDataService::getNewResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getNewResourceIdentifier.md) &ndash; the luda_resource.resouce_identifier value.
     - [LightUserDataService::getResourceIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getResourceIdentifierByUrl.md) &ndash; Returns the identifier from a given url.
-- [LightUserDataServiceOld](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld.md) &ndash; The LightUserDataService class.
-    - [LightUserDataServiceOld::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/__construct.md) &ndash; Builds the LightUserDataService instance.
-    - [LightUserDataServiceOld::install](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/install.md) &ndash; Installs the plugin in the light application.
-    - [LightUserDataServiceOld::uninstall](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/uninstall.md) &ndash; Uninstalls the plugin.
-    - [LightUserDataServiceOld::isInstalled](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/isInstalled.md) &ndash; Returns whether the core install phase of the plugin is fully completed.
-    - [LightUserDataServiceOld::getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getDependencies.md) &ndash; Returns the array of dependencies.
-    - [LightUserDataServiceOld::registerPostInstallerCallables](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/registerPostInstallerCallables.md) &ndash; Registers all the post installers for this plugin.
-    - [LightUserDataServiceOld::onUserGroupCreate](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/onUserGroupCreate.md) &ndash; Listener for the [Light_Database.on_lud_user_group_create event](https://github.com/lingtalfi/Light_Database/blob/master/personal/mydoc/pages/events.md).
-    - [LightUserDataServiceOld::getFactory](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getFactory.md) &ndash; Returns the Light_UserData factory.
-    - [LightUserDataServiceOld::list](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/list.md) &ndash; Returns the array of the files owned by the current user.
-    - [LightUserDataServiceOld::save](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/save.md) &ndash; Saves the given meta array, and returns an array of information related to the saved file.
-    - [LightUserDataServiceOld::removeResourceByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/removeResourceByUrl.md) &ndash; Removes the resource which url is given from the database and the filesystem.
-    - [LightUserDataServiceOld::removeAllFilesByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/removeAllFilesByResourceIdentifier.md) &ndash; Removes all the files related to the given resource id.
-    - [LightUserDataServiceOld::removeUnlinkedResourcesByUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/removeUnlinkedResourcesByUser.md) &ndash; for the user which identifier is given.
-    - [LightUserDataServiceOld::getResourceUrlByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getResourceUrlByResourceIdentifier.md) &ndash; Returns the url to access the resource identified by the given $resourceIdentifier.
-    - [LightUserDataServiceOld::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getResourceInfoByResourceIdentifier.md) &ndash; Returns an info array matching the file which resourceIdentifier is given.
-    - [LightUserDataServiceOld::getResourceInfoByResourceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getResourceInfoByResourceUrl.md) &ndash; Returns the resource info array its given url.
-    - [LightUserDataServiceOld::getContent](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getContent.md) &ndash; Returns the content of the file of the current user which relative path is given.
-    - [LightUserDataServiceOld::getContentByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getContentByResourceId.md) &ndash; Returns the content of the file identified by the given resourceId.
-    - [LightUserDataServiceOld::update2SvpResource](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/update2SvpResource.md) &ndash; Removes the 2svp extension from the given resource, and returns the new resource name.
-    - [LightUserDataServiceOld::getMaximumCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getMaximumCapacityByUser.md) &ndash; Returns the maximum number of bytes that the given user is allowed to use.
-    - [LightUserDataServiceOld::getCurrentCapacityByUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getCurrentCapacityByUser.md) &ndash; Returns the current storage space used by the given user, in bytes.
-    - [LightUserDataServiceOld::handleFileManagerProtocol](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/handleFileManagerProtocol.md) &ndash; Handles the given [file manager protocol](https://github.com/lingtalfi/TheBar/blob/master/discussions/file-manager-protocol.md) action and returns the expected response.
-    - [LightUserDataServiceOld::getFileManagerProtocolHandler](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getFileManagerProtocolHandler.md) &ndash; Returns a prepared instance of the file manager handler.
-    - [LightUserDataServiceOld::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/setContainer.md) &ndash; Sets the container.
-    - [LightUserDataServiceOld::getContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getContainer.md) &ndash; Returns the container instance attached to the service.
-    - [LightUserDataServiceOld::setObfuscationParams](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/setObfuscationParams.md) &ndash; Sets the obfuscation parameters to use.
-    - [LightUserDataServiceOld::setRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/setRootDir.md) &ndash; Sets the rootDir.
-    - [LightUserDataServiceOld::getRootDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getRootDir.md) &ndash; Returns the rootDir of this instance.
-    - [LightUserDataServiceOld::setTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/setTemporaryUser.md) &ndash; Sets a temporary user.
-    - [LightUserDataServiceOld::unsetTemporaryUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/unsetTemporaryUser.md) &ndash; Unsets the temporary user if any.
-    - [LightUserDataServiceOld::getUserDir](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getUserDir.md) &ndash; Returns the directory path of the current user.
-    - [LightUserDataServiceOld::getValidWebsiteUser](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getValidWebsiteUser.md) &ndash; Returns the [current user](https://github.com/lingtalfi/Light_UserData/blob/master/doc/pages/conception-notes.md#current-user), which is a LightWebsiteUser.
-    - [LightUserDataServiceOld::getIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getIdentifierByUrl.md) &ndash; Returns the identifier from a given url.
-    - [LightUserDataServiceOld::getNewResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataServiceOld/getNewResourceIdentifier.md) &ndash; Returns the resource identifier using the given resource id.
 - [LightUserDataTemporaryVirtualFileSystem](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/TemporaryVirtualFileSystem/LightUserDataTemporaryVirtualFileSystem.md) &ndash; The LightUserDataTemporaryVirtualFileSystem class.
     - [LightUserDataTemporaryVirtualFileSystem::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/TemporaryVirtualFileSystem/LightUserDataTemporaryVirtualFileSystem/__construct.md) &ndash; Builds the LightUserDataTemporaryVirtualFileSystem instance.
     - [LightUserDataTemporaryVirtualFileSystem::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/TemporaryVirtualFileSystem/LightUserDataTemporaryVirtualFileSystem/setContainer.md) &ndash; Sets the container.
@@ -571,13 +537,12 @@ Dependencies
 - [Light_ZouUploader](https://github.com/lingtalfi/Light_ZouUploader)
 - [Light_UploadGems](https://github.com/lingtalfi/Light_UploadGems)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
-- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 - [ExceptionCodes](https://github.com/lingtalfi/ExceptionCodes)
 - [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
-- [DirScanner](https://github.com/lingtalfi/DirScanner)
 - [TemporaryVirtualFileSystem](https://github.com/lingtalfi/TemporaryVirtualFileSystem)
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
+- [CheapLogger](https://github.com/lingtalfi/CheapLogger)
 
 

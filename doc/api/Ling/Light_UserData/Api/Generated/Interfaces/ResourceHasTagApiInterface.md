@@ -4,7 +4,7 @@
 
 The ResourceHasTagApiInterface class
 ================
-2019-09-27 --> 2020-11-09
+2019-09-27 --> 2020-11-10
 
 
 

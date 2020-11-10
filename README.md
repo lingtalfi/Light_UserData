@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-11-09
+2019-09-27 -> 2020-11-10
 
 
 
@@ -137,7 +137,11 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
-- 1.19.0 -- 2020-09-11
+- 1.19.1 -- 2020-11-10
+
+    - update service, add getWebAccessServiceUrl method
+    
+- 1.19.0 -- 2020-11-09
 
     - update service, use new resource/file concept, removed virtual file server in favor of real file server
     

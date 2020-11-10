@@ -54,7 +54,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L664-L674)
+See the source code for method [LightUserDataService::setContainer](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L678-L688)
 
 
 See Also
@@ -62,5 +62,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [getUrlByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getUrlByResourceIdentifier.md)<br>Next method: [getContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getContainer.md)<br>
+Previous method: [getWebAccessServiceUrl](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getWebAccessServiceUrl.md)<br>Next method: [getContainer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getContainer.md)<br>
 

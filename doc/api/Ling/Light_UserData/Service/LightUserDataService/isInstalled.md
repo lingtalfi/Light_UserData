@@ -47,7 +47,7 @@ Returns bool.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::isInstalled](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L243-L254)
+See the source code for method [LightUserDataService::isInstalled](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L242-L253)
 
 
 See Also

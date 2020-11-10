@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::checkUserHasResource](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L447-L452)
+See the source code for method [LightUserDataService::checkUserHasResource](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L446-L451)
 
 
 See Also

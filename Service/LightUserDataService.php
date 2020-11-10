@@ -8,7 +8,6 @@ use Ling\Bat\ConvertTool;
 use Ling\Bat\DateTool;
 use Ling\Bat\FileSystemTool;
 use Ling\Bat\UriTool;
-use Ling\CheapLogger\CheapLogger;
 use Ling\ExceptionCodes\ExceptionCode;
 use Ling\Light\Events\LightEvent;
 use Ling\Light\ServiceContainer\LightServiceContainerInterface;
@@ -646,10 +645,25 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
          */
         $params['t'] = time();
         $params = array_merge($params, $urlParams);
-        return $rr->getUrl("luda_route-virtual_server", $params);
+        return $rr->getUrl("luda_route-web_access", $params);
 
     }
 
+
+    /**
+     * Returns the url of the web access service.
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public function getWebAccessServiceUrl(): string
+    {
+        /**
+         * @var $rr LightReverseRouterService
+         */
+        $rr = $this->container->get('reverse_router');
+        return $rr->getUrl("luda_route-web_access");
+    }
 
 
     //--------------------------------------------
