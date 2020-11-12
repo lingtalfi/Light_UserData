@@ -4,7 +4,7 @@
 
 The LightUserDataVirtualFileSystem class
 ================
-2019-09-27 --> 2020-11-10
+2019-09-27 --> 2020-11-12
 
 
 
@@ -151,4 +151,4 @@ See the source code of [Ling\Light_UserData\VirtualFileSystem\LightUserDataVirtu
 
 SeeAlso
 ==============
-Previous class: [LightUserDataTemporaryVirtualFileSystem](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/TemporaryVirtualFileSystem/LightUserDataTemporaryVirtualFileSystem.md)<br>Next class: [LightUserDataVirtualFileSystemOld](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/VirtualFileSystem/LightUserDataVirtualFileSystemOld.md)<br>
+Previous class: [LightUserDataTemporaryVirtualFileSystem](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/TemporaryVirtualFileSystem/LightUserDataTemporaryVirtualFileSystem.md)<br>

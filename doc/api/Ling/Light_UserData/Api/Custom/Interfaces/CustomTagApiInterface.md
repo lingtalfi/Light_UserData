@@ -4,7 +4,7 @@
 
 The CustomTagApiInterface class
 ================
-2019-09-27 --> 2020-11-10
+2019-09-27 --> 2020-11-12
 
 
 
@@ -41,8 +41,11 @@ abstract class <span class="pl-k">CustomTagApiInterface</span> implements [TagAp
     - abstract public [TagApiInterface::getTagsKey2Value](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagsKey2Value.md)(string $key, string $value, $where, ?array $markers = []) : array
     - abstract public [TagApiInterface::getTagIdByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagIdByName.md)(string $name, ?$default = null, ?bool $throwNotFoundEx = false) : string | mixed
     - abstract public [TagApiInterface::getTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagsByResourceId.md)(string $resourceId) : array
+    - abstract public [TagApiInterface::getTagsByResourceLudUserIdAndCanonical](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagsByResourceLudUserIdAndCanonical.md)(string $resourceLudUserId, string $resourceCanonical) : array
     - abstract public [TagApiInterface::getTagIdsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagIdsByResourceId.md)(string $resourceId) : array
+    - abstract public [TagApiInterface::getTagIdsByResourceLudUserIdAndCanonical](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagIdsByResourceLudUserIdAndCanonical.md)(string $resourceLudUserId, string $resourceCanonical) : array
     - abstract public [TagApiInterface::getTagNamesByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagNamesByResourceId.md)(string $resourceId) : array
+    - abstract public [TagApiInterface::getTagNamesByResourceLudUserIdAndCanonical](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagNamesByResourceLudUserIdAndCanonical.md)(string $resourceLudUserId, string $resourceCanonical) : array
     - abstract public [TagApiInterface::getAllIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getAllIds.md)() : array
     - abstract public [TagApiInterface::updateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/updateTagById.md)(int $id, array $tag, ?array $extraWhere = [], ?array $markers = []) : void
     - abstract public [TagApiInterface::updateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/updateTagByName.md)(string $name, array $tag, ?array $extraWhere = [], ?array $markers = []) : void
@@ -77,8 +80,11 @@ Methods
 - [TagApiInterface::getTagsKey2Value](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagsKey2Value.md) &ndash; Returns an array of $key => $value from the tag rows identified by the given [where conditions](https://github.com/lingtalfi/SimplePdoWrapper#the-where-conditions).
 - [TagApiInterface::getTagIdByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagIdByName.md) &ndash; Returns the id of the luda_tag table.
 - [TagApiInterface::getTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagsByResourceId.md) &ndash; Returns the rows of the luda_tag table bound to the given resource id.
+- [TagApiInterface::getTagsByResourceLudUserIdAndCanonical](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagsByResourceLudUserIdAndCanonical.md) &ndash; Returns the rows of the luda_tag table bound to the given resource lud_user_id and canonical.
 - [TagApiInterface::getTagIdsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagIdsByResourceId.md) &ndash; Returns an array of luda_tag.id bound to the given resource id.
+- [TagApiInterface::getTagIdsByResourceLudUserIdAndCanonical](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagIdsByResourceLudUserIdAndCanonical.md) &ndash; Returns an array of luda_tag.id bound to the given resource lud_user_id and canonical.
 - [TagApiInterface::getTagNamesByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagNamesByResourceId.md) &ndash; Returns an array of luda_tag.name bound to the given resource id.
+- [TagApiInterface::getTagNamesByResourceLudUserIdAndCanonical](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getTagNamesByResourceLudUserIdAndCanonical.md) &ndash; Returns an array of luda_tag.name bound to the given resource lud_user_id and canonical.
 - [TagApiInterface::getAllIds](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/getAllIds.md) &ndash; Returns an array of all tag ids.
 - [TagApiInterface::updateTagById](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/updateTagById.md) &ndash; Updates the tag row identified by the given id.
 - [TagApiInterface::updateTagByName](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/TagApiInterface/updateTagByName.md) &ndash; Updates the tag row identified by the given name.

@@ -19,7 +19,6 @@ dependencies:
         - Light_UserDatabase
         - TemporaryVirtualFileSystem
         - BabyYaml
-        - CheapLogger
     
 
 post_install: 

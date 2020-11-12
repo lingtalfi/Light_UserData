@@ -212,6 +212,14 @@ interface TagApiInterface
      */
     public function getTagsByResourceId(string $resourceId): array;
 
+    /**
+     * Returns the rows of the luda_tag table bound to the given resource lud_user_id and canonical.
+     * @param string $resourceLudUserId
+* @param string $resourceCanonical
+     * @return array
+     */
+    public function getTagsByResourceLudUserIdAndCanonical(string $resourceLudUserId, string $resourceCanonical): array;
+
 
 
     /**
@@ -223,11 +231,29 @@ interface TagApiInterface
 
 
     /**
+     * Returns an array of luda_tag.id bound to the given resource lud_user_id and canonical.
+     * @param string $resourceLudUserId
+* @param string $resourceCanonical
+     * @return array
+     */
+    public function getTagIdsByResourceLudUserIdAndCanonical(string $resourceLudUserId, string $resourceCanonical): array;
+
+
+    /**
      * Returns an array of luda_tag.name bound to the given resource id.
      * @param string $resourceId
      * @return array
      */
     public function getTagNamesByResourceId(string $resourceId): array;
+
+
+    /**
+     * Returns an array of luda_tag.name bound to the given resource lud_user_id and canonical.
+     * @param string $resourceLudUserId
+* @param string $resourceCanonical
+     * @return array
+     */
+    public function getTagNamesByResourceLudUserIdAndCanonical(string $resourceLudUserId, string $resourceCanonical): array;
 
 
 

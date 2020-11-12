@@ -56,7 +56,7 @@ Returns false | int.
 
 Source Code
 ===========
-See the source code for method [TagApi::delete](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/TagApi.php#L376-L380)
+See the source code for method [TagApi::delete](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Generated/Classes/TagApi.php#L425-L429)
 
 
 See Also

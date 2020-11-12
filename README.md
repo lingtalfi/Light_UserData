@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-11-10
+2019-09-27 -> 2020-11-12
 
 
 
@@ -137,6 +137,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.2 -- 2020-11-12
+
+    - clean service, remove obsolete classes
+    
 - 1.19.1 -- 2020-11-10
 
     - update service, add getWebAccessServiceUrl method

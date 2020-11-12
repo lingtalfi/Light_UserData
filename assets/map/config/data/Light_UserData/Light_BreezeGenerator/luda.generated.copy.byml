@@ -4,7 +4,9 @@ conf:
 #        Use either file or database as the source
         file: /Users/pierrelafitte/Documents/it/web/Komin>/service création/projets/jin_site_demo/universe/Ling/Light_UserData/assets/fixtures/create-structure.sql
 #        database: true
-#        tables: []
+#        tables:
+#            - luda_resource
+#            - luda_resource_file
 
 
 #        Used to filter the tables to parse

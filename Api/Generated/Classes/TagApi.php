@@ -294,6 +294,23 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
         ]);
     }
 
+    /**
+     * @implementation
+     */
+    public function getTagsByResourceLuduseridandcanonical(string $resourceLudUserId, string $resourceCanonical): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.* from `$this->table` a
+        inner join luda_resource_has_tag h on h.tag_id=a.id
+        where h.resource_id=:resource_id
+
+
+        ", [
+            ":resource_lud_user_id" => $resourceLudUserId,
+	":resource_canonical" => $resourceCanonical,
+        ]);
+    }
+
 
 
     /**
@@ -314,6 +331,22 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
     /**
      * @implementation
      */
+    public function getTagIdsByResourceLudUserIdAndCanonical(string $resourceLudUserId, string $resourceCanonical): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.id from `$this->table` a
+        inner join luda_resource_has_tag h on h.tag_id=a.id
+        inner join luda_resource b on b.id=h.resource_id
+        where b.lud_user_id=:resource_lud_user_id and b.canonical=:resource_canonical
+        ", [
+            ":resource_lud_user_id" => $resourceLudUserId,
+	":resource_canonical" => $resourceCanonical,
+        ], \PDO::FETCH_COLUMN);
+    }
+
+    /**
+     * @implementation
+     */
     public function getTagNamesByResourceId(string $resourceId): array
     {
         return $this->pdoWrapper->fetchAll("
@@ -323,6 +356,22 @@ class TagApi extends CustomLightUserDataBaseApi implements TagApiInterface
         where b.id=:resource_id
         ", [
             ":resource_id" => $resourceId,
+        ], \PDO::FETCH_COLUMN);
+    }
+
+    /**
+     * @implementation
+     */
+    public function getTagNamesByResourceLudUserIdAndCanonical(string $resourceLudUserId, string $resourceCanonical): array
+    {
+        return $this->pdoWrapper->fetchAll("
+        select a.name from `$this->table` a
+        inner join luda_resource_has_tag h on h.tag_id=a.id
+        inner join luda_resource b on b.id=h.resource_id
+        where b.lud_user_id=:resource_lud_user_id and b.canonical=:resource_canonical
+        ", [
+            ":resource_lud_user_id" => $resourceLudUserId,
+	":resource_canonical" => $resourceCanonical,
         ], \PDO::FETCH_COLUMN);
     }
 
