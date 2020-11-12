@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::userHasResource](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L424-L434)
+See the source code for method [LightUserDataService::userHasResource](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L462-L472)
 
 
 See Also

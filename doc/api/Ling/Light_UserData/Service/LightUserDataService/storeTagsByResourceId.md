@@ -58,7 +58,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::storeTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1247-L1267)
+See the source code for method [LightUserDataService::storeTagsByResourceId](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1285-L1305)
 
 
 See Also

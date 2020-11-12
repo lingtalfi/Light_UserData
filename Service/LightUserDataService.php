@@ -28,6 +28,7 @@ use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\Light_UserManager\Service\LightUserManagerService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\SimplePdoWrapper\Util\SimplePdoGenericHelper;
+use Ling\SimplePdoWrapper\Util\Where;
 
 /**
  * The LightUserDataService class.
@@ -349,6 +350,43 @@ class LightUserDataService implements PluginInstallerInterface, PluginPostInstal
     //
     //--------------------------------------------
 
+
+    /**
+     * Returns an array of information about the resource files contained in the given directory.
+     * Each item is an array with the following structure:
+     *
+     * - resource_file_id: string, the id of the resource file entry
+     * - path: string, the relative path of the resource file (relative to the user directory)
+     *
+     *
+     * @param string $directory
+     * @return array
+     */
+    public function listByDirectory(string $directory): array
+    {
+        /**
+         * Note: this method doesn't return the rows directly because
+         * I thought maybe later I would return more properties...
+         */
+        $ret = [];
+
+
+        $userId = $this->getValidWebsiteUser()->getId();
+        $components = [
+            Where::inst()->key("path")->startsWith($directory . "/"),
+        ];
+        $rows = $this->getFactory()->getResourceFileApi()->fetchAllByUserId($userId, $components);
+        foreach ($rows as $row) {
+            $ret[] = [
+                'resource_file_id' => $row['id'],
+                'path' => $row['path'],
+            ];
+        }
+
+        return $ret;
+
+
+    }
 
     /**
      * Returns the maximum number of bytes that the given user is allowed to use.

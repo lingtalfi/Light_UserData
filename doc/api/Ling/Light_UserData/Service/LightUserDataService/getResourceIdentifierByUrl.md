@@ -60,7 +60,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1137-L1147)
+See the source code for method [LightUserDataService::getResourceIdentifierByUrl](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1175-L1185)
 
 
 See Also

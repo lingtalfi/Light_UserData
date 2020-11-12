@@ -24,6 +24,9 @@ Class synopsis
 
 abstract class <span class="pl-k">CustomResourceFileApiInterface</span> implements [ResourceFileApiInterface](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceFileApiInterface.md) {
 
+- Methods
+    - abstract public [fetchAllByUserId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Interfaces/CustomResourceFileApiInterface/fetchAllByUserId.md)(string $userId, ?array $components = []) : array
+
 - Inherited methods
     - abstract public [ResourceFileApiInterface::insertResourceFile](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceFileApiInterface/insertResourceFile.md)(array $resourceFile, ?bool $ignoreDuplicate = true, ?bool $returnRic = false) : mixed
     - abstract public [ResourceFileApiInterface::insertResourceFiles](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceFileApiInterface/insertResourceFiles.md)(array $resourceFiles, ?bool $ignoreDuplicate = true, ?bool $returnRic = false) : mixed
@@ -53,6 +56,7 @@ abstract class <span class="pl-k">CustomResourceFileApiInterface</span> implemen
 Methods
 ==============
 
+- [CustomResourceFileApiInterface::fetchAllByUserId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Interfaces/CustomResourceFileApiInterface/fetchAllByUserId.md) &ndash; Returns the array of resource file rows matching the given components.
 - [ResourceFileApiInterface::insertResourceFile](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceFileApiInterface/insertResourceFile.md) &ndash; Inserts the given resource file in the database.
 - [ResourceFileApiInterface::insertResourceFiles](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceFileApiInterface/insertResourceFiles.md) &ndash; Inserts the given resource file rows in the database.
 - [ResourceFileApiInterface::fetchAll](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Interfaces/ResourceFileApiInterface/fetchAll.md) &ndash; Returns the rows corresponding to given components.

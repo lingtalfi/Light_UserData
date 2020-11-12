@@ -61,7 +61,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::checkUserMaximumStorageLimit](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1195-L1208)
+See the source code for method [LightUserDataService::checkUserMaximumStorageLimit](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1233-L1246)
 
 
 See Also

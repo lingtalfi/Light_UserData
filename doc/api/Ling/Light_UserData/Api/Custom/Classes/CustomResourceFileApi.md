@@ -31,6 +31,7 @@ class <span class="pl-k">CustomResourceFileApi</span> extends [ResourceFileApi](
 
 - Methods
     - public [__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Classes/CustomResourceFileApi/__construct.md)() : void
+    - public [fetchAllByUserId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Classes/CustomResourceFileApi/fetchAllByUserId.md)(string $userId, ?array $components = []) : array
 
 - Inherited methods
     - public [ResourceFileApi::insertResourceFile](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceFileApi/insertResourceFile.md)(array $resourceFile, ?bool $ignoreDuplicate = true, ?bool $returnRic = false) : mixed
@@ -65,6 +66,7 @@ Methods
 ==============
 
 - [CustomResourceFileApi::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Classes/CustomResourceFileApi/__construct.md) &ndash; Builds the CustomResourceFileApi instance.
+- [CustomResourceFileApi::fetchAllByUserId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Classes/CustomResourceFileApi/fetchAllByUserId.md) &ndash; Returns the array of resource file rows matching the given components.
 - [ResourceFileApi::insertResourceFile](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceFileApi/insertResourceFile.md) &ndash; Inserts the given resource file in the database.
 - [ResourceFileApi::insertResourceFiles](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceFileApi/insertResourceFiles.md) &ndash; Inserts the given resource file rows in the database.
 - [ResourceFileApi::fetchAll](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Generated/Classes/ResourceFileApi/fetchAll.md) &ndash; Returns the rows corresponding to given components.

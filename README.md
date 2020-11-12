@@ -137,6 +137,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.3 -- 2020-11-12
+
+    - add service->listByDirectory method
+    
 - 1.19.2 -- 2020-11-12
 
     - clean service, remove obsolete classes

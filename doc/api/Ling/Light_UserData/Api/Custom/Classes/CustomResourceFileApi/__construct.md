@@ -46,7 +46,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [CustomResourceFileApi::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/Classes/CustomResourceFileApi.php#L21-L24)
+See the source code for method [CustomResourceFileApi::__construct](https://github.com/lingtalfi/Light_UserData/blob/master/Api/Custom/Classes/CustomResourceFileApi.php#L23-L26)
 
 
 See Also
@@ -54,5 +54,5 @@ See Also
 
 The [CustomResourceFileApi](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Classes/CustomResourceFileApi.md) class.
 
-
+Next method: [fetchAllByUserId](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Api/Custom/Classes/CustomResourceFileApi/fetchAllByUserId.md)<br>
 
