@@ -52,7 +52,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::checkUserMaxStorageCapacity](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L441-L451)
+See the source code for method [LightUserDataService::checkUserMaxStorageCapacity](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L481-L491)
 
 
 See Also

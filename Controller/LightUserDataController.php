@@ -46,7 +46,6 @@ class LightUserDataController extends LightSimpleHttpServerController
         $useVirtual = (bool)($get['v'] ?? false);
         $httpErrorCode = null;
 
-
         if (true === $useVirtual) {
             //--------------------------------------------
             // FETCHING RESOURCE FROM VIRTUAL SERVER
@@ -152,6 +151,7 @@ class LightUserDataController extends LightSimpleHttpServerController
         } else {
             $response = new HttpResponse("", $httpErrorCode);
         }
+
 
         return $response;
 
