@@ -137,6 +137,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.6 -- 2020-12-08
+
+    - Fix lpi-deps not using natsort.
+
 - 1.19.5 -- 2020-12-04
 
     - Add lpi-deps.byml file
