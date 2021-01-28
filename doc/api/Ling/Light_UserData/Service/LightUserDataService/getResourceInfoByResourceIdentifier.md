@@ -60,7 +60,7 @@ Returns array | false.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L662-L714)
+See the source code for method [LightUserDataService::getResourceInfoByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L466-L518)
 
 
 See Also

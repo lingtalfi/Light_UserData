@@ -60,7 +60,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getResourcePathByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L599-L621)
+See the source code for method [LightUserDataService::getResourcePathByResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L403-L425)
 
 
 See Also

@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2020-11-20
+2019-09-27 -> 2021-01-28
 
 
 
@@ -102,15 +102,6 @@ $events.methods_collection:
                 callable_method: onUserGroupCreate
 
 
-$plugin_installer.methods_collection:
-    -
-        method: registerPlugin
-        args:
-            plugin: Light_UserData
-            installer: @service(user_data)
-
-
-
 $realform_handler_alias_helper.methods_collection:
     -
         method: registerRealformHandlerAliasHelper
@@ -137,6 +128,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.7 -- 2021-01-28
+
+    - adapt api to work with new Light_PluginInstaller api
+  
 - 1.19.6 -- 2020-12-08
 
     - Fix lpi-deps not using natsort.

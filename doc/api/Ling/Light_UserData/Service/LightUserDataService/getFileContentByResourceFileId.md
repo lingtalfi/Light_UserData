@@ -55,7 +55,7 @@ Exceptions thrown
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getFileContentByResourceFileId](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L632-L644)
+See the source code for method [LightUserDataService::getFileContentByResourceFileId](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L436-L448)
 
 
 See Also

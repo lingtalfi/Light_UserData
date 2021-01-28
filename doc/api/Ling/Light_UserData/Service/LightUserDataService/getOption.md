@@ -58,7 +58,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getOption](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L113-L122)
+See the source code for method [LightUserDataService::getOption](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L109-L118)
 
 
 See Also
@@ -66,5 +66,5 @@ See Also
 
 The [LightUserDataService](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService.md) class.
 
-Previous method: [setOptions](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setOptions.md)<br>Next method: [install](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/install.md)<br>
+Previous method: [setOptions](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/setOptions.md)<br>Next method: [getFileManagerHandler](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Service/LightUserDataService/getFileManagerHandler.md)<br>
 

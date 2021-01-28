@@ -69,7 +69,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::createResourceByFileContent](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L892-L935)
+See the source code for method [LightUserDataService::createResourceByFileContent](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L696-L739)
 
 
 See Also

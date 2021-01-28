@@ -71,7 +71,7 @@ Returns void.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::createResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L962-L1055)
+See the source code for method [LightUserDataService::createResourceByFileItems](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L766-L859)
 
 
 See Also

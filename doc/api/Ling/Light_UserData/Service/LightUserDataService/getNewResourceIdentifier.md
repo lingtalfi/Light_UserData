@@ -47,7 +47,7 @@ Returns string.
 
 Source Code
 ===========
-See the source code for method [LightUserDataService::getNewResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1285-L1288)
+See the source code for method [LightUserDataService::getNewResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/Service/LightUserDataService.php#L1089-L1092)
 
 
 See Also
