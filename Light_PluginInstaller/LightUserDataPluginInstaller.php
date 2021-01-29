@@ -35,7 +35,7 @@ class LightUserDataPluginInstaller extends LightBasePluginInstaller
          * @var $exception \Exception
          */
         $exception = null;
-        $this->debugMsg("user_data: adding tables content.");
+        $this->debugMsg("user_data: adding tables content." . PHP_EOL);
 
 
         /**
@@ -103,6 +103,7 @@ class LightUserDataPluginInstaller extends LightBasePluginInstaller
      */
     public function uninstall()
     {
+
         $this->removeLightStandardPermissions();
         $this->dropTables([
             "luda_resource_has_tag",
@@ -120,6 +121,9 @@ class LightUserDataPluginInstaller extends LightBasePluginInstaller
         if (true === $util->hasTable("lud_plugin_option")) {
 
 
+
+
+            $this->debugMsg("user_data: removing plugin option starting with Light_UserData." . PHP_EOL);
             /**
              * @var $exception \Exception
              */
