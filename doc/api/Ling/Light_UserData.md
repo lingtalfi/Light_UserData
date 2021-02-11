@@ -1,6 +1,6 @@
 Ling/Light_UserData
 ================
-2019-09-27 --> 2021-01-29
+2019-09-27 --> 2021-02-11
 
 
 
@@ -469,9 +469,9 @@ Table of contents
     - [LightUserDataPluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
     - [LightUserDataPluginInstaller::getDependencies](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/getDependencies.md) &ndash; Returns the array of dependencies.
     - [LightUserDataPluginInstaller::getTableScope](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/getTableScope.md) &ndash; Returns the [table scope](https://github.com/lingtalfi/TheBar/blob/master/discussions/table-scope.md) for this planet.
-    - LightBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
-    - LightBasePluginInstaller::setContainer &ndash; Sets the container.
-    - LightBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
+    - LightUserDatabaseBasePluginInstaller::__construct &ndash; Builds the LightBasePluginInstaller instance.
+    - LightUserDatabaseBasePluginInstaller::setContainer &ndash; Sets the container.
+    - LightUserDatabaseBasePluginInstaller::isInstalled &ndash; Returns whether the core install phase of the plugin is fully completed.
 - [LightUserDataRealformHandlerAliasHelper](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper.md) &ndash; The LightUserDataRealformHandlerAliasHelper class.
     - [LightUserDataRealformHandlerAliasHelper::getChloroformValidator](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper/getChloroformValidator.md) &ndash; Returns a configured validator instance, based on the given type and validatorConf array.
     - [LightUserDataRealformHandlerAliasHelper::getDataTransformer](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Realform/RealformHandlerAliasHelper/LightUserDataRealformHandlerAliasHelper/getDataTransformer.md) &ndash; Returns the data transformer instance based on the given alias and parameters.
@@ -544,7 +544,6 @@ Dependencies
 - [Light_UserManager](https://github.com/lingtalfi/Light_UserManager)
 - [Light_ZouUploader](https://github.com/lingtalfi/Light_ZouUploader)
 - [Light_UploadGems](https://github.com/lingtalfi/Light_UploadGems)
-- [Light_PluginInstaller](https://github.com/lingtalfi/Light_PluginInstaller)
 - [Light_UserDatabase](https://github.com/lingtalfi/Light_UserDatabase)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
 - [ExceptionCodes](https://github.com/lingtalfi/ExceptionCodes)

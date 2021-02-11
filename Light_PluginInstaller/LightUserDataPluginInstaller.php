@@ -5,7 +5,7 @@ namespace Ling\Light_UserData\Light_PluginInstaller;
 
 
 use Ling\Light_Database\Service\LightDatabaseService;
-use Ling\Light_PluginInstaller\PluginInstaller\LightBasePluginInstaller;
+use Ling\Light_UserDatabase\Light_PluginInstaller\LightUserDatabaseBasePluginInstaller;
 use Ling\Light_UserDatabase\Service\LightUserDatabaseService;
 use Ling\SimplePdoWrapper\SimplePdoWrapperInterface;
 use Ling\SimplePdoWrapper\Util\Where;
@@ -14,7 +14,7 @@ use Ling\SimplePdoWrapper\Util\Where;
 /**
  * The LightUserDataPluginInstaller class.
  */
-class LightUserDataPluginInstaller extends LightBasePluginInstaller
+class LightUserDataPluginInstaller extends LightUserDatabaseBasePluginInstaller
 {
 
     //--------------------------------------------
@@ -119,8 +119,6 @@ class LightUserDataPluginInstaller extends LightBasePluginInstaller
         $db = $this->container->get('database');
         $util = $db->getMysqlInfoUtil();
         if (true === $util->hasTable("lud_plugin_option")) {
-
-
 
 
             $this->debugMsg("user_data: removing plugin option starting with Light_UserData." . PHP_EOL);

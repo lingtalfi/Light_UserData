@@ -12,7 +12,6 @@ dependencies:
         - Light_UserManager
         - Light_ZouUploader
         - Light_UploadGems
-        - Light_PluginInstaller
         - Light_UserDatabase
         - Light_Realform
         - ExceptionCodes
