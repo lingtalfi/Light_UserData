@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2021-02-11
+2019-09-27 -> 2021-02-15
 
 
 
@@ -128,6 +128,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.10 -- 2021-02-15
+
+  - update plugin installer, now uses latest uninstall technique
+  
 - 1.19.9 -- 2021-02-11
 
   - update api, plugin installer now extends LightUserDatabaseBasePluginInstaller
