@@ -128,6 +128,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.11 -- 2021-02-19
+
+    - upgrade dependencies
+
 - 1.19.10 -- 2021-02-15
 
   - update plugin installer, now uses latest uninstall technique
