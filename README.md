@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2021-02-15
+2019-09-27 -> 2021-03-05
 
 
 
@@ -18,6 +18,11 @@ This is part of the [universe framework](https://github.com/karayabin/universe-s
 
 Install
 ==========
+Using the [planet installer](https://github.com/lingtalfi/Light_PlanetInstaller) via [light-cli](https://github.com/lingtalfi/Light_Cli)
+```bash
+lt install Ling.Light_UserData
+```
+
 Using the [uni](https://github.com/lingtalfi/universe-naive-importer) command.
 ```bash
 uni import Ling/Light_UserData
@@ -127,6 +132,10 @@ $realform_handler_alias_helper.methods_collection:
 
 History Log
 =============
+
+- 1.19.12 -- 2021-03-05
+
+    - update README.md, add install alternative
 
 - 1.19.11 -- 2021-02-19
 
