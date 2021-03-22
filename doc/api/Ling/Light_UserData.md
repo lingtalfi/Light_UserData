@@ -1,6 +1,6 @@
 Ling/Light_UserData
 ================
-2019-09-27 --> 2021-03-15
+2019-09-27 --> 2021-03-22
 
 
 
@@ -464,6 +464,10 @@ Table of contents
     - [LightUserDataHelper::getOriginalPath](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Helper/LightUserDataHelper/getOriginalPath.md) &ndash; Returns the path to the original (image) of the given path.
     - [LightUserDataHelper::extractResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Helper/LightUserDataHelper/extractResourceIdentifier.md) &ndash; Returns the components of the resourceIdentifier.
     - [LightUserDataHelper::implodeResourceIdentifier](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Helper/LightUserDataHelper/implodeResourceIdentifier.md) &ndash; Returns the resource identifier based on the given userId and canonical name of the resource.
+- [LightUserDataPlanetInstaller](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller.md) &ndash; The LightUserDataPlanetInstaller class.
+    - [LightUserDataPlanetInstaller::onMapCopyAfter](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PlanetInstaller/LightUserDataPlanetInstaller/onMapCopyAfter.md) &ndash; This hook is executed during an [install](https://github.com/lingtalfi/TheBar/blob/master/discussions/import-install.md#summary).
+    - LightBasePlanetInstaller::__construct &ndash; Builds the LightBasePlanetInstaller instance.
+    - LightBasePlanetInstaller::setContainer &ndash; Sets the light service container interface.
 - [LightUserDataPluginInstaller](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller.md) &ndash; The LightUserDataPluginInstaller class.
     - [LightUserDataPluginInstaller::install](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/install.md) &ndash; Installs the plugin in the light application.
     - [LightUserDataPluginInstaller::uninstall](https://github.com/lingtalfi/Light_UserData/blob/master/doc/api/Ling/Light_UserData/Light_PluginInstaller/LightUserDataPluginInstaller/uninstall.md) &ndash; Uninstalls the plugin.
@@ -535,10 +539,13 @@ Dependencies
 - [BabyYaml](https://github.com/lingtalfi/BabyYaml)
 - [Bat](https://github.com/lingtalfi/Bat)
 - [Chloroform](https://github.com/lingtalfi/Chloroform)
+- [CliTools](https://github.com/lingtalfi/CliTools)
 - [ExceptionCodes](https://github.com/lingtalfi/ExceptionCodes)
 - [Light](https://github.com/lingtalfi/Light)
 - [Light_AjaxHandler](https://github.com/lingtalfi/Light_AjaxHandler)
 - [Light_Database](https://github.com/lingtalfi/Light_Database)
+- [Light_Events](https://github.com/lingtalfi/Light_Events)
+- [Light_PlanetInstaller](https://github.com/lingtalfi/Light_PlanetInstaller)
 - [Light_Realform](https://github.com/lingtalfi/Light_Realform)
 - [Light_ReverseRouter](https://github.com/lingtalfi/Light_ReverseRouter)
 - [Light_SimpleHttpServer](https://github.com/lingtalfi/Light_SimpleHttpServer)
