@@ -133,6 +133,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.18 -- 2021-05-11
+
+    - Update deps (by CommitWizard).
+
 - 1.19.17 -- 2021-05-03
 
     - Update dependencies to Ling.Light_Events (pushed by SubscribersUtil)
