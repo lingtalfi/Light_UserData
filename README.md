@@ -133,6 +133,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.20 -- 2021-05-31
+
+    - Removing trailing plus in lpi-deps file (to work with Light_PlanetInstaller:2.0.0 api
+
 - 1.19.19 -- 2021-05-31
 
     - update api to work with Light_PlanetInstaller 2.0.0
