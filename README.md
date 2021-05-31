@@ -1,6 +1,6 @@
 Light_UserData
 ===========
-2019-09-27 -> 2021-03-22
+2019-09-27 -> 2021-05-31
 
 
 
@@ -133,6 +133,10 @@ $realform_handler_alias_helper.methods_collection:
 History Log
 =============
 
+- 1.19.19 -- 2021-05-31
+
+    - update api to work with Light_PlanetInstaller 2.0.0
+  
 - 1.19.18 -- 2021-05-11
 
     - Update deps (by CommitWizard).
